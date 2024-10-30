@@ -12,6 +12,7 @@ import { ImaterialsRequestComponent } from './components/company/imaterials-requ
 
 
 
+
 export const routes: Routes = [
     {path: "login", component: IloginComponent, pathMatch: "full"},
     {path: "seecompany", component: IseeCompanyRequestComponent, pathMatch: "full"},
@@ -19,4 +20,6 @@ export const routes: Routes = [
     {path: "xs", component: IstatisticsComponent, pathMatch:"full"},
     {path: "materials", component: ImaterialsRequestComponent, pathMatch: "full"},
     {path: "chose", component: IchoseRolComponent, pathMatch:"full"  },
+
+
 ];
