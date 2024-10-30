@@ -1,0 +1,18 @@
+<div class="login-wrapper">
+    <div class="text-container">
+        <p class="one-text">VIRIDIS</p>
+        <p class="second-text">Viridis es una empresa que se encarga de hacer interacción entre usuarios y empresas, para así generar ganancias, a través de la venta de material reciclado.</p>
+    </div>
+    
+    <div class="login-container">
+        <h2 class="h2-Sesión">INICIO DE SESIÓN</h2>
+        <form class="login-form" (ngSubmit)="onSubmit()">
+            <input type="text" placeholder="Correo electronico" [(ngModel)]="correo" name="correo" required />
+            <input type="password" placeholder="Contraseña" [(ngModel)]="password" name="password" required />
+            <button type="submit">INICIAR SESIÓN</button>
+
+            <p class="text">¿Tienes una cuenta?</p>
+        </form>    
+    </div>
+</div>
+
