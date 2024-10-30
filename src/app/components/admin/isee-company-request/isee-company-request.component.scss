@@ -1,0 +1,46 @@
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Centrar verticalmente */
+    flex-direction: column; /* Asegurar que el contenido se coloque en columna */
+    width: 300px;
+    margin: auto; /* Centrar horizontalmente */
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    margin-top: 30px;
+}
+.form-group {
+    margin-bottom: 15px;
+}
+.form-group label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+.form-group input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+.button-group {
+    display: flex;
+    justify-content: space-between;
+}
+.button-group button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.button-group .authorize {
+    background-color: #4CAF50;
+    color: white;
+}
+.button-group .deny {
+    background-color: #f44336;
+    color: white;
+}
