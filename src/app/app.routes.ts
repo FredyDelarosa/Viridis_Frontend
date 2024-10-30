@@ -1,3 +1,9 @@
 import { Routes } from '@angular/router';
 
-export const routes: Routes = [];
+import { ImaterialsRequestComponent } from './components/company/imaterials-request/imaterials-request.component';
+
+
+
+export const routes: Routes = [
+    {path: "materials", component: ImaterialsRequestComponent, pathMatch: "full"}
+];
