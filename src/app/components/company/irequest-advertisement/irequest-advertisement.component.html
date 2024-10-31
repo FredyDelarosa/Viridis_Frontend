@@ -1,0 +1,27 @@
+<app-header-company></app-header-company>
+
+<div class="centered-container">
+    <h2 class="h2-Sesión">Solicitar Anuncio</h2>
+
+    <div class="request-container">
+        <form class="request-form" (ngSubmit)="onSubmit()">
+            <input type="text" placeholder="Nombre de la empresa" [(ngModel)]="companyName" name="companyName" required />
+
+            <input type="number" placeholder="Duración (días)" [(ngModel)]="duration" name="duration" required />
+
+            <label for="startDate">Fecha de inicio</label>
+            <input type="date" id="startDate" [(ngModel)]="startDate" name="startDate" required />
+
+            <label for="endDate">Fecha de finalización</label>
+            <input type="date" id="endDate" [(ngModel)]="endDate" name="endDate" required />
+
+            <label for="fileInput">Seleccionar Imagén</label>
+            <input type="file" id="fileInput" (change)="onFileSelected($event)" required />
+
+            <button type="submit">Solicitar anuncio</button>
+        </form>
+    </div>
+</div>
+
+
+

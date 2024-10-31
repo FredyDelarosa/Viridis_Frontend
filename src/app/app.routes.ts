@@ -9,7 +9,7 @@ import { IseeCompanyRequestComponent } from './components/admin/isee-company-req
 import { IregisterCompanyComponent } from './components/company/iregister-company/iregister-company.component';
 import { IstatisticsComponent } from './components/company/istatistics/istatistics.component';
 import { ImaterialsRequestComponent } from './components/company/imaterials-request/imaterials-request.component';
-
+import { IrequestAdvertisementComponent } from './components/company/irequest-advertisement/irequest-advertisement.component';
 
 
 
@@ -20,6 +20,9 @@ export const routes: Routes = [
     {path: "xs", component: IstatisticsComponent, pathMatch:"full"},
     {path: "materials", component: ImaterialsRequestComponent, pathMatch: "full"},
     {path: "chose", component: IchoseRolComponent, pathMatch:"full"  },
+
+
+    {path: "publicity", component: IrequestAdvertisementComponent, pathMatch:"full"  },
 
 
 ];
