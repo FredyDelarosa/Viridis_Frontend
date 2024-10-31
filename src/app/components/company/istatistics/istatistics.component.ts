@@ -29,7 +29,14 @@ export class IstatisticsComponent {
         {
           label: 'Gastos',
           data: [20, 30, 50, 20, 40, 60, 80, 90, 100, 110, 120, 130],
-          backgroundColor: '#FFA726', // Otro color para las barras
+          backgroundColor: '#000000', // Otro color para las barras
+          borderColor: '#FB8C00',
+          borderWidth: 1,
+        },
+        {
+          label: 'Utilidad',
+          data: [20, 30, 50, 20, 40, 60, 80, 90, 100, 110, 120, 130],
+          backgroundColor: '#FF3244', // Otro color para las barras
           borderColor: '#FB8C00',
           borderWidth: 1,
         }
