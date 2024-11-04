@@ -1,0 +1,133 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+
+header {
+    position: fixed; /* Fija el header en la parte superior */
+    top: 0; /* Coloca el header en la parte superior */
+    width: 100%; /* Ocupa el 100% del ancho de la pantalla */
+    background-color: white; /* Color de fondo */
+    z-index: 1000; /* Asegúrate de que el header esté por encima de otros elementos */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Agrega una sombra para darle un efecto de profundidad */
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+}
+
+.back {
+    padding: 36px 0;
+    background-color: rgb(240, 240, 240);
+}
+
+
+
+.logo {
+    margin-top: 5px;
+    width: 50px;
+    height: 100%;
+}
+
+.navbar ul {
+    display: flex; /* Usa flexbox para el menú */
+    align-items: center; /* Alinea verticalmente los elementos */
+}
+
+.navbar ul li {
+    margin: 0 10px; /* Espaciado entre los elementos de la lista */
+}
+
+.navbar ul li a {
+    font-size: 18px;
+    padding: 10px 15px; /* Cambia el padding para que sea consistente */
+    color: rgb(0, 0, 0);
+    display: block;
+}
+
+.button {
+    background-color: #04db65; 
+    border: none; 
+    border-radius: 5px; 
+    color: rgb(0, 0, 0); 
+    padding: 15px 15px; 
+    font-size: 18px; /* Tamaño de fuente */
+    cursor: pointer; /* Cambia el cursor al pasar el ratón */
+    margin-left: 15px; /* Espacio a la izquierda para separación */
+    margin-bottom: 10px;
+}
+
+.button:hover {
+    background-color: #0056b3; /* Color de fondo al pasar el ratón */
+}
+
+.button:active {
+    background-color: #004085; /* Color de fondo al hacer clic */
+}
+
+#menu {
+    display: none;
+}
+
+.menu-icon {
+    width: 500px;
+}
+
+.menu label {
+    cursor: pointer;
+    display: none;
+}
+
+@media (max-width: 991px) {
+    .menu {
+        padding: 25px;
+    }
+
+    .menu label {
+        display: initial;
+    }
+
+    .back {
+        padding: 60px 0;
+    }
+
+    .menu .navbar {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: rgb(240, 240, 240);
+        display: none; /* Ocultar el menú por defecto */
+    }
+
+    .menu .navbar ul {
+        flex-direction: column; /* Cambia a columna en pantallas pequeñas */
+        align-items: flex-start; /* Alinea a la izquierda */
+    }
+
+    .menu .navbar ul li {
+        width: 100%; /* Ocupar todo el ancho */
+        margin: 0; /* Sin margen entre los elementos de la lista */
+    }
+
+    #menu:checked ~ .navbar {
+        display: flex; /* Muestra el menú cuando el checkbox está marcado */
+    }
+
+    .button {
+        width: 100%; /* Ocupar todo el ancho del contenedor */
+        margin-top: 10px; /* Espacio encima del botón */
+    }
+}
