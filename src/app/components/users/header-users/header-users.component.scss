@@ -69,10 +69,6 @@ header {
     margin-bottom: 10px;
 }
 
-.button:hover {
-    background-color: #0056b3; /* Color de fondo al pasar el ratón */
-}
-
 .button:active {
     background-color: #004085; /* Color de fondo al hacer clic */
 }
@@ -100,7 +96,7 @@ header {
     }
 
     .back {
-        padding: 60px 0;
+        padding: 70px 0;
     }
 
     .menu .navbar {
