@@ -1,26 +1,22 @@
-<div class="form-container">
-    <h1>Registrar Empresa</h1>
-    <form>
-        <input type="text" id="nombre" name="nombre" placeholder="Nombre de la Empresa" required>
-
-        <input type="text" id="dueno" name="dueno" placeholder="Dueño de la Empresa" required>
-
-        <input type="text" id="direccion" name="direccion" placeholder="Dirección" required>
-
-        <input type="email" id="correo" name="correo" placeholder="Correo Electrónico" required>
-
-        <input type="text" id="telefono" name="telefono" placeholder="Teléfono" required>
-
-        <input type="text" id="estado" name="estado" placeholder="Estado" required>
-
-        <input type="text" id="ciudad" name="ciudad" placeholder="Ciudad/Municipio" required>
-
-        <input type="password" id="contrasena" name="contrasena" placeholder="Contraseña" required>
-
-        <input type="password" id="confirmarContrasena" name="confirmarContrasena" placeholder="Confirmar Contraseña" required>
-
-        <input type="file" id="fotos" name="fotos" accept="image/*">
-
-        <button type="submit">Registrarse</button>
-    </form>
+<app-header-users/>
+<div class="container">
+    <div class="form-wrapper">
+        <div class="form-container">
+            <h2>Registrar Empresa</h2>
+            <form class="form">
+            <input type="text" id="nombre" name="nombre" placeholder="Nombre de la Empresa" required>
+            <input type="text" id="dueno" name="dueno" placeholder="Dueño de la Empresa" required>
+            <input type="text" id="direccion" name="direccion" placeholder="Dirección" required>
+            <input type="email" id="correo" name="correo" placeholder="Correo Electrónico" required>
+            <input type="number" id="telefono" name="telefono" placeholder="Teléfono" required>
+            <input type="text" id="estado" name="estado" placeholder="Estado" required>
+            <input type="text" id="ciudad" name="ciudad" placeholder="Ciudad/Municipio" required>
+            <input type="password" id="contrasena" name="contrasena" placeholder="Contraseña" required>
+            <input type="password" id="confirmarContrasena" name="confirmarContrasena" placeholder="Confirmar Contraseña" required>
+            <input type="file" id="fotos" name="fotos" accept="image/*">
+            <button type="submit">Registrarse</button>
+            </form>
+        </div>
+    </div>
 </div>
+<app-footer-users/>

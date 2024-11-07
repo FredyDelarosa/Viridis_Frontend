@@ -14,7 +14,7 @@ import { IrequestAdvertisementComponent } from './components/company/irequest-ad
 
 
 export const routes: Routes = [
-    {path: "login", component: IloginComponent, pathMatch: "full"},
+    {path: "login", component: IloginComponent, pathMatch: "full"}, //concluida
     {path: "seecompany", component: IseeCompanyRequestComponent, pathMatch: "full"},
     {path: "registercompany", component: IregisterCompanyComponent, pathMatch:"full"},
     {path: "xs", component: IstatisticsComponent, pathMatch:"full"},
