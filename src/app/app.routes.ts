@@ -19,7 +19,7 @@ export const routes: Routes = [
     {path: "registercompany", component: IregisterCompanyComponent, pathMatch:"full"},
     {path: "xs", component: IstatisticsComponent, pathMatch:"full"},
     {path: "materials", component: ImaterialsRequestComponent, pathMatch: "full"},
-    {path: "chose", component: IchoseRolComponent, pathMatch:"full"  },
+    {path: "chose", component: IchoseRolComponent, pathMatch:"full"  }, //concluida
 
 
     {path: "publicity", component: IrequestAdvertisementComponent, pathMatch:"full"  },
