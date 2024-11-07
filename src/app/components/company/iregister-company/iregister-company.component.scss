@@ -1,39 +1,77 @@
-.form-container {
-    max-width: 400px;
-    margin: auto;
-    background: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+.container{
+    display: flex;
+    justify-content: center;
+    margin-top: 120px;
 }
-h1 {
-    text-align: center;
+
+.form-wrapper {
+    display: flex; 
+    justify-content:space-around; 
+    align-items: center; 
+    padding: 90px;
+    background-color: #fff;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    width: 90%;
+    margin-top: 10px;
+    margin-bottom: 75px;
+    width: 600px;
+    height: 780px;
 }
-input[type="text"],
-input[type="email"],
-input[type="password"],
-input[type="file"] {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    box-sizing: border-box;
+
+.form {
+    display: flex;
+    flex-direction: column;
 }
-input[type="text"]::placeholder,
-input[type="email"]::placeholder,
-input[type="password"]::placeholder {
-    color: #aaa;
+
+.form input {
+    margin-bottom: 1rem; 
+    padding: 0.75rem; 
+    border-radius: 8px; 
+    border: 1px solid #ddd; 
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.05);
+    font-size: 16px;
 }
-button {
-    width: 100%;
-    padding: 10px;
-    background-color: #5cb85c;
-    color: white;
-    border: none;
-    border-radius: 4px;
+
+.form input:focus {
+    outline: none;
+    border-color: #108310;
+}
+
+.form button {
+    padding: 0.75rem; 
+    border: none; 
+    border-radius: 8px; 
+    background-color: #108310; 
+    color: white; 
+    font-size: 16px;
+    font-weight: bold;
     cursor: pointer;
+    transition: background-color 0.3s;
 }
-button:hover {
-    background-color: #4cae4c;
+
+.form button:hover {
+    background-color: #0a6d0a;
 }
+
+
+h2{
+    text-align: center;
+    color: #108310;
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.form input[type="file"] {
+    padding: 0.75rem;
+    border: none;
+    border-radius: 8px;
+    background-color: #b8b8b8;
+    color: rgb(0, 0, 0);
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+

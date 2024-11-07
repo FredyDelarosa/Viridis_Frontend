@@ -1,13 +1,12 @@
 import { Component } from '@angular/core';
-
-import { InputTextModule } from 'primeng/inputtext';
-import { FormsModule } from '@angular/forms';
-import { FloatLabelModule } from 'primeng/floatlabel';
+import { HeaderUsersComponent } from '../../users/header-users/header-users.component';
+import { FooterUsersComponent } from '../../users/footer-users/footer-users.component';
+import { HeaderCompanyComponent } from "../header-company/header-company.component";
 
 @Component({
   selector: 'app-iregister-company',
   standalone: true,
-  imports: [FormsModule, InputTextModule, FloatLabelModule],
+  imports: [HeaderUsersComponent, FooterUsersComponent, HeaderCompanyComponent],
   templateUrl: './iregister-company.component.html',
   styleUrl: './iregister-company.component.scss'
 })
