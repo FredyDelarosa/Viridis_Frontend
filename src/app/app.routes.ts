@@ -16,10 +16,10 @@ import { IrequestAdvertisementComponent } from './components/company/irequest-ad
 export const routes: Routes = [
     {path: "login", component: IloginComponent, pathMatch: "full"}, //concluida
     {path: "seecompany", component: IseeCompanyRequestComponent, pathMatch: "full"},
-    {path: "registercompany", component: IregisterCompanyComponent, pathMatch:"full"},
+    {path: "registercompany", component: IregisterCompanyComponent, pathMatch:"full"}, //Falta respoonsive y modiificar el imput de tipo file
     {path: "xs", component: IstatisticsComponent, pathMatch:"full"},
     {path: "materials", component: ImaterialsRequestComponent, pathMatch: "full"},
-    {path: "chose", component: IchoseRolComponent, pathMatch:"full"  }, //concluida
+    {path: "chose", component: IchoseRolComponent, pathMatch:"full"  }, //concluida a falta de responsive en las cards
 
 
     {path: "publicity", component: IrequestAdvertisementComponent, pathMatch:"full"  },
