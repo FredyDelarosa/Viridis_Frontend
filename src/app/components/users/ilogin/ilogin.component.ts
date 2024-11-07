@@ -1,12 +1,14 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms'; 
 
+import { FooterUsersComponent } from '../footer-users/footer-users.component';
+import { HeaderUsersComponent } from '../header-users/header-users.component';
+
 @Component({
   selector: 'app-ilogin',
   standalone: true,
   imports: [
-    FormsModule
-  ],
+    FormsModule, FooterUsersComponent, HeaderUsersComponent],
   templateUrl: './ilogin.component.html',
   styleUrl: './ilogin.component.scss'
 })
