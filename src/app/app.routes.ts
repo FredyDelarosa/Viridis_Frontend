@@ -11,6 +11,7 @@ import { IregisterCompanyComponent } from './components/company/iregister-compan
 import { IstatisticsComponent } from './components/company/istatistics/istatistics.component';
 import { ImaterialsRequestComponent } from './components/company/imaterials-request/imaterials-request.component';
 import { IrequestAdvertisementComponent } from './components/company/irequest-advertisement/irequest-advertisement.component';
+import { ImaterialsComponent } from './components/company/imaterials/imaterials.component';
 
 
 
@@ -19,11 +20,11 @@ export const routes: Routes = [
     {path: "seecompany", component: IseeCompanyRequestComponent, pathMatch: "full"},
     {path: "registercompany", component: IregisterCompanyComponent, pathMatch:"full"}, //Falta respoonsive y modiificar el imput de tipo file
     {path: "xs", component: IstatisticsComponent, pathMatch:"full"},
-    {path: "materials", component: ImaterialsRequestComponent, pathMatch: "full"}, //se completo el Dialog de Agregar Solicitudes de Material, falta el resto del CRUD
+    {path: "request", component: ImaterialsRequestComponent, pathMatch: "full"}, //se completo el Dialog de Agregar Solicitudes de Material, falta el resto del CRUD
     {path: "chose", component: IchoseRolComponent, pathMatch:"full"  }, //concluida a falta de responsive en las cards
     {path: "myteam", component: ImyteamComponent, pathMatch:"full"  },
-
     {path: "publicity", component: IrequestAdvertisementComponent, pathMatch:"full"  },
+    {path: "materials", component: ImaterialsComponent, pathMatch:"full"  },
 
 
 ];
