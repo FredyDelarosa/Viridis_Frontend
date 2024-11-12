@@ -1,0 +1,40 @@
+<h2>Solicitud de Materiales</h2>
+
+<div class="container">
+  <form class="product-form">
+    <!-- Nombre del Producto -->
+    <div class="form-field">
+      <label for="nombre-producto">Nombre del Producto</label>
+      <input id="nombre-producto" type="text" placeholder="Ej. Lápiz" required>
+    </div>
+
+    <!-- Precio -->
+    <div class="form-field ">
+      <label for="precio">Precio</label>
+      <input id="precio" type="number" placeholder="Ej. 100" required>
+    </div>
+
+    <!-- Cantidad Mínima -->
+    <div class="form-field">
+      <label for="cantidad-minima">Cantidad Mínima</label>
+      <input id="cantidad-minima" type="number" placeholder="Ej. 10" required>
+    </div>
+
+    <!-- Descripción -->
+    <div class="form-field">
+      <label for="descripcion">Descripción</label>
+      <textarea id="descripcion" placeholder="Descripción del producto" required></textarea>
+    </div>
+
+    <!-- Foto -->
+    <div class="form-field">
+      <label for="foto">Foto</label>
+      <input id="foto" type="file" required>
+    </div>
+  </form>
+</div>
+
+<div class="dialog-actions">
+  <button class="cancel-btn">No Thanks</button>
+  <button class="submit-btn" type="submit">Ok</button>
+</div>
