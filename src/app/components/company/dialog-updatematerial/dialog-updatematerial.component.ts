@@ -5,10 +5,11 @@ import { MatDialogActions, MatDialogClose, MatDialogContent, MatDialogTitle } fr
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 
+
 @Component({
-  selector: 'app-dialog-addmaterialrequest',
+  selector: 'app-dialog-updatematerial',
   standalone: true,
-  imports: [  MatFormFieldModule,
+  imports: [MatFormFieldModule,
     MatInputModule,
     FormsModule,
     MatButtonModule,
@@ -16,9 +17,9 @@ import { MatInputModule } from '@angular/material/input';
     MatDialogContent,
     MatDialogActions,
     MatDialogClose,],
-  templateUrl: './dialog-addmaterialrequest.component.html',
-  styleUrl: './dialog-addmaterialrequest.component.scss'
+  templateUrl: './dialog-updatematerial.component.html',
+  styleUrl: './dialog-updatematerial.component.scss'
 })
-export class DialogAddmaterialrequestComponent {
+export class DialogUpdatematerialComponent {
 
 }
