@@ -4,6 +4,7 @@ import { Routes } from '@angular/router';
 import { IloginComponent } from './components/users/ilogin/ilogin.component';
 import { IchoseRolComponent } from './components/users/ichose-rol/ichose-rol.component';
 import { IcommunityComponent } from './components/users/icommunity/icommunity.component';
+import { IpublicationsComponent } from './components/users/ipublications/ipublications.component';
 //Recycler
 import { IregisterRecyclerComponent } from './components/recycler/iregister-recycler/iregister-recycler.component';
 //Admin
@@ -31,6 +32,7 @@ export const routes: Routes = [
     {path: "publicity", component: IrequestAdvertisementComponent, pathMatch:"full"  },
     {path: "materials", component: ImaterialsComponent, pathMatch:"full"  },
     {path: "registerrecycler", component: IregisterRecyclerComponent, pathMatch:"full"  },
+    {path: "publications", component: IpublicationsComponent, pathMatch:"full"  },
 
 
 ];
