@@ -1,27 +1,27 @@
-<app-header-company></app-header-company>
+<app-header-admin></app-header-admin>
+<div class="container">
+    <div class="form-wrapper">
+        <div class="form-container">
+            <h2>Crear Anuncio</h2>
+            <form class="form">
+                <input type="text" id="duracion" name="duracion" placeholder="Duración" required>
+                
+                <p class="date-label">Fecha de Inicio</p>
+                <input type="date" id="inicio" name="inicio" required>
+                
+                <p class="date-label">Fecha de Finalización</p>
+                <input type="date" id="final" name="final" required>
 
-<div class="centered-container">
-    <h2 class="h2-Sesión">Solicitar Anuncio</h2>
-
-    <div class="request-container">
-        <form class="request-form" (ngSubmit)="onSubmit()">
-            <input type="text" placeholder="Nombre de la empresa" [(ngModel)]="companyName" name="companyName" required />
-
-            <input type="number" placeholder="Duración (días)" [(ngModel)]="duration" name="duration" required />
-
-            <label for="startDate">Fecha de inicio</label>
-            <input type="date" id="startDate" [(ngModel)]="startDate" name="startDate" required />
-
-            <label for="endDate">Fecha de finalización</label>
-            <input type="date" id="endDate" [(ngModel)]="endDate" name="endDate" required />
-
-            <label for="fileInput">Seleccionar Imagén</label>
-            <input type="file" id="fileInput" (change)="onFileSelected($event)" required />
-
-            <button type="submit">Solicitar anuncio</button>
-        </form>
+                <input type="file" id="fotos" name="fotos" accept="image/*">
+                <button type="submit">Crear anuncio</button>
+            </form>
+        </div>
     </div>
 </div>
+
+
+
+
 
 
 
