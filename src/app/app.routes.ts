@@ -4,6 +4,8 @@ import { Routes } from '@angular/router';
 import { IloginComponent } from './components/users/ilogin/ilogin.component';
 import { IchoseRolComponent } from './components/users/ichose-rol/ichose-rol.component';
 import { IcommunityComponent } from './components/users/icommunity/icommunity.component';
+//Recycler
+import { IregisterRecyclerComponent } from './components/recycler/iregister-recycler/iregister-recycler.component';
 //Admin
 import { IseeCompanyRequestComponent } from './components/admin/isee-company-request/isee-company-request.component';
 import { ImyteamComponent } from './components/admin/imyteam/imyteam.component';
@@ -28,6 +30,7 @@ export const routes: Routes = [
     {path: "myteam", component: ImyteamComponent, pathMatch:"full"  },
     {path: "publicity", component: IrequestAdvertisementComponent, pathMatch:"full"  },
     {path: "materials", component: ImaterialsComponent, pathMatch:"full"  },
+    {path: "registerrecycler", component: IregisterRecyclerComponent, pathMatch:"full"  },
 
 
 ];
