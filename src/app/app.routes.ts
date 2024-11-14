@@ -3,6 +3,7 @@ import { Routes } from '@angular/router';
 //Users
 import { IloginComponent } from './components/users/ilogin/ilogin.component';
 import { IchoseRolComponent } from './components/users/ichose-rol/ichose-rol.component';
+import { IcommunityComponent } from './components/users/icommunity/icommunity.component';
 //Admin
 import { IseeCompanyRequestComponent } from './components/admin/isee-company-request/isee-company-request.component';
 import { ImyteamComponent } from './components/admin/imyteam/imyteam.component';
@@ -15,8 +16,10 @@ import { ImaterialsComponent } from './components/company/imaterials/imaterials.
 
 
 
+
 export const routes: Routes = [
     {path: "login", component: IloginComponent, pathMatch: "full"}, //concluida
+    {path: "community", component: IcommunityComponent, pathMatch:"full"  },
     {path: "seecompany", component: IseeCompanyRequestComponent, pathMatch: "full"},
     {path: "registercompany", component: IregisterCompanyComponent, pathMatch:"full"}, //Falta respoonsive y modiificar el imput de tipo file
     {path: "xs", component: IstatisticsComponent, pathMatch:"full"},
