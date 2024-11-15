@@ -13,6 +13,4 @@ export class DialogAddmaterialrequestComponent {
     closeDialog(): void {
       this.dialogRef.close();
     }
-  
-
 }

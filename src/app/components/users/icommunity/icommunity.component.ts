@@ -4,12 +4,11 @@ import { CommonModule } from '@angular/common';
 import { HeaderCompanyComponent } from '../../company/header-company/header-company.component';
 import { HeaderRecyclerComponent } from '../../recycler/header-recycler/header-recycler.component';
 import { FooterUsersComponent } from '../footer-users/footer-users.component';
-import { HeaderAdminComponent } from "../../admin/header-admin/header-admin.component";
 
 @Component({
   selector: 'app-icommunity',
   standalone: true,
-  imports: [HeaderRecyclerComponent, HeaderCompanyComponent, FooterUsersComponent, CommonModule,],
+  imports: [HeaderRecyclerComponent, HeaderCompanyComponent, FooterUsersComponent, CommonModule],
   templateUrl: './icommunity.component.html',
   styleUrl: './icommunity.component.scss'
 })
