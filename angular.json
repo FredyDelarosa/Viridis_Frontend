@@ -95,15 +95,11 @@
               }
             ],
             "styles": [
-<<<<<<< HEAD
-              "@angular/material/prebuilt-themes/azure-blue.css",
-              "src/styles.scss"
-=======
               "src/styles.scss",
               "node_modules/primeicons/primeicons.css",
   "node_modules/primeng/resources/themes/saga-blue/theme.css", 
   "node_modules/primeng/resources/primeng.min.css"
->>>>>>> 800b160214feb64e789f3cece8cf54e2f6fe90e1
+
             ],
             "scripts": []
           }

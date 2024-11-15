@@ -1,0 +1,35 @@
+<app-header-company *ngIf="isCompany"></app-header-company>
+<app-header-recycler *ngIf="!isCompany"></app-header-recycler>
+
+
+<div class="card-container">
+    <div class="card">
+        <div class="card-header">
+            <img class="profile-pic" src="images/logo2.png" alt="Profile Picture">
+            <div class="user-info">
+                <h2>Viridis</h2>
+                <p class="date">13 de Noviembre, 2024</p>
+            </div>
+        </div>
+        <div class="info">
+            <h3 class="description">Estamos orgullosos de realizar la primera publicación jasjs jasjs jqasjasjas jasjas jasj.</h3>
+        </div>
+        <img class="imgprincipal" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWTdNwzcNVwqK17r9u1xH0VoPTEP_SzWgIXA&s" alt="">
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            <img class="profile-pic" src="https://via.placeholder.com/50" alt="Profile Picture">
+            <div class="user-info">
+                <h2>Viridis</h2>
+                <p class="date">13 de Noviembre, 2024</p>
+            </div>
+        </div>
+        <div class="info">
+            <h3 class="description">Estamos orgullosos de realizar la primera publicación jasjs jasjs jqasjasjas jasjas jasj.</h3>
+        </div>
+        <img class="imgprincipal" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWTdNwzcNVwqK17r9u1xH0VoPTEP_SzWgIXA&s" alt="">
+    </div>
+</div>
+
+<app-footer-users/>
