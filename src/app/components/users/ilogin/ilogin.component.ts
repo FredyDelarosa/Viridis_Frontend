@@ -22,6 +22,8 @@ export class IloginComponent {
     console.log('Contraseña:', this.password);
     // Aquí puedes llamar a un servicio para autenticar al usuario
   }
+
+  
 }
 
 
