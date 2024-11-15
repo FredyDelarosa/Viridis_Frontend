@@ -1,9 +1,6 @@
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { MatButtonModule } from '@angular/material/button';
-import { MatDialogActions, MatDialogClose, MatDialogContent, MatDialogTitle } from '@angular/material/dialog';
+import { MatDialogRef } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
 
 
 @Component({
@@ -14,5 +11,8 @@ import { MatInputModule } from '@angular/material/input';
   styleUrl: './dialog-updatematerialrequest.component.scss'
 })
 export class DialogUpdatematerialrequestComponent {
-
+  constructor(public dialogRef: MatDialogRef<DialogUpdatematerialrequestComponent>) {}
+  closeDialog(): void {
+    this.dialogRef.close();
+  }
 }

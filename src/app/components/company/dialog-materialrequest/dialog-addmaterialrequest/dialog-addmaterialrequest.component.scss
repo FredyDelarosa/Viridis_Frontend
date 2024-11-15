@@ -1,0 +1,137 @@
+.solicitud-titulo {
+  text-align: center;
+  font-size: 26px;
+  font-weight: bold;
+  color: #108310;
+  margin-bottom: 2rem;
+}
+
+.dialog-container {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.input-container {
+  margin-bottom: 1.2rem;
+}
+
+.input-field {
+  padding: 0.8rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  width: 100%;
+  font-size: 16px;
+  margin-bottom: 1.2rem;
+
+  &::placeholder {
+    color: #888;
+  }
+
+  &:hover,
+  &:focus {
+    border-color: #108310;
+    box-shadow: 0 0 6px rgba(16, 131, 16, 0.4);
+    outline: none;
+  }
+}
+
+textarea.input-field {
+  height: 150px; /* Aumenta la altura para hacerlo más amplio */
+  resize: vertical; /* Permite cambiar el tamaño verticalmente */
+}
+
+.file-input {
+  padding: 6px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  background-color: #fff;
+  color: rgb(0, 0, 0);
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  width: 100%;
+  margin-bottom: 1.2rem;
+}
+
+.file-input:focus,
+.file-input:active {
+  background-color: #e0f7e0;
+  border-color: #108310;
+  outline: none;
+}
+
+.close-button {
+  padding: 0.8rem;
+  background-color: #818181;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  width: 48%;
+}
+
+.close-button:hover {
+  background-color: #494949;
+}
+
+.add-button {
+  padding: 0.8rem;
+  background-color: #108310;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  width: 48%;
+}
+
+.add-button:hover {
+  background-color: #0a6f0a;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.button-container .close-button:last-child {
+  margin-left: auto;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .input-container {
+    width: 100%;
+  }
+
+  .close-button {
+    width: 48%; 
+  }
+
+  .file-input {
+    font-size: 11px;
+  }
+
+  .solicitud-titulo {
+    font-size: 24px;
+  }
+
+  .button-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap; 
+    gap: 8px; 
+  }
+}

@@ -1,4 +1,12 @@
 .chart-container {
-    margin-top: 100px;
+  margin: 100px 150px 80px 150px;
+  //arriba, derecha, abajo, izquierda
+  }
+  
+  @media (max-width: 600px) {
+    .chart-container {
+      padding: 10px;
+      margin: 0 10px; /* Reduce los márgenes en pantallas más pequeñas */
+    }
   }
   

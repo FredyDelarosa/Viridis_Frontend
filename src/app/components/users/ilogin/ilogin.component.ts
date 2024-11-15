@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 import { FormsModule } from '@angular/forms'; 
-
 import { FooterUsersComponent } from '../footer-users/footer-users.component';
 import { HeaderUsersComponent } from '../header-users/header-users.component';
 
@@ -8,7 +8,7 @@ import { HeaderUsersComponent } from '../header-users/header-users.component';
   selector: 'app-ilogin',
   standalone: true,
   imports: [
-    FormsModule, FooterUsersComponent, HeaderUsersComponent],
+    FormsModule, FooterUsersComponent, HeaderUsersComponent, RouterLink, RouterLinkActive],
   templateUrl: './ilogin.component.html',
   styleUrl: './ilogin.component.scss'
 })

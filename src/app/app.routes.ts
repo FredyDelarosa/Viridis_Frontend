@@ -28,7 +28,7 @@ export const routes: Routes = [
     {path: "registercompany", component: IregisterCompanyComponent, pathMatch:"full"}, //Falta respoonsive y modiificar el imput de tipo file
     {path: "xs", component: IstatisticsComponent, pathMatch:"full"},
     {path: "request", component: ImaterialsRequestComponent, pathMatch: "full"}, //se completo el Dialog de Agregar Solicitudes de Material, falta el resto del CRUD
-    {path: "chose", component: IchoseRolComponent, pathMatch:"full"  }, //concluida a falta de responsive en las cards
+    {path: 'chose', component: IchoseRolComponent, pathMatch:"full"  }, //concluida a falta de responsive en las cards
     {path: "myteam", component: ImyteamComponent, pathMatch:"full"  },
     {path: "publicity", component: IrequestAdvertisementComponent, pathMatch:"full"  },
     {path: "materials", component: ImaterialsComponent, pathMatch:"full"  },

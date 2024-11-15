@@ -2,12 +2,11 @@ import { Component, inject } from '@angular/core';
 
 import { HeaderCompanyComponent } from '../header-company/header-company.component';
 import { FooterUsersComponent } from '../../users/footer-users/footer-users.component';
-import { DialogAddmaterialrequestComponent } from '../materialrequest/dialog-addmaterialrequest/dialog-addmaterialrequest.component';
 
-import {MatButtonModule} from '@angular/material/button';
+import { DialogAddmaterialrequestComponent } from '../dialog-materialrequest/dialog-addmaterialrequest/dialog-addmaterialrequest.component';
+import { DialogUpdatematerialrequestComponent } from '../dialog-materialrequest/dialog-updatematerialrequest/dialog-updatematerialrequest.component';
+import { DialogDeletematerialrequestComponent } from '../dialog-materialrequest/dialog-deletematerialrequest/dialog-deletematerialrequest.component';
 import { MatDialog, } from '@angular/material/dialog';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatInputModule} from '@angular/material/input';
 
 @Component({
   selector: 'app-imaterials-request',
@@ -20,13 +19,24 @@ export class ImaterialsRequestComponent {
 
   readonly dialog = inject(MatDialog);
 
-  openDialog(): void {
+  addMaterialRequest(): void {
     const dialogRef = this.dialog.open(DialogAddmaterialrequestComponent, {
       data: {},
     });
-
-
   }
+
+ updateMaterialRequest(): void {
+    const dialogRef = this.dialog.open(DialogUpdatematerialrequestComponent, {
+      data: {},
+    });
+  }
+
+  deleteMaterialRequest(): void{
+    const dialogRef = this.dialog.open(DialogDeletematerialrequestComponent, {
+      data: {},
+    });
+  }
+
 }
 
 

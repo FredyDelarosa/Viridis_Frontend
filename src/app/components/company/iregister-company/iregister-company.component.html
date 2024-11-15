@@ -13,8 +13,8 @@
             <input type="text" id="ciudad" name="ciudad" placeholder="Ciudad/Municipio" required>
             <input type="password" id="contrasena" name="contrasena" placeholder="Contraseña" required>
             <input type="password" id="confirmarContrasena" name="confirmarContrasena" placeholder="Confirmar Contraseña" required>
-            <input type="file" id="fotos" name="fotos" accept="image/*">
-            <button type="submit">Registrarse</button>
+            <input type="file" id="fotos" name="fotos" accept="image/*" required>
+            <button type="submit" (click)="routeSuccessfulRegistration()">Registrarse</button>
             </form>
         </div>
     </div>
