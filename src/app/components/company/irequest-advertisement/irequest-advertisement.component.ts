@@ -1,13 +1,11 @@
 import { Component } from '@angular/core';
-import { HeaderCompanyComponent } from '../header-company/header-company.component';
-import { FormsModule } from '@angular/forms';
+import { HeaderAdminComponent } from '../../admin/header-admin/header-admin.component';
 
 @Component({
   selector: 'app-irequest-advertisement',
   standalone: true,
   imports: [
-    HeaderCompanyComponent,
-    FormsModule
+    HeaderAdminComponent
   ],
   templateUrl: './irequest-advertisement.component.html',
   styleUrl: './irequest-advertisement.component.scss'
