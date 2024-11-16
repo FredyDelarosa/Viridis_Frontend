@@ -1,7 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 
 import {MatTableModule} from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
+import { MatDialog, } from '@angular/material/dialog';
+
+
+import { DialogUpdatematerialComponent } from '../dialogs-materials/dialog-updatematerial/dialog-updatematerial.component';
+import { DialogDeletematerialComponent } from '../dialogs-materials/dialog-deletematerial/dialog-deletematerial.component';
+
 
 export interface Admins {
   nombre: string;
@@ -21,7 +27,21 @@ const ELEMENT_DATA: Admins[] = [
   templateUrl: './materialstable.component.html',
   styleUrl: './materialstable.component.scss'
 })
+
 export class MaterialstableComponent {
   displayedColumns: string[] = [ 'nombre', 'cantidad','acciones'];
   dataSource = ELEMENT_DATA;
+
+  readonly dialog = inject(MatDialog);
+  updateMaterial(): void {
+    const dialogRef = this.dialog.open(DialogUpdatematerialComponent, {
+      data: {},
+    });
+  }
+
+  deleteMaterial(): void {
+    const dialogRef = this.dialog.open(DialogDeletematerialComponent, {
+      data: {},
+    });
+}
 }

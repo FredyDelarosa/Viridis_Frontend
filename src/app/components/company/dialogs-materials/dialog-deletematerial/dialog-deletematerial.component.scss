@@ -1,0 +1,66 @@
+.solicitud-titulo {
+    text-align: center;
+    font-size: 24px;
+    color: #000000; /* Mantenemos el color verde original */
+    margin-bottom: 2rem;
+}
+
+.dialog-container {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    padding: 2rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.close-button {
+    padding: 0.8rem;
+    background-color: #818181;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    width: 48%;
+}
+
+.close-button:hover {
+    background-color: #494949;
+}
+
+.add-button {
+    padding: 0.8rem;
+    background-color: #108310; /* Mantenemos el verde del estilo original */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    width: 48%;
+}
+
+.add-button:hover {
+    background-color: #0a6f0a; /* Verde más oscuro para hover */
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .button-container {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap; 
+        gap: 8px; 
+    }
+}
