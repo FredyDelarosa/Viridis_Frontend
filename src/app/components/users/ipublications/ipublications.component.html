@@ -3,8 +3,8 @@
 <div class="card-container">
     <div class="card">
         <div class="icons">
-            <img class="options" src="images/lapiz.png" alt="">
-            <img class="options" src="images/eliminar.png" alt="">
+            <img  (click)="updatePublication()" class="options" src="images/lapiz.png" alt="">
+            <img (click)="deletePublication()" class="options" src="images/eliminar.png" alt="">
         </div>
         <div class="card-header">
             <img class="profile-pic" src="images/logo2.png" alt="Profile Picture">
@@ -38,5 +38,5 @@
     </div>
 </div>
 
-<button (click)="openDialog()" class="circular-button">+</button>
+<button (click)="addPublication()" class="circular-button">+</button>
 <app-footer-users/>

@@ -15,10 +15,10 @@ export interface Admins {
 }
 
 const ELEMENT_DATA: Admins[] = [
-  {cantidad: 1, nombre: 'Osvaldo Ochoa',},
-  {cantidad: 2, nombre: 'Fredy De la rosa', },
-  {cantidad: 3, nombre: 'Zacarias bb', },
-  {cantidad: 42, nombre: 'Zacarias bb', },
+  {cantidad: 14, nombre: 'Periodico',},
+  {cantidad: 22, nombre: 'Aluminio', },
+  {cantidad: 31, nombre: 'Carton', },
+  {cantidad: 32, nombre: 'Plastico', },
 ]
 @Component({
   selector: 'app-materialstable',

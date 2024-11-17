@@ -6,7 +6,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 @Component({
   selector: 'app-dialog-updatematerialrequest',
   standalone: true,
-  imports: [MatFormFieldModule,],
+  imports: [],
   templateUrl: './dialog-updatematerialrequest.component.html',
   styleUrl: './dialog-updatematerialrequest.component.scss'
 })
