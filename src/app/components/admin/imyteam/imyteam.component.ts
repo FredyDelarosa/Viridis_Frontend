@@ -1,8 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 
 import { HeaderAdminComponent } from '../header-admin/header-admin.component';
 import { AdminstableComponent } from '../adminstable/adminstable.component';
 import { FooterUsersComponent } from '../../users/footer-users/footer-users.component';
+import { DialogaddadminComponent } from '../dialogsadmin/dialogaddadmin/dialogaddadmin.component';
+
+
+
 
 
 
@@ -15,5 +20,14 @@ import { FooterUsersComponent } from '../../users/footer-users/footer-users.comp
   styleUrl: './imyteam.component.scss'
 })
 export class ImyteamComponent {
+  readonly dialog = inject(MatDialog);
+
+  addAdmin(): void {
+    const dialogRef = this.dialog.open(DialogaddadminComponent, {
+      data: {},
+    });
+  }
+
+
 
 }
