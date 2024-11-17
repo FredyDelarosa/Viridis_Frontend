@@ -1,0 +1,48 @@
+<div class="chat-container">
+    <!-- Menú lateral para contactos -->
+    <div class="contacts-menu">
+      <ul>
+        <li *ngFor="let contact of contacts" class="contact-item">
+          <div class="contact-info">
+            <div class="contact-name">
+              <span class="name">{{ contact.name }}</span>
+              <span class="last-message-time">{{ contact.lastMessageTime }}</span>
+            </div>
+            <div class="last-message">
+              <p class="message-text">{{ contact.lastMessage }}</p>
+              <div *ngIf="contact.unreadCount > 0" class="unread-count">
+                {{ contact.unreadCount }}
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  
+    <!-- Sección del chat -->
+    <div class="chat-section">
+      <div class="chat-messages">
+        <div
+          *ngFor="let msg of messages"
+          class="message"
+          [ngClass]="{ 'message-sent': msg.type === 'sent', 'message-received': msg.type === 'received' }"
+        >
+          <div class="message-content">
+            <p>{{ msg.text }}</p>
+            <span class="message-time">{{ msg.time }}</span>
+          </div>
+        </div>
+      </div>
+  
+      <div class="chat-input">
+        <input
+          type="text"
+          [(ngModel)]="newMessage"
+          placeholder="Escribe un mensaje..."
+        />
+        <button (click)="sendMessage()">Enviar</button>
+      </div>
+    </div>
+  </div>
+  
+  

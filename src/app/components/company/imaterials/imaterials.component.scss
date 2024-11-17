@@ -1,0 +1,35 @@
+.title{
+    display: flex;
+    justify-content: center;
+    margin-top: 120px;
+}
+
+
+.circular-button {
+    width: 70px; 
+    height: 70px; 
+    border-radius: 50%; 
+    background-color: #108310; 
+    color: white; 
+    border: none; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: fixed; 
+    bottom: 80px; 
+    right: 50px; 
+    font-size: 50px;
+}
+
+/* Media Query para pantallas más pequeñas */
+@media (max-width: 991px) {
+    .title {
+        margin-top: 180px; 
+        font-size: 32px; 
+    }
+    
+.circular-button{
+    bottom: 30px; 
+}
+}

@@ -1,0 +1,32 @@
+.container{
+    margin-left: 80px;
+    margin-right: 80px;
+    margin-top: 90px;
+    margin-bottom: 220px;
+}
+
+.table-button{
+    margin: 8px;
+    color: rgb(0, 0, 0);
+    background-color: rgb(219, 219, 219);
+    cursor: pointer;
+}
+
+.table-button:hover{
+  background-color: rgb(126, 126, 126);
+  color: white;
+}
+
+.custom-table th, .custom-table td {
+    padding: 12px; /* Ajusta el espacio interno (padding) */
+    text-align: center; /* Alineación del texto dentro de las celdas */
+    font-size: 16px;
+    background-color: rgb(255, 255, 255);
+  }
+  
+  .custom-table th {
+    font-weight: bold;
+    font-size: 18px;
+    background-color: rgb(235, 247, 224);
+  }
+  

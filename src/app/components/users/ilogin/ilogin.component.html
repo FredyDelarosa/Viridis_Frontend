@@ -1,18 +1,22 @@
+<app-header-users></app-header-users>
+
+<div class="container">
 <div class="login-wrapper">
-    <div class="text-container">
-        <p class="one-text">VIRIDIS</p>
-        <p class="second-text">Viridis es una empresa que se encarga de hacer interacción entre usuarios y empresas, para así generar ganancias, a través de la venta de material reciclado.</p>
+    <div class="logo-container">
+        <img src="images/logo.png" alt="Logo" height="400px" width="auto">
     </div>
     
     <div class="login-container">
-        <h2 class="h2-Sesión">INICIO DE SESIÓN</h2>
+        <h2 class="h2-Sesión">Inicio de Sesión</h2>
         <form class="login-form" (ngSubmit)="onSubmit()">
-            <input type="text" placeholder="Correo electronico" [(ngModel)]="correo" name="correo" required />
+            <input type="text" placeholder="Correo electrónico" [(ngModel)]="correo" name="correo" required />
             <input type="password" placeholder="Contraseña" [(ngModel)]="password" name="password" required />
-            <button type="submit">INICIAR SESIÓN</button>
+            <button type="submit">Iniciar Sesión</button>
 
-            <p class="text">¿Tienes una cuenta?</p>
+            <p class="text">¿No tienes una cuenta? <a routerLink="/chose" routerLinkActive="active" class="register-link">Regístrate aquí</a></p>
         </form>    
     </div>
 </div>
+</div>
 
+<app-footer-users></app-footer-users>
