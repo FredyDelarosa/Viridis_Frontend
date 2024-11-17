@@ -28,4 +28,29 @@
     font-size: 18px;
     background-color: rgb(235, 247, 224);
   }
-  
+
+/* Media Query para pantallas pequeñas */
+@media (max-width: 768px) {
+  .container {
+      margin-left: 20px; /* Reducir márgenes */
+      margin-right: 20px;
+      margin-top: 40px;
+      margin-bottom: 90px;
+  }
+
+  .table-button {
+      margin: 4px; /* Reducir margen */
+      font-size: 14px; /* Texto más pequeño */
+      padding: 6px; /* Botones más pequeños */
+  }
+
+  .custom-table th,
+  .custom-table td {
+      padding: 8px; /* Reducir padding */
+      font-size: 14px; /* Texto más pequeño */
+  }
+
+  .custom-table th {
+      font-size: 16px; /* Texto más pequeño para encabezados */
+  }
+}
