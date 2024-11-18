@@ -12,57 +12,48 @@ import { CommonModule } from '@angular/common';
 export class IchatComponent {
   message: string = '';
 
-  // Lista de contactos
+  // Ejemplo de contactos
   contacts = [
     {
-      name: 'Carlos',
-      online: true,
-      lastMessage: '¡Hola! ¿Cómo estás?',
-      unreadCount: 2,
-      lastMessageTime: '10:05 AM',
-    },
-    {
-      name: 'María',
-      online: false,
-      lastMessage: '¡Hola! Estoy bien, gracias. ¿Y tú?',
-      unreadCount: 0,
-      lastMessageTime: '9:45 AM',
-    },
-    {
-      name: 'Luis',
-      online: true,
-      lastMessage: 'Todo bien, gracias 😊',
-      unreadCount: 1,
-      lastMessageTime: '10:07 AM',
+      name: 'Juan',
+      lastMessage: 'Hola, ¿cómo estás?', // Último mensaje (puede ser enviado o recibido)
+      lastMessageTime: '10:30 AM', // Hora del último mensaje
+      unreadCount: 0, // Número de mensajes no leídos (sólo si el remitente es otro contacto)
     },
     {
       name: 'Ana',
-      online: true,
-      lastMessage: '¡Nos vemos pronto!',
-      unreadCount: 0,
-      lastMessageTime: '8:30 AM',
+      lastMessage: '¿Vamos a la reunión?',
+      lastMessageTime: '10:00 AM',
+      unreadCount: 2,
+    },
+    {
+      name: 'Dulce',
+      lastMessage: 'Quiero Dulces 😀',
+      lastMessageTime: 'Ayer',
+      unreadCount: 2,
     },
   ];
 
+  // Mensajes del chat actual
   messages = [
-    { text: '¡Hola! ¿Cómo estás?', type: 'received', time: '10:05 AM' },
-    { text: '¡Hola! Estoy bien, gracias. ¿Y tú?', type: 'sent', time: '10:06 AM' },
-    { text: 'Todo bien, gracias 😊', type: 'received', time: '10:07 AM' },
+    { type: 'received', text: 'Hola, ¿cómo estás?', time: '10:30 AM' },
+    { type: 'sent', text: '¡Bien! ¿Y tú?', time: '10:31 AM' },
+    { type: 'received', text: 'Me alegro mucho', time: '12:05 PM' },
+
   ];
 
-  newMessage = '';
+  // Mensaje nuevo
+  newMessage: string = '';
 
+  // Función para enviar mensaje
   sendMessage() {
-    if (this.newMessage.trim()) {
-      const currentTime = new Date().toLocaleTimeString([], {
-        hour: '2-digit',
-        minute: '2-digit',
+    if (this.newMessage.trim() !== '') {
+      this.messages.push({
+        type: 'sent', // Define que el mensaje es enviado
+        text: this.newMessage,
+        time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
       });
-      this.messages.push({ text: this.newMessage, type: 'sent', time: currentTime });
-      this.newMessage = '';
+      this.newMessage = ''; // Limpiar el campo de entrada después de enviar el mensaje
     }
   }
 }
-
-
-
