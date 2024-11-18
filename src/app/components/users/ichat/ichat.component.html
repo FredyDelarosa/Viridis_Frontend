@@ -1,48 +1,50 @@
-<div class="chat-container">
-    <!-- Menú lateral para contactos -->
+<div class="cards">
+  <div class="contacts-card">
     <div class="contacts-menu">
+      <h3>Contactos</h3>
       <ul>
         <li *ngFor="let contact of contacts" class="contact-item">
           <div class="contact-info">
-            <div class="contact-name">
-              <span class="name">{{ contact.name }}</span>
-              <span class="last-message-time">{{ contact.lastMessageTime }}</span>
-            </div>
+            <div class="contact-name">{{ contact.name }}</div>
             <div class="last-message">
-              <p class="message-text">{{ contact.lastMessage }}</p>
-              <div *ngIf="contact.unreadCount > 0" class="unread-count">
-                {{ contact.unreadCount }}
+              <div class="contact-text">
+                <span class="message-text">{{ contact.lastMessage }}</span>
               </div>
+              <span class="message-time">{{ contact.lastMessageTime }}</span>
             </div>
           </div>
         </li>
       </ul>
     </div>
-  
-    <!-- Sección del chat -->
+  </div>
+
+  <div class="chat-card">
     <div class="chat-section">
       <div class="chat-messages">
         <div
-          *ngFor="let msg of messages"
+          *ngFor="let message of messages"
           class="message"
-          [ngClass]="{ 'message-sent': msg.type === 'sent', 'message-received': msg.type === 'received' }"
+          [ngClass]="{
+            'message-received': message.type === 'received',
+            'message-sent': message.type === 'sent'
+          }"
         >
-          <div class="message-content">
-            <p>{{ msg.text }}</p>
-            <span class="message-time">{{ msg.time }}</span>
-          </div>
+          {{ message.text }}
+          <span class="message-time">{{ message.time }}</span>
         </div>
       </div>
-  
+
       <div class="chat-input">
         <input
           type="text"
           [(ngModel)]="newMessage"
-          placeholder="Escribe un mensaje..."
+          placeholder="Escribe un mensaje"
+          (keyup.enter)="sendMessage()"
         />
         <button (click)="sendMessage()">Enviar</button>
       </div>
     </div>
   </div>
-  
-  
+</div>
+
+
