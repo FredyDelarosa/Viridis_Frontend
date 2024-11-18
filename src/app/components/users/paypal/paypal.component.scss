@@ -1,0 +1,65 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 110vh; /* Centrado vertical */
+}
+
+.actions {
+    width: 80%;
+    max-width: 800px; /* Limita el tamaño máximo */
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+button {
+    width: 75%; /* Ocupa todo el ancho del contenedor */
+    padding: 15px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 20px 0;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.cardimg{
+    width: 80px;
+    height: 50px;
+    object-fit: contain;
+}
+
+.paypalimg{
+    width: 150px;
+    height: 50px;
+    object-fit: contain; /* Mantiene las proporciones de las imágenes */
+}
+
+.paypal-btn {
+    background-color: #ffc439;
+    color: #111;
+}
+
+.paypal-btn:hover {
+    background-color: #e6b933;
+    transform: scale(1.02);
+}
+
+.card-btn {
+    background-color: #000000;
+    color: white;
+}
+
+.card-btn:hover {
+    background-color: #262626;
+    transform: scale(1.02);
+}
