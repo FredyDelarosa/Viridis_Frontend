@@ -1,0 +1,50 @@
+<div class="cards">
+  <div class="contacts-card">
+    <div class="contacts-menu">
+      <h3>Contactos</h3>
+      <ul>
+        <li *ngFor="let contact of contacts" class="contact-item">
+          <div class="contact-info">
+            <div class="contact-name">{{ contact.name }}</div>
+            <div class="last-message">
+              <div class="contact-text">
+                <span class="message-text">{{ contact.lastMessage }}</span>
+              </div>
+              <span class="message-time">{{ contact.lastMessageTime }}</span>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="chat-card">
+    <div class="chat-section">
+      <div class="chat-messages">
+        <div
+          *ngFor="let message of messages"
+          class="message"
+          [ngClass]="{
+            'message-received': message.type === 'received',
+            'message-sent': message.type === 'sent'
+          }"
+        >
+          {{ message.text }}
+          <span class="message-time">{{ message.time }}</span>
+        </div>
+      </div>
+
+      <div class="chat-input">
+        <input
+          type="text"
+          [(ngModel)]="newMessage"
+          placeholder="Escribe un mensaje"
+          (keyup.enter)="sendMessage()"
+        />
+        <button (click)="sendMessage()">Enviar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+

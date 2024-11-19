@@ -21,3 +21,15 @@
     right: 50px; 
     font-size: 50px;
 }
+
+/* Media Query para pantallas más pequeñas */
+@media (max-width: 991px) {
+    .title {
+        margin-top: 180px; 
+        font-size: 32px; 
+    }
+    
+.circular-button{
+    bottom: 30px; 
+}
+}

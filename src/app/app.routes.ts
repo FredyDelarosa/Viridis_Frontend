@@ -5,9 +5,12 @@ import { IloginComponent } from './components/users/ilogin/ilogin.component';
 import { IchoseRolComponent } from './components/users/ichose-rol/ichose-rol.component';
 import { IcommunityComponent } from './components/users/icommunity/icommunity.component';
 import { IpublicationsComponent } from './components/users/ipublications/ipublications.component';
+import { IchatComponent } from './components/users/ichat/ichat.component';
+import { IpaypalComponent } from './components/users/ipaypal/ipaypal.component';
 //Recycler
 import { IregisterRecyclerComponent } from './components/recycler/iregister-recycler/iregister-recycler.component';
 import { ImaterialsrecyclerComponent } from './components/recycler/imaterialsrecycler/imaterialsrecycler.component';
+import { IseerequestComponent } from './components/recycler/iseerequest/iseerequest.component';
 //Admin
 import { IseeCompanyRequestComponent } from './components/admin/isee-company-request/isee-company-request.component';
 import { ImyteamComponent } from './components/admin/imyteam/imyteam.component';
@@ -35,6 +38,9 @@ export const routes: Routes = [
     {path: "registerrecycler", component: IregisterRecyclerComponent, pathMatch:"full"  },
     {path: "publications", component: IpublicationsComponent, pathMatch:"full"  },
     {path: "materialsrecycler", component: ImaterialsrecyclerComponent, pathMatch:"full"  },
+    {path: "chat", component: IchatComponent, pathMatch:"full"  },
+    {path: "paypal", component: IpaypalComponent, pathMatch:"full"  },
+    {path: "seerequest", component: IseerequestComponent, pathMatch:"full"  },
 
 
 ];
