@@ -25,22 +25,59 @@ import { ImaterialsComponent } from './components/company/imaterials/imaterials.
 
 
 export const routes: Routes = [
-    {path: "login", component: IloginComponent, pathMatch: "full"}, //concluida
-    {path: "community", component: IcommunityComponent, pathMatch:"full"  },
-    {path: "seecompany", component: IseeCompanyRequestComponent, pathMatch: "full"},
-    {path: "registercompany", component: IregisterCompanyComponent, pathMatch:"full"}, //Falta respoonsive y modiificar el imput de tipo file
-    {path: "xs", component: IstatisticsComponent, pathMatch:"full"},
-    {path: "request", component: ImaterialsRequestComponent, pathMatch: "full"}, //se completo el Dialog de Agregar Solicitudes de Material, falta el resto del CRUD
-    {path: 'chose', component: IchoseRolComponent, pathMatch:"full"  }, //concluida a falta de responsive en las cards
-    {path: "myteam", component: ImyteamComponent, pathMatch:"full"  },
-    {path: "publicity", component: IrequestAdvertisementComponent, pathMatch:"full"  },
-    {path: "materials", component: ImaterialsComponent, pathMatch:"full"  },
-    {path: "registerrecycler", component: IregisterRecyclerComponent, pathMatch:"full"  },
-    {path: "publications", component: IpublicationsComponent, pathMatch:"full"  },
-    {path: "materialsrecycler", component: ImaterialsrecyclerComponent, pathMatch:"full"  },
-    {path: "chat", component: IchatComponent, pathMatch:"full"  },
-    {path: "paypal", component: IpaypalComponent, pathMatch:"full"  },
-    {path: "seerequest", component: IseerequestComponent, pathMatch:"full"  },
+    //all
+    {path: "login", component: IloginComponent, pathMatch: "full"}, //concluida, all users
+    {path: 'chose', component: IchoseRolComponent, pathMatch:"full"  }, // all users
+    {path: "registercompany", component: IregisterCompanyComponent, pathMatch:"full"}, //everyone
+    {path: "registerrecycler", component: IregisterRecyclerComponent, pathMatch:"full"  }, //everyone
+    
+    //company and recycler
+    {path: "community", component: IcommunityComponent, pathMatch:"full"  }, //company and recycler
+    {path: "publications", component: IpublicationsComponent, pathMatch:"full"  }, //company and recycler
+    {path: "chat", component: IchatComponent, pathMatch:"full"  }, //company and recycler
+    {path: "paypal", component: IpaypalComponent, pathMatch:"full"  }, //company and recycler
+    
+
+    //admin
+    {path: "seecompany", component: IseeCompanyRequestComponent, pathMatch: "full"}, //admin
+    {path: "seerequest", component: IseerequestComponent, pathMatch:"full"  }, //admin
+    {path: "myteam", component: ImyteamComponent, pathMatch:"full"  }, //admin
+
+    //company
+    {path: "materials", component: ImaterialsComponent, pathMatch:"full"  }, //company
+    {path: "request", component: ImaterialsRequestComponent, pathMatch: "full"}, //company
+    {path: "publicity", component: IrequestAdvertisementComponent, pathMatch:"full"  }, //company
+    {path: "xs", component: IstatisticsComponent, pathMatch:"full"}, //company
+
+    //recycler
+    {path: "materialsrecycler", component: ImaterialsrecyclerComponent, pathMatch:"full"  }, //recycler
 
 
+    {
+        path:"recycler",
+        children: [
+            {path: 'community', component: IcommunityComponent},
+            {path: '', redirectTo: "community", pathMatch:"full"},
+            {path: 'materialsrecycler', component: ImaterialsrecyclerComponent},
+            {path: '', redirectTo: "materialsrecycler", pathMatch:"full"},
+           
+        ]
+
+    },
+    {
+        path:"company",
+        children: [
+            {path: 'materials', component: ImaterialsComponent,},
+            {path: '', redirectTo: "materials", pathMatch:"full"}
+        ]
+
+    },
+    {
+        path:"admin",
+        children: [
+            {path: 'myteam', component: ImyteamComponent, pathMatch:"full"},
+            {path: '', redirectTo: "myteam", pathMatch:"full"}
+
+        ]
+    }
 ];
