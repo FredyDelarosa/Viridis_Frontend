@@ -10,6 +10,7 @@ import { IpaypalComponent } from './components/users/ipaypal/ipaypal.component';
 //Recycler
 import { IregisterRecyclerComponent } from './components/recycler/iregister-recycler/iregister-recycler.component';
 import { ImaterialsrecyclerComponent } from './components/recycler/imaterialsrecycler/imaterialsrecycler.component';
+import { IseerequestComponent } from './components/recycler/iseerequest/iseerequest.component';
 //Admin
 import { IseeCompanyRequestComponent } from './components/admin/isee-company-request/isee-company-request.component';
 import { ImyteamComponent } from './components/admin/imyteam/imyteam.component';
@@ -39,6 +40,7 @@ export const routes: Routes = [
     {path: "materialsrecycler", component: ImaterialsrecyclerComponent, pathMatch:"full"  },
     {path: "chat", component: IchatComponent, pathMatch:"full"  },
     {path: "paypal", component: IpaypalComponent, pathMatch:"full"  },
+    {path: "seerequest", component: IseerequestComponent, pathMatch:"full"  },
 
 
 ];
