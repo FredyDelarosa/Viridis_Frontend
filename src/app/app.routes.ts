@@ -14,6 +14,7 @@ import { IseerequestComponent } from './components/recycler/iseerequest/iseerequ
 //Admin
 import { IseeCompanyRequestComponent } from './components/admin/isee-company-request/isee-company-request.component';
 import { ImyteamComponent } from './components/admin/imyteam/imyteam.component';
+import { IrequestBusinessComponent } from './components/admin/irequest-business/irequest-business.component';
 //Company
 import { IregisterCompanyComponent } from './components/company/iregister-company/iregister-company.component';
 import { IstatisticsComponent } from './components/company/istatistics/istatistics.component';
@@ -42,6 +43,8 @@ export const routes: Routes = [
     {path: "seecompany", component: IseeCompanyRequestComponent, pathMatch: "full"}, //admin
     {path: "seerequest", component: IseerequestComponent, pathMatch:"full"  }, //admin
     {path: "myteam", component: ImyteamComponent, pathMatch:"full"  }, //admin
+    {path: "business", component: IrequestBusinessComponent, pathMatch:"full"  }, //admin
+
 
     //company
     {path: "materials", component: ImaterialsComponent, pathMatch:"full"  }, //company
