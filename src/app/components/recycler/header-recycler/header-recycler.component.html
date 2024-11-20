@@ -1,15 +1,15 @@
 <header class="header">
     <div class="back">
         <div class="menu container">
-            <a href="" ><img src="images/logo2.png" alt=""  class="logo"></a>
+            <a (click)="routeToCommunity()"><img src="images/logo2.png" alt=""  class="logo"></a>
             <input type="checkbox" id= "menu">
             <label for="menu">
                 <img src="images/menu.png" alt="" width="25px">
             </label>
             <nav class="navbar">
                 <ul>
-                    <li><a href="#">Comunidad</a></li>
-                    <li><a href="#">Mensajes</a></li>
+                    <li><a routerLink="/materialsrecycler" routerLinkActive="active">Solicitudes de Materiales</a></li>
+                    <li><a routerLink="/chat" routerLinkActive="active">Chat</a></li>
                     <li><a href="#">Mis Acuerdos</a></li>
                 </ul>
             </nav>
