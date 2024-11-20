@@ -1,0 +1,60 @@
+.container{
+    margin-left: 160px;
+    margin-right: 160px;
+    margin-top: 80px;
+    margin-bottom: 130px;
+}
+
+.custom-table  button {
+    padding: 0.75rem; 
+    border: none; 
+    border-radius: 8px; 
+    background-color: #108310; 
+    color: white; 
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.custom-table  button:hover {
+    background-color: #0a6d0a;
+}
+
+.custom-table th, .custom-table td {
+    padding: 12px; 
+    text-align: center;
+    font-size: 16px;
+    background-color: rgb(255, 255, 255);
+}
+
+.custom-table th {
+    font-weight: bold;
+    font-size: 18px;
+    background-color: rgb(235, 247, 224);
+}
+
+@media (max-width: 768px) {
+.container {
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 40px;
+    margin-bottom: 90px;
+}
+
+.table-button {
+    margin: 4px; 
+    font-size: 14px; 
+    padding: 6px; 
+}
+
+.custom-table th,
+.custom-table td {
+    padding: 8px; 
+    font-size: 14px; 
+}
+
+.custom-table th {
+    font-size: 16px; 
+}
+}
