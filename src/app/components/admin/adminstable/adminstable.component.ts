@@ -14,7 +14,14 @@ export interface Admins {
 const ELEMENT_DATA: Admins[] = [
   {id: 1, nombre: 'Osvaldo Ochoa',},
   {id: 2, nombre: 'Fredy De la rosa', },
-  {id: 3, nombre: 'Manuel Zacarias', },
+  {id: 2, nombre: 'Fredy De la rosa', },
+  {id: 2, nombre: 'Fredy De la rosa', },
+  {id: 1, nombre: 'Osvaldo Ochoa',},
+  {id: 2, nombre: 'Fredy De la rosa', },
+  {id: 2, nombre: 'Fredy De la rosa', },
+  {id: 2, nombre: 'Fredy De la rosa', },
+  
+  
 ]
 
 @Component({
