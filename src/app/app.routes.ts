@@ -40,7 +40,6 @@ export const routes: Routes = [
 
     //admin
     {path: "seecompany", component: IseeCompanyRequestComponent, pathMatch: "full"}, //admin
-    {path: "seerequest", component: IseerequestComponent, pathMatch:"full"  }, //admin
     {path: "myteam", component: ImyteamComponent, pathMatch:"full"  }, //admin
 
     //company
@@ -51,6 +50,7 @@ export const routes: Routes = [
 
     //recycler
     {path: "materialsrecycler", component: ImaterialsrecyclerComponent, pathMatch:"full"  }, //recycler
+    {path: "seerequest", component: IseerequestComponent, pathMatch:"full"  }, //recycler
 
 
     {

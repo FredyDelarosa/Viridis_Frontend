@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterLink, RouterLinkActive } from '@angular/router';
+import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
   selector: 'app-header-users',
@@ -9,5 +9,9 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
   styleUrl: './header-users.component.scss'
 })
 export class HeaderUsersComponent {
-
+  constructor(private router:Router){}
+  
+  routeToPaypal(){
+    this.router.navigate(["/paypal"])
+  }
 }
