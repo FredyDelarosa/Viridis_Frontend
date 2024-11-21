@@ -1,0 +1,111 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap; /* Permite que los elementos se reorganicen si es necesario */
+    justify-content: space-between;
+    gap: 20px; /* Espacio entre los elementos */
+    max-width: 1200px;
+    margin: 165px auto 125px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para la imagen */
+.img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+}
+
+.img img {
+    width: 100%; /* Asegura que la imagen no exceda el tamaño del contenedor */
+    max-width: 300px; /* Tamaño máximo para mantener proporción */
+    height: auto;
+    border-radius: 10px;
+    border: 2px solid #e0e0e0;
+}
+
+/* Estilos para la información */
+.info {
+    flex: 2 1 400px; /* Ocupa más espacio pero permite adaptarse */
+    margin: 10px;
+    color: #333;
+    display: flex;
+    flex-direction: column; /* Apila los elementos */
+    justify-content: center; /* Centra verticalmente el contenido */
+}
+
+.info h2 {
+    margin: 5px 0;
+    font-size: 24px;
+}
+
+.info p {
+    margin-top: 10px;
+    font-size: 16px;
+    line-height: 1.5;
+    text-align: justify;
+}
+
+/* Estilos para la calculadora */
+.calculator {
+    flex: 1 1 300px; /* Permite ajustar el tamaño de la calculadora */
+    margin: 10px;
+    text-align: center;
+    display: flex;
+    flex-direction: column; /* Asegura que los elementos estén en una columna */
+    justify-content: center; /* Centra el contenido verticalmente */
+    color: #333;
+    align-items: center;
+}
+
+.calculator h3 {
+    margin: 10px 0;
+    font-size: 1.2rem;
+    color: #444;
+}
+
+.calculator input {
+    width: 50%;
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    display: block;
+}
+
+/* Estilos para las acciones */
+.actions {
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.actions button {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 1rem;
+    background-color: #03775a;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.actions button:hover {
+    background-color: #006834;
+}

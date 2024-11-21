@@ -1,0 +1,35 @@
+<div class="dialog-container">
+  <h2 class="solicitud-titulo">Solicitud de Materiales</h2>
+  <div class="input-container">
+    <p>Tipo de Material</p>
+    <select id="name" class="input-field" required>
+      <option value="" disabled selected>Papel</option>
+      <option value="producto1">Producto 1</option>
+      <option value="producto2">Producto 2</option>
+      <option value="producto3">Producto 3</option>
+      <!-- Agrega más opciones según sea necesario -->
+    </select>
+  </div>
+  <div class="input-container">
+    <p>Precio por Kg</p>
+    <input type="number" id="price" class="input-field" placeholder="$12" required />
+  </div>
+  <div class="input-container">
+    <p>Cantidad (Kg)</p>
+    <input type="number" id="quantity" class="input-field" placeholder="15 Kg" required />
+  </div>
+  <div class="input-container">
+    <p>Descripción</p>
+    <textarea id="description" class="input-field" placeholder="Solicitamos Papel Periodico con las siguientes caracteristicas:*Papel Completo *Limpio."></textarea>
+  </div>
+  <div class="input-container">
+    <div class="file-container">
+      <p>Foto</p>
+      <input type="file" id="fotos" class="file-input" />    
+    </div>
+  </div>
+  <div class="button-container">
+    <button type="button" class="close-button" (click)="closeDialog()">Cerrar</button>
+    <button type="submit" class="add-button">Modificar</button>
+  </div>
+</div>

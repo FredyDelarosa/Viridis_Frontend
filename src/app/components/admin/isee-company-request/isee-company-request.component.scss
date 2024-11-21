@@ -1,46 +1,121 @@
-.form-container {
+.container {
     display: flex;
     justify-content: center;
-    align-items: center; /* Centrar verticalmente */
-    flex-direction: column; /* Asegurar que el contenido se coloque en columna */
-    width: 300px;
-    margin: auto; /* Centrar horizontalmente */
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    background-color: white;
     margin-top: 30px;
 }
-.form-group {
-    margin-bottom: 15px;
+
+.preview-image {
+    width: 100%;
+    max-width: 200px;
+    border-radius: 8px;
+    margin-top: 10px;
+    transition: transform 0.3s ease-in-out; /* Transición suave */
 }
-.form-group label {
-    margin-bottom: 5px;
+
+.preview-image:hover {
+    transform: scale(1.2); /* Zoom al 120% */
+}
+
+
+.card-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 1000px;
+    margin-top: 80px;
+    margin-bottom: 75px;
+}
+
+.card-container {
+    background-color: #fff;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 20px;
+    width: 100%;
+}
+
+.card-container h2 {
+    text-align: center;
+    color: #108310;
+    font-size: 24px;
+    margin-bottom: 20px;
     font-weight: bold;
 }
-.form-group input {
-    width: 100%;
-    padding: 8px;
-    box-sizing: border-box;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-.button-group {
+
+.card-content {
     display: flex;
     justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 20px;
 }
+
+.column {
+    flex: 1;
+}
+
+.card-container h3 {
+    color: #444;
+    font-size: 18px;
+    margin: 10px 0 5px;
+}
+
+.card-container p {
+    color: #666;
+    font-size: 16px;
+    margin: 0 0 15px;
+}
+
+.image-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.preview-image {
+    width: 100%;
+    max-width: 200px;
+    border-radius: 8px;
+    margin-top: 10px;
+}
+
+.button-group {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
 .button-group button {
-    padding: 10px 20px;
+    flex: 1;
+    padding: 10px;
     border: none;
-    border-radius: 4px;
+    border-radius: 8px;
+    background-color: #108310;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
-.button-group .authorize {
-    background-color: #4CAF50;
-    color: white;
+
+.button-group button:hover {
+    background-color: #0a6d0a;
 }
-.button-group .deny {
-    background-color: #f44336;
-    color: white;
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .card-wrapper {
+        width: 90%;
+        margin-top: 150px;
+    }
+
+    .card-content {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .image-container {
+        margin: 10px 0;
+    }
 }

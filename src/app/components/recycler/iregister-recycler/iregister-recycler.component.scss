@@ -1,0 +1,115 @@
+.container {
+    display: flex;
+    justify-content: center;
+    margin-top: 120px;
+}
+
+.form-container{
+    width: 400px;
+}
+
+.form-wrapper {
+    display: flex; 
+    justify-content: space-around; 
+    align-items: center; 
+    background-color: #fff;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    width: 600px;
+    height: 500px;
+    margin-top: 10px;
+    margin-bottom: 75px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    width: 100%; /* Asegura que los inputs ocupen todo el ancho disponible */
+}
+
+.form input {
+    margin-bottom: 1rem; 
+    padding: 0.75rem; 
+    border-radius: 8px; 
+    border: 1px solid #ddd; 
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.05);
+    font-size: 16px;
+}
+
+.form input:focus {
+    outline: none;
+    border-color: #108310;
+}
+
+.form button {
+    padding: 0.75rem; 
+    border: none; 
+    border-radius: 8px; 
+    background-color: #108310; 
+    color: white; 
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.form button:hover {
+    background-color: #0a6d0a;
+}
+
+h2 {
+    text-align: center;
+    color: #108310;
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 45px;
+}
+
+
+.form input[type="file"]:focus,
+.form input[type="file"]:active {
+    background-color: #e0f7e0; 
+    border-color: #108310; 
+    outline: none; 
+}
+
+@media (max-width: 768px) {
+    .form-wrapper {
+        padding: 20px;
+        margin-top: 120px;
+        width: 90%;
+        height: auto;
+        display: flex;
+        flex-direction: column; 
+        align-items: center;
+    }
+    .form {
+        display: flex;
+        flex-direction: column;
+        align-items: center; 
+        width: 100%;
+    }
+    .form input,
+    .form button {
+        width: 300px; 
+        padding: 0.5rem;
+        font-size: 0.9rem;
+        box-sizing: border-box; 
+        margin-bottom: 10px;
+    }
+    .form input[type="file"] {
+        font-size: 12px;
+    }
+    h2 {
+        font-size: 20px; 
+        margin-bottom: 15px;
+        text-align: center;
+    }
+    .container {
+        margin-top: 80px;
+        display: flex;
+        justify-content: center;
+    }
+}
+
