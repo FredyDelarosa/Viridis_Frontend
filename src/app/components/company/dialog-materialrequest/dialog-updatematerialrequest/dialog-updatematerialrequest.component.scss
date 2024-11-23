@@ -1,32 +1,32 @@
-.solicitud-titulo {
+.solicitud-titulo { 
   text-align: center;
-  font-size: 26px;
+  font-size: 18px; /* Reducido aún más el tamaño de fuente */
   font-weight: bold;
   color: #108310;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem; /* Reducir el margen inferior */
 }
 
 .dialog-container {
   background-color: rgba(255, 255, 255, 0.9);
   border-radius: 8px;
-  padding: 2rem;
+  padding: 1rem; /* Reducir aún más el padding */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   width: 100%;
-  max-width: 500px;
+  max-width: 350px; /* Reducir aún más el ancho máximo */
   margin: 0 auto;
 }
 
 .input-container {
-  margin-bottom: 1.2rem;
+  margin-bottom: 0.8rem; /* Reducir el margen inferior */
 }
 
 .input-field {
-  padding: 0.8rem;
+  padding: 0.6rem; /* Reducir el padding */
   border-radius: 8px;
   border: 1px solid #ccc;
   width: 100%;
-  font-size: 16px;
-  margin-bottom: 1.2rem;
+  font-size: 14px; /* Mantener el tamaño de fuente pequeño */
+  margin-bottom: 0.8rem; /* Reducir el margen inferior */
 
   &::placeholder {
     color: #888;
@@ -41,22 +41,22 @@
 }
 
 textarea.input-field {
-  height: 150px; /* Aumenta la altura para hacerlo más amplio */
-  resize: vertical; /* Permite cambiar el tamaño verticalmente */
+  height: 100px; /* Reducir aún más la altura del textarea */
+  resize: vertical;
 }
 
 .file-input {
-  padding: 6px;
+  padding: 4px; /* Reducir aún más el padding */
   border: 2px solid #ddd;
   border-radius: 8px;
   background-color: #fff;
   color: rgb(0, 0, 0);
-  font-size: 16px;
+  font-size: 10px; /* Reducido tamaño de fuente */
   font-weight: bold;
   cursor: pointer;
   transition: background-color 0.3s;
   width: 100%;
-  margin-bottom: 1.2rem;
+  margin-bottom: 0.8rem; /* Reducir el margen inferior */
 }
 
 .file-input:focus,
@@ -67,13 +67,13 @@ textarea.input-field {
 }
 
 .close-button {
-  padding: 0.8rem;
+  padding: 0.6rem; /* Reducir el padding */
   background-color: #818181;
   color: white;
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 14px; /* Mantener el tamaño de fuente pequeño */
   font-weight: bold;
   transition: background-color 0.3s ease;
   width: 48%;
@@ -84,13 +84,13 @@ textarea.input-field {
 }
 
 .add-button {
-  padding: 0.8rem;
+  padding: 0.6rem; /* Reducir el padding */
   background-color: #108310;
   color: white;
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 14px; /* Mantener el tamaño de fuente pequeño */
   font-weight: bold;
   transition: background-color 0.3s ease;
   width: 48%;
@@ -103,7 +103,7 @@ textarea.input-field {
 .button-container {
   display: flex;
   justify-content: space-between;
-  gap: 8px;
+  gap: 6px; /* Reducir el espacio entre los botones */
 }
 
 .button-container .close-button:last-child {
@@ -117,21 +117,21 @@ textarea.input-field {
   }
 
   .close-button {
-    width: 48%; 
+    width: 48%;
   }
 
   .file-input {
-    font-size: 11px;
+    font-size: 10px; /* Reducir aún más el tamaño de fuente para pantallas pequeñas */
   }
 
   .solicitud-titulo {
-    font-size: 24px;
+    font-size: 16px; /* Reducir el tamaño de fuente para pantallas pequeñas */
   }
 
   .button-container {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap; 
-    gap: 8px; 
+    gap: 6px; /* Reducir aún más el espacio entre botones */
   }
 }
