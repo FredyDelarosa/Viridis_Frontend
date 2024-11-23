@@ -13,7 +13,7 @@ export class HeaderCompanyComponent {
       constructor(private router:Router){}
 
   routeToCommunity(){
-    this.router.navigate(["/community"])
+    this.router.navigate(["/company/community"])
   }
 
  
