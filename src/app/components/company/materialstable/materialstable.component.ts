@@ -15,10 +15,10 @@ export interface Admins {
 }
 
 const ELEMENT_DATA: Admins[] = [
-  {cantidad: 14, nombre: 'Periodico',},
+  {cantidad: 14, nombre: 'Periódico',},
   {cantidad: 22, nombre: 'Aluminio', },
-  {cantidad: 31, nombre: 'Carton', },
-  {cantidad: 32, nombre: 'Plastico', },
+  {cantidad: 31, nombre: 'Cartón', },
+  {cantidad: 32, nombre: 'Plástico', },
 ]
 @Component({
   selector: 'app-materialstable',
