@@ -12,7 +12,7 @@ export class HeaderRecyclerComponent {
   constructor(private router:Router){}
   
   routeToCommunity(){
-    this.router.navigate(["/community"])
+    this.router.navigate(["recycler/community"])
   }
 
 

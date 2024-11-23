@@ -1,18 +1,24 @@
 <header class="header">
     <div class="back">
         <div class="menu container">
-            <a (click)=" routeToCommunity()" ><img src="images/logo2.png" alt=""  class="logo"></a>
-            <input type="checkbox" id= "menu">
+            <a (click)="routeToCommunity()"><img src="images/logo2.png" alt="" class="logo"></a>
+            <input type="checkbox" id="menu">
             <label for="menu">
                 <img src="images/menu.png" alt="" width="25px">
             </label>
             <nav class="navbar">
                 <ul>
-                    <li><a routerLink="/request" routerLinkActive="active">Mis Solicitudes</a></li>
-                    <li><a routerLink="/publications" routerLinkActive="active">Mis Publicaciones</a></li>
-                    <li><a routerLink="/xs" routerLinkActive="active">Estadisticas</a></li>
-                    <li><a routerLink="/chat" routerLinkActive="active">Chat</a></li>
-                    <li><a routerLink="/publicity" routerLinkActive="active">Crear Anuncio</a></li>
+                    <li>
+                        <select class="custom-select" onchange="location = this.value;">
+                            <option disabled selected>Mis Opciones</option>
+                            <option value="/company/materials" routerLinkActive="active">Mis Materiales</option>
+                            <option value="/company/request" routerLinkActive="active">Mis Solicitudes</option>
+                            <option value="/company/publications" routerLinkActive="active">Mis Publicaciones</option>
+                        </select>
+                    </li>
+                    <li><a routerLink="/company/stadistics" routerLinkActive="active">Estadísticas</a></li>
+                    <li><a routerLink="/company/chat" routerLinkActive="active">Chat</a></li>
+                    <li><a routerLink="/company/publicity" routerLinkActive="active">Crear Anuncio</a></li>
                 </ul>
             </nav>
         </div>
