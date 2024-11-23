@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable, tap } from 'rxjs';
 import { Router } from '@angular/router';
-import * as jwt_decode from 'jwt-decode';
 
 @Injectable({
   providedIn: 'root',
@@ -37,8 +36,6 @@ export class ApiserviceService {
   );
 }
 
-
-
   registerRecycler(data: any): Observable<any> {
     return this.http.post(`${this.url}usuarios/reciclador`, data);
   }
@@ -52,7 +49,17 @@ export class ApiserviceService {
       headers: { 'Content-Type': 'application/json' },
     });
   }
+
+  getMaterialsByCompany(id_empresa: string): Observable<any> {
+    return this.http.get(`${this.url}materiales/materialesbycompany`, {
+      params: { id_empresa },
+    });
+  }
   
+
+  createMaterialRequest(formData: FormData): Observable<any> {
+    return this.http.post(`${this.url}materiales/solicitudes`, formData);
+  }
   
 
 
