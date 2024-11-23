@@ -42,7 +42,7 @@ ngOnInit(): void{}
     if(rol === "reciclador"){
       this.router.navigate(["/recycler/community"])
     } else if (rol === "empresa") {
-      this.router.navigate(['/company/materials'])
+      this.router.navigate(['/company/community'])
     } else if (rol === "administrador"){
       this.router.navigate(['/admin/myteam'])
     }
