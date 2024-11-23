@@ -1,17 +1,18 @@
 import { Component, inject } from '@angular/core';
-
+import { CommonModule } from '@angular/common';
 import { HeaderCompanyComponent } from '../../company/header-company/header-company.component';
+import { HeaderRecyclerComponent } from '../../recycler/header-recycler/header-recycler.component';
 import { FooterUsersComponent } from '../footer-users/footer-users.component';
 import { DialogAddpublicationComponent } from '../dialogs-publications/dialog-addpublication/dialog-addpublication.component';
 import { DialogUpdatepublicationComponent } from '../dialogs-publications/dialog-updatepublication/dialog-updatepublication.component';
-
-import { MatDialog, } from '@angular/material/dialog';
 import { DialogDeletepublicationComponent } from '../dialogs-publications/dialog-deletepublication/dialog-deletepublication.component';
+import { MatDialog, } from '@angular/material/dialog';
+import { GuardService } from '../../../services/guard.service';
 
 @Component({
   selector: 'app-ipublications',
   standalone: true,
-  imports: [HeaderCompanyComponent ,FooterUsersComponent, ],
+  imports: [HeaderCompanyComponent, HeaderRecyclerComponent ,FooterUsersComponent, CommonModule],
   templateUrl: './ipublications.component.html',
   styleUrl: './ipublications.component.scss'
 })
@@ -35,6 +36,12 @@ export class IpublicationsComponent {
     const dialogRef = this.dialog.open(DialogDeletepublicationComponent , {
       data: {},
     });
+  }
+
+  public myRol: string = ''; // Inicializa el rol como cadena vacía
+  ngOnInit(): void {
+    const aux = localStorage.getItem('rol'); // Obtiene el rol del localStorage
+    this.myRol = aux ? aux : ''; // Asigna el valor si existe, de lo contrario, una cadena vacía
   }
 
 }
