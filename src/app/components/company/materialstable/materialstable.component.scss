@@ -5,16 +5,28 @@
     margin-bottom: 130px;
 }
 
-.table-button{
+.table-button-delete{
     margin: 8px;
-    color: rgb(0, 0, 0);
-    background-color: rgb(219, 219, 219);
+    color:white;
+    background-color:red;
 }
 
-.table-button:hover{
-  background-color: rgb(126, 126, 126);
+.table-button-edit{
+  margin: 8px;
+  color:white;
+  background-color:#489f3b;
+}
+
+.table-button-edit:hover{
+  background-color:#108310;
   color: white;
 }
+
+.table-button-delete:hover{
+  background-color:#a11d10;
+  color: white;
+}
+
 
 .custom-table th, .custom-table td {
     padding: 12px; /* Ajusta el espacio interno (padding) */
