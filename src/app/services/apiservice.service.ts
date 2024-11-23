@@ -28,6 +28,15 @@ export class ApiserviceService {
     return this.http.post(`${this.url}login`, null, { params });
   }
 
+  registerRecycler(data: any): Observable<any> {
+    return this.http.post(`${this.url}usuarios/reciclador`, data);
+  }
+  
+
+  addMaterialRequest(data: any): Observable<any> {
+    return this.http.post(`${this.url}materials/requests`, data);
+  }
+
   // Método para iniciar la verificación periódica del token
   startTokenCheck(): void {
     this.stopTokenCheck(); // Asegúrate de no tener múltiples intervalos activos
