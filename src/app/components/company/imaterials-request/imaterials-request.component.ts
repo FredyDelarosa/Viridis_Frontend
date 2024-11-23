@@ -7,6 +7,9 @@ import { DialogAddmaterialrequestComponent } from '../dialog-materialrequest/dia
 import { DialogUpdatematerialrequestComponent } from '../dialog-materialrequest/dialog-updatematerialrequest/dialog-updatematerialrequest.component';
 import { DialogDeletematerialrequestComponent } from '../dialog-materialrequest/dialog-deletematerialrequest/dialog-deletematerialrequest.component';
 import { MatDialog, } from '@angular/material/dialog';
+import { GuardService } from '../../../services/guard.service';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-imaterials-request',
@@ -16,8 +19,12 @@ import { MatDialog, } from '@angular/material/dialog';
   styleUrl: './imaterials-request.component.scss'
 })
 export class ImaterialsRequestComponent {
-
+  constructor(private router:Router, private guardService:GuardService){}
   readonly dialog = inject(MatDialog);
+
+  ngOnInit(): void {
+    this.guardService.guardCompany();
+  }
 
   addMaterialRequest(): void {
     const dialogRef = this.dialog.open(DialogAddmaterialrequestComponent, {

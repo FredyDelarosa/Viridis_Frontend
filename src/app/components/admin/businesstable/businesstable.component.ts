@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
 
+import { Router } from '@angular/router';
+
 
 export interface Admins {
   nombre: string;
@@ -25,4 +27,11 @@ const ELEMENT_DATA: Admins[] = [
 export class BusinesstableComponent {
   displayedColumns: string[] = [ 'nombre', 'dueno','acciones'];
   dataSource = ELEMENT_DATA;
+
+    constructor(private router:Router){}
+  
+    routeToSeeCompany(){
+      this.router.navigate(["/admin/seecompany"])
+    }
+  
 }
