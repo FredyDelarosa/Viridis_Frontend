@@ -72,19 +72,12 @@ export const routes: Routes = [
             {path: '', redirectTo: "community", pathMatch:"full"},
             {path: 'materialsrecycler', component: ImaterialsrecyclerComponent},
             {path: '', redirectTo: "materialsrecycler", pathMatch:"full"},
-
-            
-        
-        ]
-
             {path: 'seerequest', component: IseerequestComponent},
             {path: '', redirectTo: "seerequest", pathMatch:"full"},
             {path: 'publications', component: IpublicationsComponent},
             {path: "", component: IpublicationsComponent},
             {path: "chat", component: IchatComponent },
             {path: "", component: IchatComponent,}
-
-
         ]
     },
     {

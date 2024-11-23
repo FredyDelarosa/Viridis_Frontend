@@ -26,16 +26,22 @@ ngOnInit(): void{}
     // console.log('Correo:', this.correo);
     // console.log('Contraseña:', this.password);
     // Aquí puedes llamar a un servicio para autenticar al usuario
-     this.apiservice.login(this.correo,this.password).subscribe(reponse => {
-      const token = reponse.access_token
-      localStorage.setItem('token', token)
-      const payload = token.split('.')[1]
+
+      this.apiservice.login(this.correo, this.password).subscribe(response => {
+      const token = response.access_token;
+  
+      // Guardar el token y manejar la redirección
+      this.apiservice.setToken(token);
+      const payload = token.split('.')[1];
       const decode = atob(payload);
-      const aux = JSON.parse(decode)
-      const rol = aux.tipo_usuario
-      localStorage.setItem('rol',rol)
-      this.redirect(rol)
-     })
+      const aux = JSON.parse(decode);
+      const rol = aux.tipo_usuario;
+      localStorage.setItem('rol', rol);
+      this.redirect(rol);
+    }, error => {
+      console.error('Error durante el inicio de sesión:', error);
+      alert('Credenciales incorrectas o problema con el servidor.');
+    });
   }
 
   redirect(rol:string):void{
@@ -48,5 +54,3 @@ ngOnInit(): void{}
     }
   } 
 }
-
-
