@@ -1,14 +1,31 @@
 <div class="dialog-container">
-    <h2 class="solicitud-titulo">Agregar Material</h2>
+  <h2 class="solicitud-titulo">Agregar Material</h2>
+  <form (ngSubmit)="onSubmit()">
     <div class="input-container">
-      <input type="text" id="materialname" class="input-field" placeholder="Nombre del Material" required />
+      <input
+        type="text"
+        id="materialname"
+        class="input-field"
+        placeholder="Nombre del Material"
+        [(ngModel)]="formData.nombre_material"
+        name="nombre_material"
+        required
+      />
     </div>
     <div class="input-container">
-      <input type="number" id="quantity" class="input-field" placeholder="Cantidad (Kg)" required />
+      <input
+        type="number"
+        id="quantity"
+        class="input-field"
+        placeholder="Cantidad (Kg)"
+        [(ngModel)]="formData.cantidad"
+        name="cantidad"
+        required
+      />
     </div>
     <div class="button-container">
       <button type="button" class="close-button" (click)="closeDialog()">Cerrar</button>
       <button type="submit" class="add-button">Agregar</button>
     </div>
-  </div>
-  
+  </form>
+</div>
