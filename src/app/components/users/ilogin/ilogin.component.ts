@@ -22,6 +22,27 @@ export class IloginComponent {
 
 ngOnInit(): void{}
 
+login(email: string, password: string): void {
+  this.apiservice.login(email, password).subscribe(
+      (response) => {
+          // Guarda el token en el localStorage
+          localStorage.setItem('token', response.access_token);
+          
+          // Guarda el id_empresa si está disponible
+          if (response.id_empresa) {
+              localStorage.setItem('empresaId', response.id_empresa);
+          }
+
+          // Redirige al dashboard o a la página correspondiente
+          this.router.navigate(['/dashboard']);
+      },
+      (error) => {
+          console.error('Error al iniciar sesión:', error);
+      }
+  );
+}
+
+
   onSubmit() {
     // console.log('Correo:', this.correo);
     // console.log('Contraseña:', this.password);
