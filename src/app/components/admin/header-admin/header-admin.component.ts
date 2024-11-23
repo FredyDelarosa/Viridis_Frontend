@@ -13,7 +13,7 @@ export class HeaderAdminComponent {
   constructor(private router:Router){}
 
   routeToMyTeam(){
-    this.router.navigate(["/myteam"])
+    this.router.navigate(["/admin/myteam"])
   }
 
 }

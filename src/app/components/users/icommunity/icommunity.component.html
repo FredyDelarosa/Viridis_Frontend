@@ -1,5 +1,5 @@
-<app-header-company *ngIf="isCompany"></app-header-company>
-<app-header-recycler *ngIf="!isCompany"></app-header-recycler>
+<app-header-company *ngIf="myRol === 'empresa'"></app-header-company>
+<app-header-recycler *ngIf="myRol === 'reciclador'"></app-header-recycler>
 
 
 <div class="card-container">

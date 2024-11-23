@@ -1,16 +1,21 @@
 import { Component } from '@angular/core';
-import { HeaderAdminComponent } from '../../admin/header-admin/header-admin.component';
+import { HeaderCompanyComponent } from '../header-company/header-company.component';
+import { FooterUsersComponent } from '../../users/footer-users/footer-users.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-irequest-advertisement',
   standalone: true,
   imports: [
-    HeaderAdminComponent
+    HeaderCompanyComponent,
+     FooterUsersComponent,
   ],
   templateUrl: './irequest-advertisement.component.html',
   styleUrl: './irequest-advertisement.component.scss'
 })
 export class IrequestAdvertisementComponent {
+  constructor(private router:Router){}
+
   companyName: string = '';
   duration: number | null = null;
   startDate: string = '';
@@ -35,6 +40,11 @@ export class IrequestAdvertisementComponent {
     } else {
       console.log('Por favor, selecciona un archivo.');
     }
+  }
+
+  routeToPayPal(){
+    this.router.navigate(["/paypal"])
+
   }
 
 }
