@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 
 //Users
+import { LandingPageComponent } from './components/users/landing-page/landing-page.component';
 import { IloginComponent } from './components/users/ilogin/ilogin.component';
 import { IchoseRolComponent } from './components/users/ichose-rol/ichose-rol.component';
 import { IcommunityComponent } from './components/users/icommunity/icommunity.component';
@@ -29,6 +30,7 @@ import { ImaterialsComponent } from './components/company/imaterials/imaterials.
 
 export const routes: Routes = [
     //all
+    {path: "", component: LandingPageComponent, pathMatch: "full"},
     {path: "login", component: IloginComponent, pathMatch: "full"}, //concluida, all users
     {path: 'chose', component: IchoseRolComponent, pathMatch:"full"  }, // all users
     {path: "registercompany", component: IregisterCompanyComponent, pathMatch:"full"}, //everyone
