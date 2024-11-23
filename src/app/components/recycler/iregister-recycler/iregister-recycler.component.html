@@ -1,16 +1,44 @@
-<app-header-users/>
+<app-header-users></app-header-users>
 <div class="container">
-    <div class="form-wrapper">
-        <div class="form-container">
-            <h2>Registrar Reciclador</h2>
-            <form class="form">
-            <input type="text" id="nombre" name="nombre" placeholder="Nombre de Usuario" required>
-            <input type="email" id="correo" name="correo" placeholder="Correo Electrónico" required>
-            <input type="password" id="contrasena" name="contrasena" placeholder="Contraseña" required>
-            <input type="password" id="confirmarContrasena" name="confirmarContrasena" placeholder="Confirmar Contraseña" required>
-            <button type="submit" (click)="routeSuccessfulRegistration()">Registrarse</button>
-            </form>
-        </div>
+  <div class="form-wrapper">
+    <div class="form-container">
+      <h2>Registrar Reciclador</h2>
+      <form class="form" (ngSubmit)="onSubmit()" #registerForm="ngForm">
+        <input
+          type="text"
+          id="nombre"
+          name="nombre"
+          placeholder="Nombre de Usuario"
+          required
+          [(ngModel)]="formData.nombre"
+        />
+        <input
+          type="email"
+          id="correo"
+          name="correo"
+          placeholder="Correo Electrónico"
+          required
+          [(ngModel)]="formData.correo"
+        />
+        <input
+          type="password"
+          id="contrasena"
+          name="contrasena"
+          placeholder="Contraseña"
+          required
+          [(ngModel)]="formData.contrasena"
+        />
+        <input
+          type="password"
+          id="confirmarContrasena"
+          name="confirmarContrasena"
+          placeholder="Confirmar Contraseña"
+          required
+          [(ngModel)]="formData.confirmarContrasena"
+        />
+        <button type="submit">Registrarse</button>
+      </form>
     </div>
+  </div>
 </div>
-<app-footer-users/>
+<app-footer-users></app-footer-users>

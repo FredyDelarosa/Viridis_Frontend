@@ -3,6 +3,8 @@ import { ChartModule } from 'primeng/chart';
 
 import { HeaderCompanyComponent } from '../header-company/header-company.component';
 import { FooterUsersComponent } from '../../users/footer-users/footer-users.component';
+import { Router } from '@angular/router';
+import { GuardService } from '../../../services/guard.service';
 
 
 @Component({
@@ -13,10 +15,11 @@ import { FooterUsersComponent } from '../../users/footer-users/footer-users.comp
   styleUrl: './istatistics.component.scss'
 })
 export class IstatisticsComponent {
+  
   data: any;
   options: any;
 
-  constructor() {
+  constructor(private router:Router, private guardService:GuardService) {
     this.data = {
       labels: ['Octubre', 'Noviembre', 'Diciembre'],
       datasets: [
@@ -68,4 +71,9 @@ export class IstatisticsComponent {
       }
     };
   }
+
+  ngOnInit(): void {
+    this.guardService.guardCompany();
+  }
+
 }

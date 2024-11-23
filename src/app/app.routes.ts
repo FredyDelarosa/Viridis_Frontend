@@ -11,6 +11,8 @@ import { IpaypalComponent } from './components/users/ipaypal/ipaypal.component';
 import { IregisterRecyclerComponent } from './components/recycler/iregister-recycler/iregister-recycler.component';
 import { ImaterialsrecyclerComponent } from './components/recycler/imaterialsrecycler/imaterialsrecycler.component';
 import { IseerequestComponent } from './components/recycler/iseerequest/iseerequest.component';
+import { IagreementsComponent } from './components/recycler/iagreements/iagreements.component';
+import { IdonationComponent } from './components/recycler/idonation/idonation.component';
 //Admin
 import { IseeCompanyRequestComponent } from './components/admin/isee-company-request/isee-company-request.component';
 import { ImyteamComponent } from './components/admin/imyteam/imyteam.component';
@@ -32,28 +34,35 @@ export const routes: Routes = [
     {path: "registercompany", component: IregisterCompanyComponent, pathMatch:"full"}, //everyone
     {path: "registerrecycler", component: IregisterRecyclerComponent, pathMatch:"full"  }, //everyone
     
-    //company and recycler
-    {path: "community", component: IcommunityComponent, pathMatch:"full"  }, //company and recycler
-    {path: "publications", component: IpublicationsComponent, pathMatch:"full"  }, //company and recycler
-    {path: "chat", component: IchatComponent, pathMatch:"full"  }, //company and recycler
-    {path: "paypal", component: IpaypalComponent, pathMatch:"full"  }, //company and recycler
     
+    //company and recycler
+    //{path: "community", component: IcommunityComponent, pathMatch:"full"  }, //company and recycler
+    //{path: "publications", component: IpublicationsComponent, pathMatch:"full"  }, //company and recycler
+    //{path: "chat", component: IchatComponent, pathMatch:"full"  }, //company and recycler
+    {path: "paypal", component: IpaypalComponent, pathMatch:"full"  }, //company and recycler
+    {path: "donation", component: IdonationComponent, pathMatch:"full"  }, //company and recycler
 
+    
     //admin
-    {path: "seecompany", component: IseeCompanyRequestComponent, pathMatch: "full"}, //admin
-    {path: "myteam", component: ImyteamComponent, pathMatch:"full"  }, //admin
-    {path: "business", component: IrequestBusinessComponent, pathMatch:"full"  }, //admin
+    //{path: "seecompany", component: IseeCompanyRequestComponent, pathMatch: "full"}, //admin
+    //{path: "myteam", component: ImyteamComponent, pathMatch:"full"  }, //admin
+    //{path: "business", component: IrequestBusinessComponent, pathMatch:"full"  }, //admin
 
 
     //company
-    {path: "materials", component: ImaterialsComponent, pathMatch:"full"  }, //company
-    {path: "request", component: ImaterialsRequestComponent, pathMatch: "full"}, //company
-    {path: "publicity", component: IrequestAdvertisementComponent, pathMatch:"full"  }, //company
-    {path: "xs", component: IstatisticsComponent, pathMatch:"full"}, //company
+    //{path: "materials", component: ImaterialsComponent, pathMatch:"full"  }, 
+    //{path: "request", component: ImaterialsRequestComponent, pathMatch: "full"},
+    //{path: "publicity", component: IrequestAdvertisementComponent, pathMatch:"full"  }, 
+    //{path: "xs", component: IstatisticsComponent, pathMatch:"full"}, 
 
     //recycler
+
     {path: "materialsrecycler", component: ImaterialsrecyclerComponent, pathMatch:"full"  }, //recycler
     {path: "seerequest", component: IseerequestComponent, pathMatch:"full"  }, //recycler
+    {path: "agreements", component: IagreementsComponent, pathMatch:"full"  },
+
+    //{path: "materialsrecycler", component: ImaterialsrecyclerComponent, pathMatch:"full"  },
+    //{path: "seerequest", component: IseerequestComponent, pathMatch:"full"  }, 
 
 
     {
@@ -63,23 +72,42 @@ export const routes: Routes = [
             {path: '', redirectTo: "community", pathMatch:"full"},
             {path: 'materialsrecycler', component: ImaterialsrecyclerComponent},
             {path: '', redirectTo: "materialsrecycler", pathMatch:"full"},
-           
+            {path: 'seerequest', component: IseerequestComponent},
+            {path: '', redirectTo: "seerequest", pathMatch:"full"},
+            {path: 'publications', component: IpublicationsComponent},
+            {path: "", component: IpublicationsComponent},
+            {path: "chat", component: IchatComponent },
+            {path: "", component: IchatComponent,}
         ]
-
     },
     {
         path:"company",
         children: [
+            {path: 'community', component: IcommunityComponent},
+            {path: '', redirectTo: "community", pathMatch:"full"},
             {path: 'materials', component: ImaterialsComponent,},
-            {path: '', redirectTo: "materials", pathMatch:"full"}
+            {path: '', redirectTo: "materials", pathMatch:"full"},
+            {path: "request", component: ImaterialsRequestComponent},
+            {path: "", redirectTo: "request", pathMatch: "full"},
+            {path:"stadistics", component: IstatisticsComponent},
+            {path: "", redirectTo:"stadistics", pathMatch: "full"},
+            {path: "publicity", component: IrequestAdvertisementComponent},
+            {path: "", redirectTo: "publicity", pathMatch:"full"},
+            {path: 'publications', component: IpublicationsComponent},
+            {path: "", component: IpublicationsComponent},
+            {path: "chat", component: IchatComponent },
+            {path: "", component: IchatComponent,}
         ]
-
     },
     {
         path:"admin",
         children: [
-            {path: 'myteam', component: ImyteamComponent, pathMatch:"full"},
-            {path: '', redirectTo: "myteam", pathMatch:"full"}
+            {path: 'myteam', component: ImyteamComponent},
+            {path: '', redirectTo: "myteam", pathMatch:"full"},
+            {path: "business", component: IrequestBusinessComponent},
+            {path: '', redirectTo: "business", pathMatch:"full"},
+            {path: "seecompany", component: IseeCompanyRequestComponent},
+            {path: "", redirectTo: "seecompany", pathMatch:"full"},
 
         ]
     }
