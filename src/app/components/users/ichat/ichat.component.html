@@ -1,5 +1,24 @@
-<div class="cards">
-  <div class="contacts-card">
+<app-header-users></app-header-users>
+
+<div class="tabs" *ngIf="isResponsive">
+  <button 
+    class="tab-button" 
+    [class.active]="view === 'contacts'" 
+    (click)="toggleView('contacts')">
+    Contactos
+  </button>
+  <button 
+    class="tab-button" 
+    [class.active]="view === 'chat'" 
+    (click)="toggleView('chat')">
+    Chat
+  </button>
+</div>
+
+<div class="cards" [class.responsive]="isResponsive">
+  <div 
+    class="contacts-card" 
+    [class.hidden]="isResponsive && view !== 'contacts'">
     <div class="contacts-menu">
       <h3>Contactos</h3>
       <ul>
@@ -18,7 +37,9 @@
     </div>
   </div>
 
-  <div class="chat-card">
+  <div 
+    class="chat-card" 
+    [class.hidden]="isResponsive && view !== 'chat'">
     <div class="chat-section">
       <div class="chat-messages">
         <div
@@ -46,5 +67,4 @@
     </div>
   </div>
 </div>
-
 

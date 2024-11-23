@@ -25,11 +25,12 @@ body {
     align-items: center;
     justify-content: center;
     margin: 10px;
+    width: 100%;
+    max-width: 300px; /* Máximo tamaño de la imagen */
 }
 
 .img img {
     width: 100%; /* Asegura que la imagen no exceda el tamaño del contenedor */
-    max-width: 300px; /* Tamaño máximo para mantener proporción */
     height: auto;
     border-radius: 10px;
     border: 2px solid #e0e0e0;
@@ -37,7 +38,7 @@ body {
 
 /* Estilos para la información */
 .info {
-    flex: 2 1 400px; /* Ocupa más espacio pero permite adaptarse */
+    flex: 2 1 300px; /* Hace que la información ocupe menos espacio */
     margin: 10px;
     color: #333;
     display: flex;
@@ -47,19 +48,19 @@ body {
 
 .info h2 {
     margin: 5px 0;
-    font-size: 24px;
+    font-size: 18px; /* Tamaño de fuente más pequeño */
 }
 
 .info p {
     margin-top: 10px;
-    font-size: 16px;
+    font-size: 14px; /* Fuente más pequeña para el texto */
     line-height: 1.5;
     text-align: justify;
 }
 
 /* Estilos para la calculadora */
 .calculator {
-    flex: 1 1 300px; /* Permite ajustar el tamaño de la calculadora */
+    flex: 1 1 250px; /* Hace que la calculadora sea más pequeña */
     margin: 10px;
     text-align: center;
     display: flex;
@@ -98,7 +99,7 @@ body {
     padding: 10px;
     margin: 10px 0;
     font-size: 1rem;
-    background-color: #03775a;
+    background-color: #108310;
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -107,5 +108,37 @@ body {
 }
 
 .actions button:hover {
-    background-color: #006834;
+    background-color: #0a6d0a;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+
+    .container {
+        flex-direction: column;
+        margin-top: 200px;
+        align-items: center;
+        padding: 30px; /* Agregamos padding a la contenedor */
+    }
+
+    .img {
+        max-width: 250px; /* Tamaño más pequeño para la imagen */
+    }
+
+    .info, .calculator {
+        flex: 1 1 100%; /* Cada elemento ocupa el 100% en pantallas pequeñas */
+        margin: 15px 0;
+    }
+
+    .info h2 {
+        font-size: 20px;
+    }
+
+    .info p {
+        font-size: 14px;
+    }
+
+    .calculator input {
+        width: 70%; /* Ajuste de tamaño para los inputs */
+    }
 }

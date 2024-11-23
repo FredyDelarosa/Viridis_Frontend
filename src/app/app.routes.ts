@@ -11,6 +11,8 @@ import { IpaypalComponent } from './components/users/ipaypal/ipaypal.component';
 import { IregisterRecyclerComponent } from './components/recycler/iregister-recycler/iregister-recycler.component';
 import { ImaterialsrecyclerComponent } from './components/recycler/imaterialsrecycler/imaterialsrecycler.component';
 import { IseerequestComponent } from './components/recycler/iseerequest/iseerequest.component';
+import { IagreementsComponent } from './components/recycler/iagreements/iagreements.component';
+import { IdonationComponent } from './components/recycler/idonation/idonation.component';
 //Admin
 import { IseeCompanyRequestComponent } from './components/admin/isee-company-request/isee-company-request.component';
 import { ImyteamComponent } from './components/admin/imyteam/imyteam.component';
@@ -32,16 +34,17 @@ export const routes: Routes = [
     {path: "registercompany", component: IregisterCompanyComponent, pathMatch:"full"}, //everyone
     {path: "registerrecycler", component: IregisterRecyclerComponent, pathMatch:"full"  }, //everyone
     
+    
     //company and recycler
     {path: "community", component: IcommunityComponent, pathMatch:"full"  }, //company and recycler
     {path: "publications", component: IpublicationsComponent, pathMatch:"full"  }, //company and recycler
     {path: "chat", component: IchatComponent, pathMatch:"full"  }, //company and recycler
     {path: "paypal", component: IpaypalComponent, pathMatch:"full"  }, //company and recycler
-    
+    {path: "donation", component: IdonationComponent, pathMatch:"full"  }, //company and recycler
 
+    
     //admin
     {path: "seecompany", component: IseeCompanyRequestComponent, pathMatch: "full"}, //admin
-    {path: "seerequest", component: IseerequestComponent, pathMatch:"full"  }, //admin
     {path: "myteam", component: ImyteamComponent, pathMatch:"full"  }, //admin
     {path: "business", component: IrequestBusinessComponent, pathMatch:"full"  }, //admin
 
@@ -54,6 +57,8 @@ export const routes: Routes = [
 
     //recycler
     {path: "materialsrecycler", component: ImaterialsrecyclerComponent, pathMatch:"full"  }, //recycler
+    {path: "seerequest", component: IseerequestComponent, pathMatch:"full"  }, //recycler
+    {path: "agreements", component: IagreementsComponent, pathMatch:"full"  },
 
 
     {
@@ -63,7 +68,8 @@ export const routes: Routes = [
             {path: '', redirectTo: "community", pathMatch:"full"},
             {path: 'materialsrecycler', component: ImaterialsrecyclerComponent},
             {path: '', redirectTo: "materialsrecycler", pathMatch:"full"},
-           
+            
+        
         ]
 
     },
