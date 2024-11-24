@@ -35,6 +35,7 @@ export class MaterialstableComponent implements OnInit {
       this.apiService.getMaterialsByCompany(id_empresa).subscribe(
         (response: any[]) => {
           this.dataSource = response.map(material => ({
+            id_material: material.id_material, // Incluye el id_material
             nombre: material.nombre_material, // Asegúrate de que el backend retorne "nombre_material"
             cantidad: material.cantidad,
           }));
@@ -48,29 +49,48 @@ export class MaterialstableComponent implements OnInit {
     }
   }
   
+  
 
   updateMaterial(material: any): void {
     const dialogRef = this.dialog.open(DialogUpdatematerialComponent, {
-      data: { ...material } // Pasa el material seleccionado al diálogo
+      data: {
+        id_material: material.id_material, // Pasa el id_material correctamente
+        nombre: material.nombre_material,
+        cantidad: material.cantidad,
+      },
     });
   
-    dialogRef.afterClosed().subscribe((updatedData) => {
-      if (updatedData) {
-        const id_material = material.id_material; // Asegúrate de que el ID esté presente en el material
-        this.apiService.updateMaterial(id_material, updatedData).subscribe(
-          () => {
-            this.loadMaterials(); // Recargar la tabla
-            console.log('Material actualizado exitosamente');
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
+        // Verifica que el id_material esté definido
+        if (!material.id_material) {
+          console.error('Error: id_material no definido');
+          alert('Error interno: no se pudo identificar el material.');
+          return;
+        }
+  
+        // Llama al servicio para actualizar el material
+        this.apiService.updateMaterial(material.id_material, result).subscribe({
+          next: () => {
+            alert("Material actualizado correctamente");
+            this.loadMaterials(); // Recarga la tabla
           },
-          (error) => {
-            console.error('Error al actualizar el material:', error);
-          }
-        );
+          error: (err) => {
+            console.error("Error al actualizar el material", err);
+            alert("No se pudo actualizar el material");
+          },
+        });
       }
     });
   }
 
   deleteMaterial(material: any): void {
+    if (!material.id_material) {
+      console.error('Error: id_material no definido');
+      alert('Error interno: no se pudo identificar el material.');
+      return;
+    }
+  
     const dialogRef = this.dialog.open(DialogDeletematerialComponent, {
       data: { nombre: material.nombre } // Pasa el nombre del material al diálogo
     });
@@ -82,12 +102,16 @@ export class MaterialstableComponent implements OnInit {
           () => {
             this.loadMaterials(); // Recargar la tabla
             console.log('Material eliminado exitosamente');
+            alert('Material eliminado correctamente');
           },
           (error) => {
             console.error('Error al eliminar el material:', error);
+            alert('No se pudo eliminar el material');
           }
         );
       }
     });
   }
+  
+
 }

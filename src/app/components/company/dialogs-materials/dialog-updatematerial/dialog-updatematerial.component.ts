@@ -29,10 +29,13 @@ export class DialogUpdatematerialComponent {
 
   saveChanges(): void {
     const payload = {
-      nombre_material: this.nombreMaterial || undefined,
+      nombre_material: this.nombreMaterial || undefined, // Envía solo valores válidos
       cantidad: this.cantidadMaterial || undefined,
     };
-    this.dialogRef.close(payload);
+  
+    this.dialogRef.close(payload); // No incluye id_material porque ya lo tiene el componente principal
   }
+  
+  
   
 }
