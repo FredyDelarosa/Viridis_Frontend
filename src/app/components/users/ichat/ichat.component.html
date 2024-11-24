@@ -1,4 +1,5 @@
-<app-header-users></app-header-users>
+<app-header-company *ngIf="myRol === 'empresa'"></app-header-company>
+<app-header-recycler *ngIf="myRol === 'reciclador'"></app-header-recycler>
 
 <div class="tabs" *ngIf="isResponsive">
   <button 

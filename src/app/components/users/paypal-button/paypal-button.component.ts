@@ -1,14 +1,15 @@
-import { AfterViewInit, Component, Input } from '@angular/core';
+import { AfterViewInit, Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-paypal-button',
   standalone: true,
-  imports: [],
   template: `<div id="paypal-button-container"></div>`,
   styleUrl: './paypal-button.component.scss'
 })
-export class PaypalButtonComponent implements AfterViewInit  {
+export class PaypalButtonComponent implements AfterViewInit {
   @Input() amount!: number;
+  @Input() context: 'donation' | 'service' = 'donation';  // Nueva propiedad para diferenciar el contexto
+  @Output() paymentSuccess = new EventEmitter<void>();  // Emite el evento cuando el pago es exitoso
 
   ngAfterViewInit(): void {
     if (typeof window !== 'undefined' && typeof document !== 'undefined') {
@@ -35,6 +36,10 @@ export class PaypalButtonComponent implements AfterViewInit  {
           },
           onApprove: (data: any, actions: any) => {
             return actions.order.capture().then((details: any) => {
+              // Si el contexto es 'service', emitimos el evento de éxito del pago
+              if (this.context === 'service') {
+                this.paymentSuccess.emit(); // Emitir el evento de éxito
+              }
               alert(`¡Pago completado por ${details.payer.name.given_name}!`);
               console.log('Detalles del pago:', details);
             });
@@ -67,3 +72,6 @@ export class PaypalButtonComponent implements AfterViewInit  {
     });
   }
 }
+
+
+
