@@ -1,16 +1,23 @@
 import { Component, HostListener } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { HeaderUsersComponent } from "../header-users/header-users.component";
+import { HeaderCompanyComponent } from '../../company/header-company/header-company.component';
+import { HeaderRecyclerComponent } from '../../recycler/header-recycler/header-recycler.component';
 
 @Component({
   selector: 'app-ichat',
   standalone: true,
-  imports: [FormsModule, CommonModule, HeaderUsersComponent],
+  imports: [FormsModule, CommonModule, HeaderCompanyComponent, HeaderRecyclerComponent],
   templateUrl: './ichat.component.html',
   styleUrls: ['./ichat.component.scss'],
 })
 export class IchatComponent {
+  public myRol: string = ''; // Inicializa el rol como cadena vacía
+
+  ngOnInit(): void {
+    const aux = localStorage.getItem('rol'); // Obtiene el rol del localStorage
+    this.myRol = aux ? aux : ''; // Asigna el valor si existe, de lo contrario, una cadena vacía
+  }
   // Ejemplo de contactos
   contacts = [
     {
