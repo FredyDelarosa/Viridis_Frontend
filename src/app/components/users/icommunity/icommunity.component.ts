@@ -6,6 +6,7 @@ import { HeaderRecyclerComponent } from '../../recycler/header-recycler/header-r
 import { FooterUsersComponent } from '../footer-users/footer-users.component';
 import { Router } from '@angular/router';
 import { GuardService } from '../../../services/guard.service';
+import { ApiserviceService } from '../../../services/apiservice.service';
 
 @Component({
   selector: 'app-icommunity',
@@ -15,10 +16,22 @@ import { GuardService } from '../../../services/guard.service';
   styleUrl: './icommunity.component.scss'
 })
 export class IcommunityComponent implements OnInit{
-
   public myRol: string = ''; // Inicializa el rol como cadena vacía
+  public publications: any[] = [];
+
+  constructor(private apiservice: ApiserviceService) {}
+
   ngOnInit(): void {
     const aux = localStorage.getItem('rol'); // Obtiene el rol del localStorage
     this.myRol = aux ? aux : ''; // Asigna el valor si existe, de lo contrario, una cadena vacía
+
+    this.apiservice.getAllPublications().subscribe({
+      next: (data) =>{
+        this.publications = data;
+      },
+      error: (err) => {
+        console.error('Algo salio mal papu')
+      },
+    });
   }
 }
