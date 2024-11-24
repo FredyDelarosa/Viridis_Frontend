@@ -4,13 +4,17 @@ import { MatDialogRef } from '@angular/material/dialog';
 @Component({
   selector: 'app-dialog-deletematerial',
   standalone: true,
-  imports: [],
   templateUrl: './dialog-deletematerial.component.html',
-  styleUrl: './dialog-deletematerial.component.scss'
+  styleUrls: ['./dialog-deletematerial.component.scss']
 })
 export class DialogDeletematerialComponent {
   constructor(public dialogRef: MatDialogRef<DialogDeletematerialComponent>) {}
+
   closeDialog(): void {
-    this.dialogRef.close();
+    this.dialogRef.close(false); // Cerrar sin confirmar
+  }
+
+  confirmDelete(): void {
+    this.dialogRef.close(true); // Confirmar eliminación
   }
 }

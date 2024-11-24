@@ -9,22 +9,44 @@ import { DialogDeletematerialrequestComponent } from '../dialog-materialrequest/
 import { MatDialog, } from '@angular/material/dialog';
 import { GuardService } from '../../../services/guard.service';
 import { Router } from '@angular/router';
+import { ApiserviceService } from '../../../services/apiservice.service';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 
 @Component({
   selector: 'app-imaterials-request',
   standalone: true,
-  imports: [HeaderCompanyComponent, FooterUsersComponent  ],
+  imports: [HeaderCompanyComponent, FooterUsersComponent, FormsModule, CommonModule  ],
   templateUrl: './imaterials-request.component.html',
   styleUrl: './imaterials-request.component.scss'
 })
 export class ImaterialsRequestComponent {
-  constructor(private router:Router, private guardService:GuardService){}
   readonly dialog = inject(MatDialog);
+  materialRequest: any[] = [];
+
+  constructor(private router:Router, private guardService:GuardService, private apiservice: ApiserviceService){}
 
   ngOnInit(): void {
-    this.guardService.guardCompany();
+    const id_empresa = localStorage.getItem('user_id'); // Obtiene el ID de la empresa desde el localStorage
+  
+    if (id_empresa) {
+      this.apiservice.getMaterialRequestByCompany(id_empresa).subscribe({
+        next: (data) => {
+          console.log("Datos recibidos del backend:", data); // Log de las solicitudes
+          this.materialRequest = data;
+        },
+        error: (err) => {
+          console.error("Error al cargar las solicitudes:", err);
+        },
+      });
+    }
   }
+  
+  onImageError(event: Event): void {
+    console.error('Error cargando imagen:', event);
+  }
+  
 
   addMaterialRequest(): void {
     const dialogRef = this.dialog.open(DialogAddmaterialrequestComponent, {
