@@ -97,6 +97,7 @@ export class ApiserviceService {
     });
   }
 
+
   // Método para iniciar la verificación periódica del token
   startTokenCheck(): void {
     this.stopTokenCheck(); // Asegúrate de no tener múltiples intervalos activos
