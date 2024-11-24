@@ -109,6 +109,7 @@ export class ApiserviceService {
     });
   }
 
+
   updateMaterialRequest(id_solicitud: string, formData: FormData): Observable<any> {
     return this.http.put(`${this.url}materiales/materiales/solicitudes/${id_solicitud}`, formData, {
       headers: { 'Accept': 'application/json' }, // Opcional: Si necesitas encabezados específicos
@@ -118,7 +119,6 @@ export class ApiserviceService {
   deleteMaterialRequest(id_solicitud: string): Observable<any> {
     return this.http.delete(`${this.url}materiales/materiales/solicitudes/${id_solicitud}`);
   }
-  
   
 
   // Método para iniciar la verificación periódica del token
