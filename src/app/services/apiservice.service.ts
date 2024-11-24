@@ -60,8 +60,72 @@ export class ApiserviceService {
   createMaterialRequest(formData: FormData): Observable<any> {
     return this.http.post(`${this.url}materiales/solicitudes`, formData);
   }
+
+  updateMaterial(id_material: string, data: { nombre_material?: string; cantidad?: number }): Observable<any> {
+    return this.http.put(`${this.url}materiales/materiales/${id_material}`, data, {
+      headers: { 'Content-Type': 'application/json' },
+    });
+  }
+  
+  deleteMaterial(id_material: string): Observable<any> {
+    if (!id_material) {
+      console.error('Error: id_material es undefined');
+      throw new Error('El id_material no puede estar vacío');
+    }
+  
+    return this.http.delete(`${this.url}materiales/materiales/${id_material}`, {
+      headers: { 'Content-Type': 'application/json' },
+    });
+  }
   
 
+  // Crear publicación
+  createPublication(data: FormData): Observable<any> {
+    return this.http.post(`${this.url}publicaciones/`, data);
+  }
+
+  updatePublication(id: string, data: { descripcion: string; id_usuario: string }): Observable<any> {
+    return this.http.put(`${this.url}publicaciones/${id}`, data, {
+      headers: { 'Content-Type': 'application/json' }, // Asegura que se envíe como JSON
+    });
+  }
+
+  deletePublication(id: string, userId: string): Observable<any> {
+    return this.http.delete(`${this.url}publicaciones/${id}`, {
+      params: { user_id: userId }, // Enviar el ID del usuario como parámetro
+      headers: { 'Content-Type': 'application/json' },
+    });
+  }
+    
+  // Obtener publicaciones de un usuario específico
+  getPublicationsByUser(userId: string): Observable<any> {
+    console.log(`Solicitando publicaciones para el usuario: ${userId}`); // Agrega este log
+    return this.http.get(`${this.url}publicaciones/user`, {
+      params: { id_usuario: userId },
+    });
+  }
+
+  getAllPublications(): Observable<any> {
+    return this.http.get(`${this.url}publicaciones/`);
+  }
+
+  getMaterialRequestByCompany(id_empresa: string): Observable<any>{
+    return this.http.get(`${this.url}materiales/solicitudes_empresa`, {
+      params: {id_empresa},
+    });
+  }
+
+
+  updateMaterialRequest(id_solicitud: string, formData: FormData): Observable<any> {
+    return this.http.put(`${this.url}materiales/materiales/solicitudes/${id_solicitud}`, formData, {
+      headers: { 'Accept': 'application/json' }, // Opcional: Si necesitas encabezados específicos
+    });
+  }
+
+  deleteMaterialRequest(id_solicitud: string): Observable<any> {
+    return this.http.delete(`${this.url}materiales/materiales/solicitudes/${id_solicitud}`);
+  }
+  
 
   // Método para iniciar la verificación periódica del token
   startTokenCheck(): void {
