@@ -1,3 +1,19 @@
 <app-header-users/>
-<app-paypal/>
+<div class="donations">
+
+<div class="donation-container">
+    <h2>Gracias por apoyarnos. Dona aquí</h2>
+    <input type="number" [(ngModel)]="amount" placeholder="Ingrese una cantidad" />
+
+
+
+</div>
+
+<div class="container">
+    <div class="paypal">
+<app-paypal-button class="main" [amount]="amount"></app-paypal-button>
+</div>
+</div>
+</div>
+
 <app-footer-users/>

@@ -46,7 +46,7 @@
 
 
 .imgcard{
-    width: 100%; /* Las imágenes ocuparán todo el ancho del contenedor */
+    width: 100%; 
     height: 300px;
     object-fit: cover; /* Recorta las imágenes para ajustarlas */
 }
@@ -77,10 +77,10 @@
 
 .donations{
     width: 92%;
-    display: flex; /* Organiza los elementos en una fila */
-    align-items: center; /* Centra verticalmente la imagen y el texto */
-    gap: 20px; /* Espacio entre la imagen y el texto */
-    background-color: #f9f9f9; /* Fondo de la card */
+    display: flex; 
+    align-items: center; 
+    gap: 20px; 
+    background-color: #f9f9f9; 
 }
 
 .donations img {
@@ -98,12 +98,14 @@
     font-size: 20px; /* Tamaño del texto */
     line-height: 1.6; /* Espaciado entre líneas */
     text-align: justify;
-    margin-right: 50px;
+    margin-right: 40px;
     margin-bottom: 40px;
 }
 
 .donations button {
     padding: 10px 20px; /* Espaciado interno */
+    width: 250px;
+    height: 80px;
     font-size: 1rem; /* Tamaño del texto del botón */
     background-color: #4CAF50; /* Fondo verde */
     color: white; /* Texto blanco */
@@ -111,8 +113,9 @@
     border-radius: 5px; /* Bordes redondeados */
     cursor: pointer; /* Cambia el cursor a una mano al pasar por encima */
     transition: background-color 0.3s ease; /* Efecto de transición */
+    margin-bottom: 8px
 }
 
 .donations button:hover {
-    background-color: #45a049; /* Cambio de color al pasar por encima */
+    background-color: #45a049;
 }
