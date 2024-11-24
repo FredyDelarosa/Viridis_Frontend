@@ -4,8 +4,8 @@
 <div class="card-container">
     <div *ngFor="let publication of publications" class="card">
       <div class="icons">
-        <img (click)="updatePublication()" class="options" src="images/lapiz.png" alt="Editar">
-        <img (click)="deletePublication()" class="options" src="images/eliminar.png" alt="Eliminar">
+        <img (click)="updatePublication(publication)" class="options" src="images/lapiz.png" alt="Editar">
+        <img (click)="deletePublication(publication)" class="options" src="images/eliminar.png" alt="Eliminar">
       </div>
       <div class="card-header">
         <img class="profile-pic" src="images/logo2.png" alt="Profile Picture">
