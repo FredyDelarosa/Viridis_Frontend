@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeaderCompanyComponent } from '../../company/header-company/header-company.component';
 import { HeaderRecyclerComponent } from '../../recycler/header-recycler/header-recycler.component';
@@ -8,6 +8,7 @@ import { DialogUpdatepublicationComponent } from '../dialogs-publications/dialog
 import { DialogDeletepublicationComponent } from '../dialogs-publications/dialog-deletepublication/dialog-deletepublication.component';
 import { MatDialog, } from '@angular/material/dialog';
 import { GuardService } from '../../../services/guard.service';
+import { ApiserviceService } from '../../../services/apiservice.service';
 
 @Component({
   selector: 'app-ipublications',
@@ -17,6 +18,9 @@ import { GuardService } from '../../../services/guard.service';
   styleUrl: './ipublications.component.scss'
 })
 export class IpublicationsComponent {
+  publications: any[] = [];
+
+  constructor(private apiservice: ApiserviceService) {}
 
   readonly dialog = inject(MatDialog);
 
@@ -42,6 +46,17 @@ export class IpublicationsComponent {
   ngOnInit(): void {
     const aux = localStorage.getItem('rol'); // Obtiene el rol del localStorage
     this.myRol = aux ? aux : ''; // Asigna el valor si existe, de lo contrario, una cadena vacía
+    const userId = localStorage.getItem('user_id') || '';
+    if (userId) {
+      this.apiservice.getPublicationsByUser(userId).subscribe({
+        next: (data) => {
+          this.publications = data;
+        },
+        error: (err) => {
+          console.error('Error al obtener publicaciones', err);
+        },
+      });
+    }
   }
 
 }
