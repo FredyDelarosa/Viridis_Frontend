@@ -54,15 +54,38 @@ export class ImaterialsRequestComponent {
     });
   }
 
- updateMaterialRequest(): void {
+  updateMaterialRequest(request: any): void {
     const dialogRef = this.dialog.open(DialogUpdatematerialrequestComponent, {
-      data: {},
+      data: request, // Pasa los datos de la solicitud al diálogo
+    });
+  
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
+        // Si la solicitud fue actualizada, recarga la lista
+        this.ngOnInit();
+      }
     });
   }
+  
 
-  deleteMaterialRequest(): void{
-    const dialogRef = this.dialog.open(DialogDeletematerialrequestComponent, {
-      data: {},
+  deleteMaterialRequest(id_solicitud: string): void {
+    const dialogRef = this.dialog.open(DialogDeletematerialrequestComponent);
+  
+    dialogRef.afterClosed().subscribe((confirmed) => {
+      if (confirmed) {
+        this.apiservice.deleteMaterialRequest(id_solicitud).subscribe({
+          next: () => {
+            console.log('Solicitud eliminada correctamente');
+            // Actualiza la lista local eliminando el elemento eliminado
+            this.materialRequest = this.materialRequest.filter(
+              (request) => request.id_solicitud !== id_solicitud
+            );
+          },
+          error: (err) => {
+            console.error('Error al eliminar la solicitud:', err);
+          },
+        });
+      }
     });
   }
 
