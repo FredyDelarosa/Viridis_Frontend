@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 import { Router } from '@angular/router';
 
 @Injectable({
@@ -10,7 +10,7 @@ export class ApiserviceService {
   public url = 'http://127.0.0.1:8000/'; // Cambia el puerto si es necesario
   private readonly TOKEN_KEY = 'token';
   private readonly TOKEN_TIMESTAMP_KEY = 'tokenTimestamp';
-  private readonly TOKEN_LIFETIME = 2 * 60 * 1000; // 2 minutos
+  private readonly TOKEN_LIFETIME = 90 * 60 * 1000; // 2 minutos
   private readonly TOKEN_CHECK_INTERVAL = 10 * 1000; // Cada 10 segundos
   private tokenCheckInterval: any;
 
@@ -22,20 +22,46 @@ export class ApiserviceService {
     this.startTokenCheck();
     
     const params = new HttpParams()
-      .set('email', email)
-      .set('password', password);
+    .set('email', email)
+    .set('password', password);
 
-    return this.http.post(`${this.url}login`, null, { params });
-  }
+  return this.http.post(`${this.url}login`, null, { params }).pipe(
+    tap((response: any) => {
+      if (response.access_token && response.user_id) {
+        // Guardar el token y el ID del usuario en el localStorage
+        this.setToken(response.access_token);
+        localStorage.setItem('user_id', response.user_id);
+      }
+    })
+  );
+}
 
   registerRecycler(data: any): Observable<any> {
     return this.http.post(`${this.url}usuarios/reciclador`, data);
   }
   
 
-  addMaterialRequest(data: any): Observable<any> {
-    return this.http.post(`${this.url}materials/requests`, data);
+  addMaterialRequest(data: { nombre_material: string; cantidad: number; id_empresa: string }): Observable<any> {
+    const id_empresa = data.id_empresa; // Extraemos el ID de la empresa
+    const payload = { nombre_material: data.nombre_material, cantidad: data.cantidad }; // Cuerpo del request
+  
+    return this.http.post(`${this.url}materiales/materiales?id_empresa=${id_empresa}`, payload, {
+      headers: { 'Content-Type': 'application/json' },
+    });
   }
+
+  getMaterialsByCompany(id_empresa: string): Observable<any> {
+    return this.http.get(`${this.url}materiales/materialesbycompany`, {
+      params: { id_empresa },
+    });
+  }
+  
+
+  createMaterialRequest(formData: FormData): Observable<any> {
+    return this.http.post(`${this.url}materiales/solicitudes`, formData);
+  }
+  
+
 
   // Método para iniciar la verificación periódica del token
   startTokenCheck(): void {
