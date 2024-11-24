@@ -91,6 +91,13 @@ export class ApiserviceService {
     return this.http.get(`${this.url}publicaciones/`);
   }
 
+  getMaterialRequestByCompany(id_empresa: string): Observable<any>{
+    return this.http.get(`${this.url}materiales/solicitudes_empresa`, {
+      params: {id_empresa},
+    });
+  }
+
+
   // Método para iniciar la verificación periódica del token
   startTokenCheck(): void {
     this.stopTokenCheck(); // Asegúrate de no tener múltiples intervalos activos
