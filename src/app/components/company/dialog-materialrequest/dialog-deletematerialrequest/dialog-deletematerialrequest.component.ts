@@ -10,6 +10,11 @@ import { MatDialogRef } from '@angular/material/dialog';
 })
 export class DialogDeletematerialrequestComponent {
   constructor(public dialogRef: MatDialogRef<DialogDeletematerialrequestComponent>) {}
+
+  confirmDelete(): void {
+    this.dialogRef.close(true); // Devuelve 'true' para confirmar la eliminación
+  }
+  
   closeDialog(): void {
     this.dialogRef.close();
   }
