@@ -62,16 +62,22 @@ export class ApiserviceService {
   }
 
   updateMaterial(id_material: string, data: { nombre_material?: string; cantidad?: number }): Observable<any> {
-    return this.http.put(`${this.url}materiales/materiales/${id_material}`, JSON.stringify(data), {
+    return this.http.put(`${this.url}materiales/materiales/${id_material}`, data, {
       headers: { 'Content-Type': 'application/json' },
     });
-  }  
-
+  }
+  
   deleteMaterial(id_material: string): Observable<any> {
+    if (!id_material) {
+      console.error('Error: id_material es undefined');
+      throw new Error('El id_material no puede estar vacío');
+    }
+  
     return this.http.delete(`${this.url}materiales/materiales/${id_material}`, {
       headers: { 'Content-Type': 'application/json' },
     });
-  } 
+  }
+  
 
   // Crear publicación
   createPublication(data: FormData): Observable<any> {
