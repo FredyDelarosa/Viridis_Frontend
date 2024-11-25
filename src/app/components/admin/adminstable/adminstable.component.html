@@ -1,35 +1,32 @@
 <div class="container">
-    <table mat-table [dataSource]="dataSource" class="custom-table">
-    
-      <!--- Note that these columns can be defined in any order.
-            The actual rendered columns are set as a property on the row definition" -->
-    
-      <!-- id Column -->
-      <ng-container matColumnDef="id">
-        <th mat-header-cell *matHeaderCellDef> ID </th>
-        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
-      </ng-container>
-    
-      <!-- nombre Column -->
-      <ng-container matColumnDef="nombre">
-        <th mat-header-cell *matHeaderCellDef> Nombre del Administrador </th>
-        <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
-      </ng-container>
-    
-      <!-- acciones Column -->
-      <ng-container matColumnDef="acciones">
-        <th mat-header-cell *matHeaderCellDef> Acciones </th>
-        <td mat-cell *matCellDef="let song">
-          <button (click)="updateAdmin()" class="table-button-edit" color="secondary">
-            <mat-icon>edit</mat-icon>
-          </button>
-          <button (click)="deleteAdmin()" class="table-button-delete" mat-icon-button color="warn" >
-            <mat-icon>delete</mat-icon>
-          </button>
-        </td>
-      </ng-container>
-    
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    </table>
-    </div>
+  <table mat-table [dataSource]="dataSource" class="custom-table">
+
+    <!-- ID Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> ID </th>
+      <td mat-cell *matCellDef="let element"> {{element.id_administrador}} </td>
+    </ng-container>
+
+    <!-- Usuario Column -->
+    <ng-container matColumnDef="usuario">
+      <th mat-header-cell *matHeaderCellDef> Nombre del Administrador </th>
+      <td mat-cell *matCellDef="let element"> {{element.usuario}} </td>
+    </ng-container>
+
+    <!-- Acciones Column -->
+    <ng-container matColumnDef="acciones">
+      <th mat-header-cell *matHeaderCellDef> Acciones </th>
+      <td mat-cell *matCellDef="let element">
+        <button (click)="updateAdmin(element)" class="table-button-edit">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button (click)="deleteAdmin(element)" class="table-button-delete">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>

@@ -1,26 +1,18 @@
-<div class="dialog-container">
-    <h2 class="solicitud-titulo">Editar Administrdor</h2>
-    <div class="input-container">
-        <p>Nombre del Administrador</p>
-      <input type="text" id="name" class="input-field" placeholder="Osvaldo Ochoa" required />
-    </div>
-    <div class="input-container">
-        <p>Correo Electrónico</p>
-        <input type="email" id="email" class="input-field" placeholder="osvagmail" required />
-    </div>
-    <div class="input-container">
-        <p>Contraseña</p>
-        <input type="password" id="password" class="input-field" placeholder="1322321" required />
-    </div>
-    <div class="input-container">
-        <p>Confirmar Contraseña</p>
-        <input type="password" id="password" class="input-field" placeholder="123123123" required />
-    </div>
-
-
-    <div class="button-container">
-      <button type="button" class="close-button" (click)="closeDialog()">Cerrar</button>
-      <button type="submit" class="add-button">Modificar</button>
-    </div>
+<form>
+  <!-- Campo para el usuario -->
+  <div class="input-container">
+    <label for="name">Nombre del Administrador</label>
+    <input [(ngModel)]="adminData.usuario" name="usuario" type="text" id="name" class="input-field" required />
   </div>
-  
+
+  <!-- Campo para el correo -->
+  <div class="input-container">
+    <label for="email">Correo Electrónico</label>
+    <input [(ngModel)]="adminData.email" name="email" type="email" id="email" class="input-field" required />
+  </div>
+
+  <div class="button-container">
+    <button type="button" class="close-button" (click)="closeDialog()">Cerrar</button>
+    <button type="button" class="add-button" (click)="updateAdmin()">Modificar</button>
+  </div>
+</form>

@@ -1,22 +1,15 @@
-<div class="dialog-container">
-    <h2 class="solicitud-titulo">Agregar Administrador</h2>
-    <div class="input-container">
-      <input type="text" id="name" class="input-field" placeholder="Nombre del Administrador" required />
-    </div>
-    <div class="input-container">
-        <input type="email" id="email" class="input-field" placeholder="Correo Electrónico" required />
-    </div>
-    <div class="input-container">
-        <input type="password" id="password" class="input-field" placeholder="Contraseña" required />
-    </div>
-    <div class="input-container">
-        <input type="password" id="password" class="input-field" placeholder="Confirmar Contraseña" required />
-    </div>
-
-
-    <div class="button-container">
-      <button type="button" class="close-button" (click)="closeDialog()">Cerrar</button>
-      <button type="submit" class="add-button">Agregar</button>
-    </div>
+<form (ngSubmit)="onSubmit()">
+  <div class="input-container">
+    <input type="text" [(ngModel)]="adminData.usuario" name="usuario" class="input-field" placeholder="Nombre del Administrador" required />
   </div>
-  
+  <div class="input-container">
+    <input type="email" [(ngModel)]="adminData.email" name="email" class="input-field" placeholder="Correo Electrónico" required />
+  </div>
+  <div class="input-container">
+    <input type="password" [(ngModel)]="adminData.password" name="password" class="input-field" placeholder="Contraseña" required />
+  </div>
+  <div class="button-container">
+    <button type="button" class="close-button" (click)="closeDialog()">Cerrar</button>
+    <button type="submit" class="add-button">Agregar</button>
+  </div>
+</form>
