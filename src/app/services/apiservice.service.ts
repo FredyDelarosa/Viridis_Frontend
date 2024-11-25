@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
-import { Observable, tap } from 'rxjs';
+import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http';
+import { catchError, Observable, tap, throwError } from 'rxjs';
 import { Router } from '@angular/router';
 
 @Injectable({
@@ -154,6 +154,36 @@ export class ApiserviceService {
       headers: { 'Content-Type': 'application/json' },
     });
   }
+
+  createAdministrator(data: { usuario: string; email: string; contraseña: string }): Observable<any> {
+    return this.http.post(`${this.url}usuarios/administrador`, data, {
+      headers: { 'Content-Type': 'application/json' },
+    });
+  }
+
+  getAdministrators(skip: number = 0, limit: number = 10): Observable<any[]> {
+    return this.http.get<any[]>(`${this.url}usuarios/administradores`, {
+      params: { skip, limit },
+      headers: { 'Content-Type': 'application/json' },
+    }).pipe(
+      catchError((error: HttpErrorResponse) => {
+        console.error('Error al obtener administradores:', error);
+        return throwError(() => error);
+      })
+    );
+  }
+
+  updateAdministrator(id_administrador: string, data: { usuario: string; email: string }): Observable<any> {
+    return this.http.put(`${this.url}usuarios/administradores/${id_administrador}`, data, {
+      headers: { 'Content-Type': 'application/json' },
+    });
+  }
+
+  deleteAdministrator(administradorId: string): Observable<any> {
+    return this.http.delete(`${this.url}usuarios/administrador/${administradorId}`, {
+      headers: { 'Content-Type': 'application/json' },
+    });
+  }  
   
   // Método para iniciar la verificación periódica del token
   startTokenCheck(): void {
