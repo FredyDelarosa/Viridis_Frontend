@@ -78,7 +78,6 @@ export class ApiserviceService {
     });
   }
   
-
   // Crear publicación
   createPublication(data: FormData): Observable<any> {
     return this.http.post(`${this.url}publicaciones/`, data);
@@ -124,9 +123,17 @@ export class ApiserviceService {
   deleteMaterialRequest(id_solicitud: string): Observable<any> {
     return this.http.delete(`${this.url}materiales/materiales/solicitudes/${id_solicitud}`);
   }
-  
-  
 
+  getMaterialRequests(skip: number = 0, limit: number = 10): Observable<any> {
+    return this.http.get(`${this.url}materiales/solicitudes_materiales`, {
+      params: { skip, limit },
+    });
+  }
+
+  getRequestDetails(id: string): Observable<any> {
+    return this.http.get(`${this.url}materiales/solicitudes_materiales/${id}`);
+  }  
+  
   // Método para iniciar la verificación periódica del token
   startTokenCheck(): void {
     this.stopTokenCheck(); // Asegúrate de no tener múltiples intervalos activos

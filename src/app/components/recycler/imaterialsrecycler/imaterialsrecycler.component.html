@@ -1,19 +1,23 @@
-<app-header-recycler/>
+<app-header-recycler></app-header-recycler>
 <div class="card-container">
-    <div class="card">
-        <div class="icons">
-        </div>
-        <img class="imgprincipal" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWTdNwzcNVwqK17r9u1xH0VoPTEP_SzWgIXA&s" alt="">
-        <div class="card-content">
-            <h2>Empresa</h2>
-            <div class="info">
-            <h3>Producto</h3>
-            <h3>Precio $</h3>
-            </div>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut inventore beatae, quis itaque cum voluptate
-            molestias molestiae</p>
-            <button (click)=" routeToSeeRequest()" >Ver Más</button>
-        </div>
+  <div class="card" *ngFor="let request of materialRequests()">
+    <div class="icons"></div>
+    <img 
+      class="imgprincipal" 
+      [src]="request.imagen_solicitud" 
+      alt="{{ request.nombre_material }}"
+    >
+    
+    <div class="card-content">
+      <h2>{{ request.nombre_empresa }}</h2>
+      <div class="info">
+        <h3>{{ request.nombre_material }}</h3>
+        <h3>Precio: ${{ request.precio }}</h3>
+      </div>
+      <p>{{ request.descripcion || 'Sin descripción' }}</p>
+      <p>Estado: {{ request.estado_solicitud }}</p>
+      <button (click)="routeToSeeRequest(request.id_solicitud)">Ver Más</button>
     </div>
+  </div>
 </div>
-<app-footer-users/>
+<app-footer-users></app-footer-users>
