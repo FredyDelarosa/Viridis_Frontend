@@ -21,6 +21,7 @@ import { IrequestBusinessComponent } from './components/admin/irequest-business/
 //Company
 import { IregisterCompanyComponent } from './components/company/iregister-company/iregister-company.component';
 import { IstatisticsComponent } from './components/company/istatistics/istatistics.component';
+import { PurchaseAdComponent } from './components/company/purchase-ad/purchase-ad.component';
 import { ImaterialsRequestComponent } from './components/company/imaterials-request/imaterials-request.component';
 import { IrequestAdvertisementComponent } from './components/company/irequest-advertisement/irequest-advertisement.component';
 import { ImaterialsComponent } from './components/company/imaterials/imaterials.component';
@@ -35,14 +36,14 @@ export const routes: Routes = [
     {path: 'chose', component: IchoseRolComponent, pathMatch:"full"  }, // all users
     {path: "registercompany", component: IregisterCompanyComponent, pathMatch:"full"}, //everyone
     {path: "registerrecycler", component: IregisterRecyclerComponent, pathMatch:"full"  }, //everyone
+    {path: "paypal", component: IpaypalComponent, pathMatch:"full"  }, //everyone
     
     
     //company and recycler
     //{path: "community", component: IcommunityComponent, pathMatch:"full"  }, //company and recycler
     //{path: "publications", component: IpublicationsComponent, pathMatch:"full"  }, //company and recycler
     //{path: "chat", component: IchatComponent, pathMatch:"full"  }, //company and recycler
-    {path: "paypal", component: IpaypalComponent, pathMatch:"full"  }, //company and recycler
-    {path: "donation", component: IdonationComponent, pathMatch:"full"  }, //company and recycler
+    //{path: "donation", component: IdonationComponent, pathMatch:"full"  }, //Esta interfaz definitivamente ya no va
 
     
     //admin
@@ -56,12 +57,13 @@ export const routes: Routes = [
     //{path: "request", component: ImaterialsRequestComponent, pathMatch: "full"},
     //{path: "publicity", component: IrequestAdvertisementComponent, pathMatch:"full"  }, 
     //{path: "xs", component: IstatisticsComponent, pathMatch:"full"}, 
+    //{path: "purchasead", component: PurchaseAdComponent, pathMatch:"full"}, 
 
     //recycler
 
-    {path: "materialsrecycler", component: ImaterialsrecyclerComponent, pathMatch:"full"  }, //recycler
-    {path: "seerequest", component: IseerequestComponent, pathMatch:"full"  }, //recycler
-    {path: "agreements", component: IagreementsComponent, pathMatch:"full"  },
+    //{path: "materialsrecycler", component: ImaterialsrecyclerComponent, pathMatch:"full"  }, //recycler
+    //{path: "seerequest", component: IseerequestComponent, pathMatch:"full"  }, //recycler
+    //{path: "agreements", component: IagreementsComponent, pathMatch:"full"  },
 
     //{path: "materialsrecycler", component: ImaterialsrecyclerComponent, pathMatch:"full"  },
     //{path: "seerequest", component: IseerequestComponent, pathMatch:"full"  }, 
@@ -79,7 +81,9 @@ export const routes: Routes = [
             {path: 'publications', component: IpublicationsComponent},
             {path: "", component: IpublicationsComponent},
             {path: "chat", component: IchatComponent },
-            {path: "", component: IchatComponent,}
+            {path: "", component: IchatComponent},
+            {path: "agreements", component: IagreementsComponent},
+            {path: "", component: IagreementsComponent}
         ]
     },
     {
@@ -98,7 +102,9 @@ export const routes: Routes = [
             {path: 'publications', component: IpublicationsComponent},
             {path: "", component: IpublicationsComponent},
             {path: "chat", component: IchatComponent },
-            {path: "", component: IchatComponent,}
+            {path: "", component: IchatComponent},
+            {path: "purchasead", component: PurchaseAdComponent}, 
+            {path: "", component:PurchaseAdComponent}
         ]
     },
     {
@@ -113,4 +119,6 @@ export const routes: Routes = [
 
         ]
     }
+
+    
 ];

@@ -4,8 +4,6 @@ import { CommonModule } from '@angular/common';
 import { HeaderCompanyComponent } from '../../company/header-company/header-company.component';
 import { HeaderRecyclerComponent } from '../../recycler/header-recycler/header-recycler.component';
 import { FooterUsersComponent } from '../footer-users/footer-users.component';
-import { Router } from '@angular/router';
-import { GuardService } from '../../../services/guard.service';
 import { ApiserviceService } from '../../../services/apiservice.service';
 
 @Component({

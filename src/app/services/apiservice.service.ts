@@ -114,6 +114,7 @@ export class ApiserviceService {
     });
   }
 
+
   updateMaterialRequest(id_solicitud: string, formData: FormData): Observable<any> {
     return this.http.put(`${this.url}materiales/materiales/solicitudes/${id_solicitud}`, formData, {
       headers: { 'Accept': 'application/json' }, // Opcional: Si necesitas encabezados específicos
