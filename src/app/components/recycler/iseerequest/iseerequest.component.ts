@@ -35,6 +35,33 @@ export class IseerequestComponent {
     });
   }
 
+  acceptAndTransact(idSolicitud: string, cantidad: number): void {
+    if (isNaN(cantidad) || cantidad <= 0) {
+      console.error('Cantidad inválida:', cantidad);
+      alert('Por favor, ingresa una cantidad válida.');
+      return;
+    }
+  
+    const idReciclador = localStorage.getItem('user_id');
+    if (!idReciclador) {
+      console.error('No se encontró el ID del reciclador en localStorage');
+      return;
+    }
+  
+    console.log('Datos enviados:', {
+      id_reciclador: idReciclador,
+      id_solicitud: idSolicitud,
+      cantidad_reciclada: cantidad
+    });
+  
+    this.apiservice.acceptAndTransact(idReciclador, idSolicitud, cantidad).subscribe({
+      next: (response) => {
+        console.log('Solicitud aceptada y transacción registrada:', response);
+        this.router.navigate(['/success']); // Redirige a una vista de éxito
+      },
+      error: (err) => console.error('Error al aceptar y transaccionar:', err),
+    });
+  }
   
   routeToChat(){
     this.router.navigate(["/chat"])

@@ -133,7 +133,27 @@ export class ApiserviceService {
 
   getRequestDetails(id: string): Observable<any> {
     return this.http.get(`${this.url}materiales/solicitudes_materiales/${id}`);
-  }  
+  } 
+
+  acceptAndTransact(idReciclador: string, idSolicitud: string, cantidad: number): Observable<any> {
+    const payload = {
+      id_reciclador: idReciclador,
+      id_solicitud: idSolicitud,
+      cantidad_reciclada: cantidad
+    };
+  
+    console.log('Payload enviado al servidor:', payload);
+  
+    return this.http.post(`${this.url}transacciones/aceptar_y_transaccionar`, payload, {
+      headers: { 'Content-Type': 'application/json' },
+    });
+  }
+
+  getUserTransactions(idReciclador: string): Observable<any[]> {
+    return this.http.get<any[]>(`${this.url}transacciones/reciclador/${idReciclador}`, {
+      headers: { 'Content-Type': 'application/json' },
+    });
+  }
   
   // Método para iniciar la verificación periódica del token
   startTokenCheck(): void {
