@@ -12,11 +12,10 @@
   </div>
   <div class="calculator">
     <h3>Ingrese la cantidad a Entregar: </h3>
-    <input type="number" placeholder="Cantidad">
+    <input #cantidad type="number" placeholder="Cantidad"> 
     <h3>Total: ${{ details.precio * 1 }}</h3>
     <div class="actions">
-      <button>Chatear con la Empresa</button>
-      <button>Aceptar solicitud</button>
+    <button (click)="acceptAndTransact(details.id_solicitud, +cantidad.value)">Aceptar solicitud</button>    
     </div>
   </div>
 </div>
