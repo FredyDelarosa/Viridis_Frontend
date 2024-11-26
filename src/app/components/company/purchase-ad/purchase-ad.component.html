@@ -1,10 +1,11 @@
-<app-header-company/>
+<app-header-company></app-header-company>
 
 <div class="purchase">
   <div class="purchase-container">
     <h2>Adquiere tu Anuncio</h2>
     <p>Publica tu anuncio en nuestra plataforma por solo <strong>$99</strong>.</p>
 
+    <!-- Formulario -->
     <form [formGroup]="adForm" (ngSubmit)="onSubmit()" class="ad-form">
       <div class="form-control">
         <label for="description">Descripción:</label>
@@ -26,17 +27,20 @@
           <small>La imagen es obligatoria.</small>
         </div>
       </div>
+
+      <!-- Botón para enviar el formulario -->
+      <div class="buttom-container">
+        <button type="submit" [disabled]="!paymentSuccess">Crear Anuncio</button>
+      </div>
     </form>
   </div>
-      <div class="container">
-      <!-- Botón de PayPal -->
-      <div class="paypal">
-        <app-paypal-button [amount]="99" context="service" (paymentSuccess)="onPaymentSuccess()"></app-paypal-button>
-      </div>
+
+  <div class="container">
+    <!-- Botón de PayPal -->
+    <div class="paypal">
+      <app-paypal-button [amount]="99" context="service" (paymentSuccess)="onPaymentSuccess()"></app-paypal-button>
     </div>
   </div>
-  <div class="buttom-container">
-      <!-- Botón para enviar el formulario -->
-      <button type="submit" [disabled]="!paymentSuccess">Crear Anuncio</button>
-    </div>
-<app-footer-users/>
+</div>
+
+<app-footer-users></app-footer-users>

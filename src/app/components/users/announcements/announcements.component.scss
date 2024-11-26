@@ -5,27 +5,31 @@
     font-family: 'Arial', sans-serif;
 }
 
-.card-container {
+.icons{
     display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 140px; 
-    margin-top: 80px;
-    margin-bottom: 60px;
-    padding: 50px;
+    justify-content: end;
+    background-color: rgb(253, 253, 253);
+    cursor: pointer;
 }
 
-.community-container {
-    padding: 20px;
-  }
-  
-  h1 {
-    font-size: 24px;
-    margin-bottom: 16px;
-    color: #333;
-  }  
+.options {
+    width: 20px;
+    height: auto;
+    margin: 10px;
+}
+
+.card-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items:  center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 150px; 
+    margin-top: 70px;
+    margin-bottom: 60px;
+    margin-left: 160px;
+    padding: 50px;
+}
 
 .card {
     width: 450px;
@@ -81,21 +85,36 @@
     transition: transform 0.5s ease;
 }
 
+
+.circular-button {
+    width: 70px; 
+    height: 70px; 
+    border-radius: 50%; 
+    background-color: #108310; 
+    color: white; 
+    border: none; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: fixed; 
+    bottom: 80px; 
+    right: 50px; 
+    font-size: 50px;
+}
+
 /* Media Query para pantallas más pequeñas */
 @media (max-width: 768px) {
     .card-container {
         padding: 20px; 
-        gap: 40px; 
+        gap: 30px; 
         margin-top: 170px;
-        margin-bottom: 40px;
+        margin-bottom: 50px;
+        margin-left: 0;
     }
 
     .card {
-        width: 100%; 
-    }
-
-    .card-header {
-        padding: 8px; 
+        width: 90%; 
     }
 
     .profile-pic {
@@ -105,7 +124,7 @@
     }
 
     .user-info h2 {
-        font-size: 16px; 
+        font-size: 16px;
     }
 
     .user-info .date {
@@ -114,5 +133,9 @@
 
     .info h3 {
         font-size: 12px; 
+    }
+
+    .imgprincipal {
+        height: 200px; 
     }
 }
