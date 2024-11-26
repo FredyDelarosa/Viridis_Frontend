@@ -69,7 +69,9 @@ export class DialogAddmaterialrequestComponent implements OnInit {
     this.apiService.createMaterialRequest(formData).subscribe({
       next: (response) => {
         console.log('Solicitud creada:', response);
+        alert('Solicitud de Material Creada Exitosamente.')
         this.closeDialog();
+        window.location.reload();
       },
       error: (err) => {
         console.error('Error al crear solicitud:', err);
