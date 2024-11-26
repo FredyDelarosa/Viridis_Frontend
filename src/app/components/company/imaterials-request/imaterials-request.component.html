@@ -1,12 +1,12 @@
 <app-header-company></app-header-company>
 <h2 class="title">Mis Solicitudes de Materiales</h2>
 <div class="cards">
+  
   <div *ngFor="let request of materialRequest" class="card-container">
     <div class="card">
       <div class="icons">
         <img class="options" src="images/lapiz.png" alt="Modificar Solicitud" (click)="updateMaterialRequest(request)"/>
         <img class="options" src="images/eliminar.png" alt="Eliminar Solicitud" (click)="deleteMaterialRequest(request.id_solicitud)"/>
-
       </div>
       <img 
   class="imgprincipal" 
