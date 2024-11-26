@@ -98,11 +98,11 @@ export class ApiserviceService {
     
   // Obtener publicaciones de un usuario específico
   getPublicationsByUser(userId: string): Observable<any> {
-    console.log(`Solicitando publicaciones para el usuario: ${userId}`); // Agrega este log
     return this.http.get(`${this.url}publicaciones/user`, {
       params: { id_usuario: userId },
     });
   }
+  
 
   getAllPublications(): Observable<any> {
     return this.http.get(`${this.url}publicaciones/`);
@@ -150,10 +150,11 @@ export class ApiserviceService {
   }
 
   getUserTransactions(idReciclador: string): Observable<any[]> {
-    return this.http.get<any[]>(`${this.url}transacciones/reciclador/${idReciclador}`, {
-      headers: { 'Content-Type': 'application/json' },
-    });
-  }
+  return this.http.get<any[]>(`${this.url}transacciones/reciclador/${idReciclador}`, {
+    headers: { 'Content-Type': 'application/json' },
+  });
+}
+
 
   createAdministrator(data: { usuario: string; email: string; contraseña: string }): Observable<any> {
     return this.http.post(`${this.url}usuarios/administrador`, data, {
