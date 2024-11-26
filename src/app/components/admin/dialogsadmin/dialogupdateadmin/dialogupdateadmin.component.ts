@@ -40,18 +40,15 @@ export class DialogupdateadminComponent {
   }
 
   updateAdmin(): void {
-    // Siempre enviar ambos campos (usuario y email)
+    // Crear un objeto con todos los datos del formulario
     const updatedFields = {
       usuario: this.adminData.usuario || this.originalData.usuario,
       email: this.adminData.email || this.originalData.email,
     };
   
-    // Verificar que al menos uno de los campos sea diferente antes de enviar
-    if (
-      updatedFields.usuario === this.originalData.usuario &&
-      updatedFields.email === this.originalData.email
-    ) {
-      alert('No se realizaron cambios para actualizar.');
+    // Verificar si alguno de los campos es inválido o está vacío
+    if (!updatedFields.usuario || !updatedFields.email) {
+      alert('Todos los campos deben estar completos.');
       return;
     }
   
@@ -59,7 +56,7 @@ export class DialogupdateadminComponent {
   
     console.log('Datos enviados al servidor:', updatedFields);
   
-    // Llamar al servicio con los datos actualizados
+    // Llamar al servicio para actualizar el administrador
     this.apiService.updateAdministrator(adminId, updatedFields).subscribe({
       next: (response) => {
         console.log('Administrador actualizado:', response);
@@ -74,5 +71,6 @@ export class DialogupdateadminComponent {
       },
     });
   }
+  
   
 }
