@@ -12,7 +12,7 @@
 
 }
 
-.card-container {
+.cards {
     display: flex;
     justify-content: flex-start;
     flex-wrap: wrap;
@@ -34,17 +34,19 @@
     cursor: pointer; 
 }
 
-.card:hover {
-    transform: translateY(-10px); 
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2); 
-}
 
 .icons{
     display: flex;
     justify-content: end;
 }
 
-.options {
+.options-update {
+    width: 20px;
+    height: auto;
+    margin: 10px;
+}
+
+.options-delete {
     width: 20px;
     height: auto;
     margin: 10px;
