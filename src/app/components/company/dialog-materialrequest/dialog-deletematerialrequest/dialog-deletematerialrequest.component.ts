@@ -13,6 +13,8 @@ export class DialogDeletematerialrequestComponent {
 
   confirmDelete(): void {
     this.dialogRef.close(true); // Devuelve 'true' para confirmar la eliminación
+    alert('Solicitud de Material Eliminada Exitosamente.')
+    window.location.reload();
   }
   
   closeDialog(): void {

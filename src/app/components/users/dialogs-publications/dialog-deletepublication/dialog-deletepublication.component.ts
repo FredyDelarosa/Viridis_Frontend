@@ -35,6 +35,7 @@ export class DialogDeletepublicationComponent {
       next: () => {
         alert("Publicación eliminada correctamente");
         this.closeDialog(); // Cierra el diálogo después de eliminar
+        window.location.reload();
       },
       error: (err) => {
         console.error("Error al eliminar la publicación", err);
