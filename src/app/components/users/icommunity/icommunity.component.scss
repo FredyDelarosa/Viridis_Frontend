@@ -9,8 +9,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
-    gap: 60px; 
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 140px; 
     margin-top: 80px;
     margin-bottom: 60px;
     padding: 50px;
