@@ -1,0 +1,20 @@
+<div class="card-container">
+    <div *ngFor="let announcement of announcements" class="card">
+      <div class="card-header">
+        <img
+          class="profile-pic"
+          src="images/logo2.png"
+          alt="Logo de Empresa"
+        />
+        <div class="user-info">
+          <h2>Anuncio de Empresa</h2>
+          <p class="date">{{ announcement.fecha_publicacion | date:'longDate' }}</p>
+        </div>
+      </div>
+      <div class="info">
+        <h3 class="description">{{ announcement.contenido_anuncio }}</h3>
+      </div>
+      <img class="imgprincipal" [src]="announcement.imagen_url" alt="Imagen del anuncio" />
+    </div>
+  </div>
+  
