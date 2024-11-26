@@ -1,19 +1,18 @@
 <app-header-company></app-header-company>
 <h2 class="title">Mis Solicitudes de Materiales</h2>
 <div class="cards">
+  
   <div *ngFor="let request of materialRequest" class="card-container">
     <div class="card">
       <div class="icons">
-        <img class="options" src="images/lapiz.png" alt="Modificar Solicitud" (click)="updateMaterialRequest(request)"/>
-        <img class="options" src="images/eliminar.png" alt="Eliminar Solicitud" (click)="deleteMaterialRequest(request.id_solicitud)"/>
-
+        <img class="options-update" src="images/lapiz.png" alt="Modificar Solicitud" (click)="updateMaterialRequest(request)"/>
+        <img class="options-delete" src="images/eliminar.png" alt="Eliminar Solicitud" (click)="deleteMaterialRequest(request.id_solicitud)"/>
       </div>
       <img 
   class="imgprincipal" 
   [src]="'http://127.0.0.1:8000' + request.imagen_solicitud" 
   alt="Imagen del Material"
-  (error)="onImageError($event)"
->
+  (error)="onImageError($event)">
       <div class="card-content">
         <h2>Material: {{ request.nombre_material }}</h2>
         <h3>Precio: ${{ request.precio }}</h3>
