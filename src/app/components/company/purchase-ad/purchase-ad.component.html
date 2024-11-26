@@ -1,9 +1,10 @@
 <app-header-company/>
-<div class="purchase-container">
+
+<div class="purchase">
+  <div class="purchase-container">
     <h2>Adquiere tu Anuncio</h2>
     <p>Publica tu anuncio en nuestra plataforma por solo <strong>$99</strong>.</p>
-  
-    <!-- Formulario para crear el anuncio -->
+
     <form [formGroup]="adForm" (ngSubmit)="onSubmit()" class="ad-form">
       <div class="form-control">
         <label for="description">Descripción:</label>
@@ -17,7 +18,7 @@
           <small *ngIf="adForm.get('description')?.errors?.['maxLength']">Máximo 200 caracteres.</small>
         </div>
       </div>
-  
+
       <div class="form-control">
         <label for="image">Imagen:</label>
         <input type="file" id="image" (change)="onImageUpload($event)" />
@@ -25,12 +26,17 @@
           <small>La imagen es obligatoria.</small>
         </div>
       </div>
-  
-      <!-- Botón de PayPal -->
-      <app-paypal-button [amount]="99" context="service" (paymentSuccess)="onPaymentSuccess()"></app-paypal-button>
-  
-      <!-- Botón para enviar el formulario -->
-      <button type="submit" [disabled]="!paymentSuccess">Crear Anuncio</button>
     </form>
   </div>
-  <app-footer-users/>
+      <div class="container">
+      <!-- Botón de PayPal -->
+      <div class="paypal">
+        <app-paypal-button [amount]="99" context="service" (paymentSuccess)="onPaymentSuccess()"></app-paypal-button>
+      </div>
+    </div>
+  </div>
+  <div class="buttom-container">
+      <!-- Botón para enviar el formulario -->
+      <button type="submit" [disabled]="!paymentSuccess">Crear Anuncio</button>
+    </div>
+<app-footer-users/>
