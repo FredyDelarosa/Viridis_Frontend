@@ -2,19 +2,33 @@
 <app-header-recycler *ngIf="myRol === 'reciclador'"></app-header-recycler>
 
 <div class="card-container">
-  <div *ngFor="let publication of publications" class="card">
+  <div *ngFor="let item of mixedContent" class="card">
     <div class="card-header">
-      <img class="profile-pic" [src]="publication.imagen_url" alt="Profile Picture">
+      <img
+        class="profile-pic"
+        [src]="item.type === 'publication' ? 'images/logo2.png' : 'images/logo2.png'"
+        alt="Profile Picture"
+      />
       <div class="user-info">
-        <h2>{{ publication.nombre_usuario }}</h2> <!-- Mostrar el nombre del usuario o empresa -->
-        <p class="date">{{ publication.fecha_creacion | date:'longDate' }}</p>
+        <h2>
+          {{ item.type === 'publication' ? item.nombre_usuario : 'Anuncio de Empresa' }}
+        </h2>
+        <p class="date">
+          {{ item.type === 'publication' ? (item.fecha_creacion | date:'longDate') : (item.fecha_publicacion | date:'longDate') }}
+        </p>
       </div>
     </div>
-    
+
     <div class="info">
-      <h3 class="description">{{ publication.descripcion }}</h3>
+      <h3 class="description">
+        {{ item.type === 'publication' ? item.descripcion : item.contenido_anuncio }}
+      </h3>
     </div>
-    <img class="imgprincipal" [src]="publication.imagen_url" alt="Imagen de la publicación">
+    <img
+      class="imgprincipal"
+      [src]="item.imagen_url"
+      alt="Imagen"
+    />
   </div>
 </div>
 

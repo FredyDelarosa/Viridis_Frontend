@@ -184,8 +184,16 @@ export class ApiserviceService {
     return this.http.delete(`${this.url}usuarios/administrador/${administradorId}`, {
       headers: { 'Content-Type': 'application/json' },
     });
-  }  
-  
+  }
+
+  createAd(formData: FormData): Observable<any> {
+    return this.http.post(`${this.url}anuncios/`, formData);
+  }
+
+  getAnnouncements(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.url}anuncios/`);
+  }
+    
   // Método para iniciar la verificación periódica del token
   startTokenCheck(): void {
     this.stopTokenCheck(); // Asegúrate de no tener múltiples intervalos activos
