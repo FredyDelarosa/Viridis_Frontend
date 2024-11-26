@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
-import { Observable, tap } from 'rxjs';
+import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http';
+import { catchError, Observable, tap, throwError } from 'rxjs';
 import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ApiserviceService {
-  public url = 'http://127.0.0.1:8000/'; // Cambia el puerto si es necesario
+  public url = 'https://bb4dg0mj-8000.usw3.devtunnels.ms/'; // Cambia el puerto si es necesario
   private readonly TOKEN_KEY = 'token';
   private readonly TOKEN_TIMESTAMP_KEY = 'tokenTimestamp';
   private readonly TOKEN_LIFETIME = 90 * 60 * 1000; // 2 minutos
@@ -78,7 +78,6 @@ export class ApiserviceService {
     });
   }
   
-
   // Crear publicación
   createPublication(data: FormData): Observable<any> {
     return this.http.post(`${this.url}publicaciones/`, data);
@@ -125,8 +124,67 @@ export class ApiserviceService {
   deleteMaterialRequest(id_solicitud: string): Observable<any> {
     return this.http.delete(`${this.url}materiales/materiales/solicitudes/${id_solicitud}`);
   }
-  
 
+  getMaterialRequests(skip: number = 0, limit: number = 10): Observable<any> {
+    return this.http.get(`${this.url}materiales/solicitudes_materiales`, {
+      params: { skip, limit },
+    });
+  }
+
+  getRequestDetails(id: string): Observable<any> {
+    return this.http.get(`${this.url}materiales/solicitudes_materiales/${id}`);
+  } 
+
+  acceptAndTransact(idReciclador: string, idSolicitud: string, cantidad: number): Observable<any> {
+    const payload = {
+      id_reciclador: idReciclador,
+      id_solicitud: idSolicitud,
+      cantidad_reciclada: cantidad
+    };
+  
+    console.log('Payload enviado al servidor:', payload);
+  
+    return this.http.post(`${this.url}transacciones/aceptar_y_transaccionar`, payload, {
+      headers: { 'Content-Type': 'application/json' },
+    });
+  }
+
+  getUserTransactions(idReciclador: string): Observable<any[]> {
+    return this.http.get<any[]>(`${this.url}transacciones/reciclador/${idReciclador}`, {
+      headers: { 'Content-Type': 'application/json' },
+    });
+  }
+
+  createAdministrator(data: { usuario: string; email: string; contraseña: string }): Observable<any> {
+    return this.http.post(`${this.url}usuarios/administrador`, data, {
+      headers: { 'Content-Type': 'application/json' },
+    });
+  }
+
+  getAdministrators(skip: number = 0, limit: number = 10): Observable<any[]> {
+    return this.http.get<any[]>(`${this.url}usuarios/administradores`, {
+      params: { skip, limit },
+      headers: { 'Content-Type': 'application/json' },
+    }).pipe(
+      catchError((error: HttpErrorResponse) => {
+        console.error('Error al obtener administradores:', error);
+        return throwError(() => error);
+      })
+    );
+  }
+
+  updateAdministrator(id_administrador: string, data: { usuario: string; email: string }): Observable<any> {
+    return this.http.put(`${this.url}usuarios/administradores/${id_administrador}`, data, {
+      headers: { 'Content-Type': 'application/json' },
+    });
+  }
+
+  deleteAdministrator(administradorId: string): Observable<any> {
+    return this.http.delete(`${this.url}usuarios/administrador/${administradorId}`, {
+      headers: { 'Content-Type': 'application/json' },
+    });
+  }  
+  
   // Método para iniciar la verificación periódica del token
   startTokenCheck(): void {
     this.stopTokenCheck(); // Asegúrate de no tener múltiples intervalos activos
