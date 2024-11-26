@@ -6,10 +6,11 @@
     <div class="card-header">
       <img class="profile-pic" [src]="publication.imagen_url" alt="Profile Picture">
       <div class="user-info">
-        <h2>{{ publication.id_usuario }}</h2>
+        <h2>{{ publication.nombre_usuario }}</h2> <!-- Mostrar el nombre del usuario o empresa -->
         <p class="date">{{ publication.fecha_creacion | date:'longDate' }}</p>
       </div>
     </div>
+    
     <div class="info">
       <h3 class="description">{{ publication.descripcion }}</h3>
     </div>
