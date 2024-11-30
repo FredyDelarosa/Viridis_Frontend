@@ -39,8 +39,39 @@ export class ApiserviceService {
   registerRecycler(data: any): Observable<any> {
     return this.http.post(`${this.url}usuarios/reciclador`, data);
   }
+
+  registerCompany(formData: FormData): Observable<any> {
+    return this.http.post(`${this.url}usuarios/empresa`, formData, {
+      headers: { 'Accept': 'application/json' }, // Opcional: para aceptar JSON como respuesta
+    });
+  }
+
+  getPendingCompanies(skip: number = 0, limit: number = 10): Observable<any[]> {
+    return this.http.get<any[]>(`${this.url}usuarios/empresas/pendientes`, {
+      params: { skip, limit },
+    });
+  }
+  
+  getCompanyDetails(empresa_id: string): Observable<any> {
+    // Construir la URL utilizando el UUID de la empresa
+    return this.http.get<any>(`${this.url}usuarios/empresa/${empresa_id}`);
+  }
+  
   
 
+  authorizeCompany(id_empresa: string): Observable<any> {
+    return this.http.post<any>(`${this.url}usuarios/empresas/${id_empresa}/aprobar`, null, {
+      headers: { 'Content-Type': 'application/json' },
+    });
+  }
+  
+  rejectCompany(id_empresa: string): Observable<any> {
+    return this.http.post<any>(`${this.url}usuarios/empresas/${id_empresa}/rechazar`, null, {
+      headers: { 'Content-Type': 'application/json' },
+    });
+  }
+  
+    
   addMaterialRequest(data: { nombre_material: string; cantidad: number; id_empresa: string }): Observable<any> {
     const id_empresa = data.id_empresa; // Extraemos el ID de la empresa
     const payload = { nombre_material: data.nombre_material, cantidad: data.cantidad }; // Cuerpo del request
@@ -154,6 +185,7 @@ export class ApiserviceService {
     headers: { 'Content-Type': 'application/json' },
   });
 }
+
 
 
   createAdministrator(data: { usuario: string; email: string; contraseña: string }): Observable<any> {
