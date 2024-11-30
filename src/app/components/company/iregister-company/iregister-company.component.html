@@ -1,25 +1,24 @@
 <app-header-users></app-header-users>
 <div class="container">
-    <div class="form-wrapper">
-        <div class="card">
-            <h2>Registrar Empresa</h2>
-            <form class="form">
-                <div class="form-columns">
-                    <input type="text" id="nombre" name="nombre" placeholder="Nombre de la Empresa" required>
-                    <input type="text" id="dueno" name="dueno" placeholder="Dueño de la Empresa" required>
-                    <input type="text" id="direccion" name="direccion" placeholder="Dirección" required>
-                    <input type="email" id="correo" name="correo" placeholder="Correo Electrónico" required>
-                    <input type="number" id="telefono" name="telefono" placeholder="Teléfono" required>
-                    <input type="text" id="estado" name="estado" placeholder="Estado" required>
-                    <input type="text" id="ciudad" name="ciudad" placeholder="Ciudad" required>
-                    <input type="text" id="municipio" name="municipio" placeholder="Municipio" required>
-                    <input type="password" id="contrasena" name="contrasena" placeholder="Contraseña" required>
-                    <input type="password" id="confirmarContrasena" name="confirmarContrasena" placeholder="Confirmar Contraseña" required>
-                </div>
-                <input type="file" id="fotos" name="fotos" accept="image/*" required>
-                <button type="submit" (click)="routeSuccessfulRegistration()">Registrarse</button>
-            </form>
+  <div class="form-wrapper">
+    <div class="card">
+      <h2>Registrar Empresa</h2>
+      <form class="form" (submit)="onSubmit($event)" enctype="multipart/form-data">
+        <div class="form-columns">
+          <input type="text" id="nombre_empresa" name="nombre_empresa" placeholder="Nombre de la Empresa" required>
+          <input type="text" id="dueño_empresa" name="dueño_empresa" placeholder="Dueño de la Empresa" required>
+          <input type="text" id="direccion" name="direccion" placeholder="Dirección" required>
+          <input type="email" id="email" name="email" placeholder="Correo Electrónico" required>
+          <input type="number" id="telefono" name="telefono" placeholder="Teléfono" required>
+          <input type="text" id="estado" name="estado" placeholder="Estado" required>
+          <input type="text" id="ciudad" name="ciudad" placeholder="Ciudad" required>
+          <input type="text" id="municipio" name="municipio" placeholder="Municipio" required>
+          <input type="password" id="contraseña" name="contraseña" placeholder="Contraseña" required>
         </div>
+        <input type="file" id="fotos" name="file" accept="image/*" required>
+        <button type="submit">Registrarse</button>
+      </form>
     </div>
+  </div>
 </div>
 <app-footer-users></app-footer-users>

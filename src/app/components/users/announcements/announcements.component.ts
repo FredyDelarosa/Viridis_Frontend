@@ -17,19 +17,24 @@ export class AnnouncementsComponent implements OnInit {
   ngOnInit(): void {
     this.loadAnnouncements();
   }
-
+  
   loadAnnouncements(): void {
     this.apiservice.getAnnouncements().subscribe({
       next: (data) => {
-        this.announcements = data.sort(
-          (a: any, b: any) =>
-            new Date(b.fecha_publicacion).getTime() -
-            new Date(a.fecha_publicacion).getTime()
-        );
+        const explicitBaseUrl = 'http://127.0.0.1:8000/uploads/anuncios/'; // Ruta explícita
+        this.announcements = data.map((announcement: any) => {
+          const fullUrl = explicitBaseUrl + announcement.imagen_url;
+          console.log('URL generada:', fullUrl); // Verificar las URLs generadas
+          return {
+            ...announcement,
+            imagen_url: fullUrl,
+          };
+        });
       },
       error: (err) => {
         console.error('Error al cargar anuncios', err);
       },
     });
   }
+  
 }
