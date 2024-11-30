@@ -41,8 +41,15 @@ export class IcommunityComponent implements OnInit {
   
         announcements$.subscribe({
           next: (announcements) => {
-            // Mapea los anuncios y los convierte a tipo 'announcement'
-            const ads = announcements.map((ad: any) => ({ ...ad, type: 'announcement' }));
+            // Construye la URL completa para cada anuncio
+            const baseUrl = this.apiservice.url + 'uploads/anuncios/';
+            const ads = announcements.map((ad: any) => ({ 
+              ...ad,
+              type: 'announcement',
+              // Verifica si `ad.imagen_url` ya incluye la base
+              imagen_url: ad.imagen_url.startsWith('http') ? ad.imagen_url : baseUrl + ad.imagen_url.replace('uploads/anuncios/', ''),
+            }));
+
   
             // Mezcla los anuncios de forma aleatoria entre las publicaciones ordenadas
             this.mixedContent = this.mixAnnouncementsWithPublications(sortedPublications, ads);
@@ -53,6 +60,7 @@ export class IcommunityComponent implements OnInit {
       error: (err) => console.error('Error al cargar publicaciones', err),
     });
   }
+  
   
   // Método para mezclar anuncios aleatoriamente entre publicaciones
   mixAnnouncementsWithPublications(publications: any[], announcements: any[]): any[] {
@@ -74,4 +82,5 @@ export class IcommunityComponent implements OnInit {
       .sort((a, b) => a.sort - b.sort) // Ordena los elementos por el número aleatorio
       .map(({ sort, ...item }) => item); // Elimina el campo `sort`
   }
+  
 }
