@@ -25,10 +25,11 @@
       </h3>
     </div>
     <img
-      class="imgprincipal"
-      [src]="item.imagen_url"
-      alt="Imagen"
-    />
+  class="imgprincipal"
+  [src]="item.imagen_url ? item.imagen_url : 'path-to-placeholder-image.png'"
+  alt="Imagen"
+/>
+
   </div>
 </div>
 
