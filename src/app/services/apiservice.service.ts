@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   providedIn: 'root',
 })
 export class ApiserviceService {
-  public url = 'https://bb4dg0mj-8000.usw3.devtunnels.ms/'; // Cambia el puerto si es necesario
+  public url = 'https://viridisback.integrador.xyz/'; // Cambia el puerto si es necesario
   private readonly TOKEN_KEY = 'token';
   private readonly TOKEN_TIMESTAMP_KEY = 'tokenTimestamp';
   private readonly TOKEN_LIFETIME = 90 * 60 * 1000; // 2 minutos
@@ -185,8 +185,6 @@ export class ApiserviceService {
     headers: { 'Content-Type': 'application/json' },
   });
 }
-
-
 
   createAdministrator(data: { usuario: string; email: string; contraseña: string }): Observable<any> {
     return this.http.post(`${this.url}usuarios/administrador`, data, {
