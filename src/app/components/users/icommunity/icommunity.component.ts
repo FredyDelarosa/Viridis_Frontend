@@ -25,33 +25,37 @@ export class IcommunityComponent implements OnInit {
 
     // Cargar publicaciones y anuncios
     this.loadContent();
+
   }
 
   loadContent(): void {
     const publications$ = this.apiservice.getAllPublications();
     const announcements$ = this.apiservice.getAnnouncements();
   
-    // Combina ambas llamadas de API
     publications$.subscribe({
       next: (publications) => {
-        // Ordena las publicaciones por fecha de creación (descendente)
+        const baseUrlPublications = this.apiservice.url + 'uploads/publicaciones/';
         const sortedPublications = publications
-          .map((pub: any) => ({ ...pub, type: 'publication' }))
+          .map((pub: any) => ({
+            ...pub,
+            type: 'publication',
+            imagen_url: pub.imagen_url.startsWith('https') 
+              ? pub.imagen_url.replace(':8000', '') // Elimina el puerto si está presente
+              : baseUrlPublications + pub.imagen_url.replace('uploads/publicaciones/', ''),
+          }))
           .sort((a: any, b: any) => new Date(b.fecha_creacion).getTime() - new Date(a.fecha_creacion).getTime());
   
         announcements$.subscribe({
           next: (announcements) => {
-            // Construye la URL completa para cada anuncio
-            const baseUrl = this.apiservice.url + 'uploads/anuncios/';
-            const ads = announcements.map((ad: any) => ({ 
+            const baseUrlAnnouncements = this.apiservice.url + 'uploads/anuncios/';
+            const ads = announcements.map((ad: any) => ({
               ...ad,
               type: 'announcement',
-              // Verifica si `ad.imagen_url` ya incluye la base
-              imagen_url: ad.imagen_url.startsWith('http') ? ad.imagen_url : baseUrl + ad.imagen_url.replace('uploads/anuncios/', ''),
+              imagen_url: ad.imagen_url.startsWith('https') 
+                ? ad.imagen_url.replace(':8000', '') // Elimina el puerto si está presente
+                : baseUrlAnnouncements + ad.imagen_url.replace('uploads/anuncios/', ''),
             }));
-
   
-            // Mezcla los anuncios de forma aleatoria entre las publicaciones ordenadas
             this.mixedContent = this.mixAnnouncementsWithPublications(sortedPublications, ads);
           },
           error: (err) => console.error('Error al cargar anuncios', err),
@@ -60,6 +64,8 @@ export class IcommunityComponent implements OnInit {
       error: (err) => console.error('Error al cargar publicaciones', err),
     });
   }
+  
+  
   
   
   // Método para mezclar anuncios aleatoriamente entre publicaciones

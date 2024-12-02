@@ -36,6 +36,8 @@ export class DialogaddadminComponent {
       next: (response) => {
         console.log('Administrador creado:', response);
         this.dialogRef.close();
+        alert("Administrador creado exitosamente.")
+        window.location.reload()
       },
       error: (error) => {
         console.error('Error al crear administrador:', error);

@@ -21,7 +21,7 @@ export class AnnouncementsComponent implements OnInit {
   loadAnnouncements(): void {
     this.apiservice.getAnnouncements().subscribe({
       next: (data) => {
-        const explicitBaseUrl = 'http://127.0.0.1:8000/uploads/anuncios/'; // Ruta explícita
+        const explicitBaseUrl = 'https://viridisback.integrador.xyz/uploads/anuncios/'; // Ruta explícita
         this.announcements = data.map((announcement: any) => {
           const fullUrl = explicitBaseUrl + announcement.imagen_url;
           console.log('URL generada:', fullUrl); // Verificar las URLs generadas

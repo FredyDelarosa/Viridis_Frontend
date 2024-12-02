@@ -60,6 +60,7 @@ export class DialogupdateadminComponent {
     this.apiService.updateAdministrator(adminId, updatedFields).subscribe({
       next: (response) => {
         console.log('Administrador actualizado:', response);
+        alert("Administrador Actualizado Correctamente.")
         this.dialogRef.close(true);
       },
       error: (error) => {

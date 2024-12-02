@@ -43,7 +43,9 @@ export class DialogUpdatematerialrequestComponent {
     this.apiservice.updateMaterialRequest(this.materialRequest.id_solicitud, formData).subscribe({
       next: (response) => {
         console.log('Solicitud actualizada:', response);
+        alert('Solicitud Actualizada Exitosamente.');
         this.dialogRef.close(response);
+        window.location.reload();
       },
       error: (err) => {
         console.error('Error al actualizar la solicitud:', err);

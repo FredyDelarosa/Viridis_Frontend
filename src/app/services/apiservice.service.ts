@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   providedIn: 'root',
 })
 export class ApiserviceService {
-  public url = 'http://127.0.0.1:8000/'; // Cambia el puerto si es necesario
+  public url = 'https://viridisback.integrador.xyz/'; // Cambia el puerto si es necesario
   private readonly TOKEN_KEY = 'token';
   private readonly TOKEN_TIMESTAMP_KEY = 'tokenTimestamp';
   private readonly TOKEN_LIFETIME = 90 * 60 * 1000; // 2 minutos
@@ -153,8 +153,15 @@ export class ApiserviceService {
   }
 
   deleteMaterialRequest(id_solicitud: string): Observable<any> {
-    return this.http.delete(`${this.url}materiales/materiales/solicitudes/${id_solicitud}`);
+    console.log(`Eliminando solicitud con ID: ${id_solicitud}`);
+    return this.http.delete(`${this.url}materiales/materiales/solicitudes/${id_solicitud}`).pipe(
+      catchError((error: HttpErrorResponse) => {
+        console.error('Error al eliminar la solicitud:', error);
+        return throwError(() => error);
+      })
+    );
   }
+  
 
   getMaterialRequests(skip: number = 0, limit: number = 10): Observable<any> {
     return this.http.get(`${this.url}materiales/solicitudes_materiales`, {
@@ -185,8 +192,6 @@ export class ApiserviceService {
     headers: { 'Content-Type': 'application/json' },
   });
 }
-
-
 
   createAdministrator(data: { usuario: string; email: string; contraseña: string }): Observable<any> {
     return this.http.post(`${this.url}usuarios/administrador`, data, {

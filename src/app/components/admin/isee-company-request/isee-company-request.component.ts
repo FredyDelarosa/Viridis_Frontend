@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ApiserviceService } from '../../../services/apiservice.service';
 import { HeaderAdminComponent } from '../header-admin/header-admin.component';
 import { GuardService } from '../../../services/guard.service';
@@ -20,7 +20,8 @@ export class IseeCompanyRequestComponent implements OnInit {
   constructor(
     private guardService: GuardService,
     private apiService: ApiserviceService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -71,6 +72,7 @@ export class IseeCompanyRequestComponent implements OnInit {
       next: (response) => {
         alert(`La empresa ha sido aprobada exitosamente.`);
         this.empresa.estatus = 'aprobada'; // Actualiza el estatus en el frontend
+        this.router.navigate(['/admin/business']);
       },
       error: (err) => {
         console.error('Error al aprobar la empresa:', err);
@@ -86,6 +88,7 @@ export class IseeCompanyRequestComponent implements OnInit {
       next: (response) => {
         alert(`La empresa ha sido rechazada exitosamente.`);
         this.empresa.estatus = 'rechazada'; // Actualiza el estatus en el frontend
+        this.router.navigate(['/admin/business']);
       },
       error: (err) => {
         console.error('Error al rechazar la empresa:', err);
