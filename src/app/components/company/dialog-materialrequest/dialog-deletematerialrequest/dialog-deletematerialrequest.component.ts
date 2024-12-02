@@ -23,6 +23,7 @@ export class DialogDeletematerialrequestComponent {
       next: () => {
         console.log('Solicitud eliminada correctamente');
         this.dialogRef.close(true); // Notificar éxito al componente principal
+        alert("Solicitud de Materiales Eliminada Exitosamente.")
       },
       error: (err) => {
         console.error('Error al eliminar la solicitud:', err);

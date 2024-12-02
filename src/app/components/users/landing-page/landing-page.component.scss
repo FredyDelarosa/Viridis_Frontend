@@ -119,3 +119,57 @@
 .donations button:hover {
     background-color: #45a049;
 }
+
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .donations {
+        flex-direction: column; /* Apilar elementos verticalmente */
+        align-items: center;
+        gap: 15px;
+    }
+
+    .donations img {
+        width: 100%; /* Imagen ocupa todo el ancho disponible */
+        max-width: 400px; /* Máximo ancho */
+    }
+
+    .donations h2 {
+        font-size: 24px; /* Reducir tamaño del título */
+        text-align: center; /* Centrar texto */
+    }
+
+    .donations p {
+        font-size: 18px; /* Reducir tamaño del texto */
+        margin-right: 0;
+        text-align: center; /* Centrar el párrafo */
+    }
+
+    .donations button {
+        width: auto; /* Botón toma su tamaño según el contenido */
+        height: auto;
+        padding: 10px 15px;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .principal {
+        display: none; /* Oculta la imagen */
+    }
+    .presentation{
+        margin-top: 200px;
+        font-size: 20px;
+    }
+    .donations h2 {
+        font-size: 20px; /* Ajustar tamaño del título */
+    }
+
+    .donations p {
+        font-size: 16px; /* Reducir tamaño del texto en pantallas pequeñas */
+    }
+
+    .donations button {
+        width: 100%; /* Botón ocupa todo el ancho disponible */
+    }
+}
