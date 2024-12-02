@@ -27,6 +27,7 @@ export class DialogdeleteadminComponent {
       next: (response) => {
         console.log('Administrador eliminado:', response);
         this.dialogRef.close(true); // Indica que la eliminación fue exitosa
+        alert("Administrador eliminado correctamente.")
       },
       error: (error) => {
         console.error('Error al eliminar el administrador:', error);

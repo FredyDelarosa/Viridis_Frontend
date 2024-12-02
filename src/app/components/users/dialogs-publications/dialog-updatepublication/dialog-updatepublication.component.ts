@@ -47,6 +47,7 @@ export class DialogUpdatepublicationComponent {
       next: () => {
         alert("Publicación actualizada correctamente");
         this.closeDialog();
+        window.location.reload();
       },
       error: (err) => {
         console.error("Error al actualizar la publicación", err);

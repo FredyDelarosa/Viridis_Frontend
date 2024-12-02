@@ -31,7 +31,7 @@ export class IregisterCompanyComponent {
 
     this.apiService.registerCompany(formData).subscribe({
       next: () => {
-        alert('Cuenta creada exitosamente.');
+        alert('Verificación de Cuenta en Proceso.');
         this.router.navigate(['/login']);
       },
       error: (err) => {

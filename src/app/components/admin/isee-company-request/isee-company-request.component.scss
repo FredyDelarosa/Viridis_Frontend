@@ -91,17 +91,31 @@
     padding: 10px;
     border: none;
     border-radius: 8px;
-    background-color: #108310;
-    color: #fff;
+
     font-size: 16px;
     font-weight: bold;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
-.button-group button:hover {
-    background-color: #0a6d0a;
+.button-groupx{
+    background-color: #a41818;
+    color: #fff;  
 }
+
+.button-groupv{
+    background-color: #108310;
+    color: #fff;
+}
+
+.button-groupx button:hover{
+    background-color: #a41818;
+}
+
+.button-groupv button:hover {
+    background-color: #ffffff;
+}
+
 
 /* Responsividad */
 @media (max-width: 768px) {

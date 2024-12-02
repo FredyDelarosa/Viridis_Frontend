@@ -36,7 +36,10 @@ export class DialogAddmaterialComponent {
     this.apiService.addMaterialRequest(requestData).subscribe({
       next: (response) => {
         console.log('Material agregado:', response);
+        alert("Material Agregado Exitosamente");
         this.closeDialog();
+        window.location.reload();
+
       },
       error: (error) => {
         console.error('Error al agregar material:', error);

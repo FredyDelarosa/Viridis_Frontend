@@ -11,11 +11,11 @@
     <p>{{ details.descripcion }}</p>
   </div>
   <div class="calculator">
-    <h3>Ingrese la cantidad a Entregar: </h3>
-    <input #cantidad type="number" placeholder="Cantidad"> 
-    <h3>Total: ${{ details.precio * 1 }}</h3>
+    <h3>Ingrese la cantidad a entregar:</h3>
+    <input [(ngModel)]="cantidad" type="number" min="1" placeholder="Cantidad" />
+    <h3>Total: ${{ cantidad * details.precio }}</h3>
     <div class="actions">
-    <button (click)="acceptAndTransact(details.id_solicitud, +cantidad.value)">Aceptar solicitud</button>    
+      <button (click)="acceptAndTransact(details.id_solicitud, cantidad)">Aceptar solicitud</button>
     </div>
   </div>
 </div>

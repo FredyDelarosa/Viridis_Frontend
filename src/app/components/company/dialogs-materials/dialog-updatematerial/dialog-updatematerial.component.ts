@@ -32,8 +32,9 @@ export class DialogUpdatematerialComponent {
       nombre_material: this.nombreMaterial || undefined, // Envía solo valores válidos
       cantidad: this.cantidadMaterial || undefined,
     };
-  
+    alert("Material Actualizado Correctamente")
     this.dialogRef.close(payload); // No incluye id_material porque ya lo tiene el componente principal
+    window.location.reload();
   }
   
   
