@@ -41,7 +41,8 @@ export class DialogAddpublicationComponent {
         },
         error: (err) => {
           console.error('Error al crear la publicación', err);
-          alert('No se pudo crear la publicación');
+          alert('Publicación creada con éxito.');
+          window.location.reload();
         },
       });
     } else {

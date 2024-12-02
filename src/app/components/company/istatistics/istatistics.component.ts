@@ -24,22 +24,10 @@ export class IstatisticsComponent {
       labels: ['Octubre', 'Noviembre', 'Diciembre'],
       datasets: [
         {
-          label: 'Ventas',
-          data: [30, 50, 140,],
+          label: 'Solicitudes Aprobadas',
+          data: [15, 2],
           backgroundColor: '#42A5F5', // Color para las barras
         },
-        {
-          label: 'Gastos',
-          data: [20, 30, 50,],
-          backgroundColor: '#000000', // Otro color para las barras
-          with: "30px",
-        },
-        {
-          label: 'Utilidad',
-          data: [20, 30, 50,],
-          backgroundColor: '#FF3244', // Otro color para las barras
-          with: "30px",
-        }
       ]
     };
 

@@ -16,5 +16,6 @@ export class DialogDeletematerialComponent {
 
   confirmDelete(): void {
     this.dialogRef.close(true); // Confirmar eliminación
+
   }
 }

@@ -27,22 +27,28 @@ export class IpublicationsComponent {
   loadPublications(): void {
     const userId = localStorage.getItem('user_id') || '';
     if (userId) {
+      const baseUrlPublications = this.apiservice.url + 'uploads/publicaciones/';
       this.apiservice.getPublicationsByUser(userId).subscribe({
         next: (data) => {
-          // Ordenar publicaciones por fecha de creación (descendente)
-          this.publications = data.sort(
-            (a: any, b: any) =>
-              new Date(b.fecha_creacion).getTime() -
-              new Date(a.fecha_creacion).getTime()
-          );
+          this.publications = data.map((pub: any) => {
+            let imagen_url = pub.imagen_url;
+            // Limpia el puerto 8000 si está presente
+            if (imagen_url.includes(':8000')) {
+              imagen_url = imagen_url.replace(':8000', '');
+            }
+            // Ajusta URLs relativas
+            if (!imagen_url.startsWith('https')) {
+              imagen_url = baseUrlPublications + imagen_url.replace('uploads/publicaciones/', '');
+            }
+            return { ...pub, imagen_url };
+          });
         },
-        error: (err) => {
-          console.error('Error al cargar publicaciones', err);
-        },
+        error: (err) => console.error('Error al cargar publicaciones', err),
       });
     }
   }
-
+  
+  
   addPublication(): void {
     const dialogRef = this.dialog.open(DialogAddpublicationComponent , {
       data: {},

@@ -18,21 +18,22 @@ export class AgreementstableComponent implements OnInit {
   constructor(private apiservice: ApiserviceService) {}
 
   ngOnInit(): void {
-    const idReciclador = localStorage.getItem('user_id');
-    if (!idReciclador) {
-      console.error('No se encontró el ID del reciclador en localStorage.');
-      return;
-    }
-
-    // Llamar al servicio para obtener las transacciones del usuario
-    this.apiservice.getUserTransactions(idReciclador).subscribe({
-      next: (transacciones) => {
-        console.log('Transacciones obtenidas:', transacciones);
-        this.dataSource.set(transacciones); // Actualizar la fuente de datos
-      },
-      error: (err) => {
-        console.error('Error al obtener las transacciones:', err);
-      },
-    });
+  const idReciclador = localStorage.getItem('user_id');
+  if (!idReciclador) {
+    console.error('No se encontró el ID del reciclador en localStorage.');
+    return;
   }
+
+  // Llamar al servicio para obtener las transacciones del usuario
+  this.apiservice.getUserTransactions(idReciclador).subscribe({
+    next: (transacciones) => {
+      console.log('Transacciones obtenidas:', transacciones);
+      this.dataSource.set(transacciones); // Actualizar la fuente de datos
+    },
+    error: (err) => {
+      console.error('Error al obtener las transacciones:', err);
+    },
+  });
+}
+
 }

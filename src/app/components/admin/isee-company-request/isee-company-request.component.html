@@ -1,40 +1,52 @@
 <app-header-admin></app-header-admin>
-<div class="container">
-    <div class="card-wrapper">
-        <div class="card-container">
-            <h2>Información de la Solicitud</h2>
-            <div class="card-content">
-                <div class="column">
-                    <h3>Nombre de la Empresa:</h3>
-                    <p>Nombre de ejemplo</p>
+<div class="container" *ngIf="empresa; else loading">
+  <div class="card-wrapper">
+    <div class="card-container">
+      <h2>Información de la Solicitud</h2>
+      <div class="card-content">
+        <div class="column">
+          <h3>Nombre de la Empresa:</h3>
+          <p>{{ empresa.nombre_empresa }}</p>
 
-                    <h3>Correo Electrónico:</h3>
-                    <p>correojemplo.com</p>
+          <h3>Correo Electrónico:</h3>
+          <p>{{ empresa.email }}</p>
 
-                    <h3>Estado:</h3>
-                    <p>Estado de ejemplo</p>
+          <h3>Estado:</h3>
+          <p>{{ empresa.estado }}</p>
 
-                    <h3>Dirección:</h3>
-                    <p>Dirección de ejemplo</p>
-                </div>
-                <div class="column">
-                    <h3>Dueño de la Empresa:</h3>
-                    <p>Dueño de ejemplo</p>
-
-                    <h3>Teléfono:</h3>
-                    <p>+52 123 456 7890</p>
-
-                    <h3>Ciudad/Municipio:</h3>
-                    <p>Ciudad de ejemplo</p>
-                </div>
-                <div class="column image-container">
-                    <img src="https://tarifasdeluz.mx/sites/tarifasdeluz.mx/files/styles/large/public/ejemplo-recibo-cfe-frente_0.png?itok=TxuPCb2P" alt="Foto de ejemplo" class="preview-image">
-                </div>
-            </div>
-            <div class="button-group">
-                <button>Negar acceso</button>
-                <button>Autorizar acceso</button>
-            </div>
+          <h3>Dirección:</h3>
+          <p>{{ empresa.direccion }}</p>
         </div>
+        <div class="column">
+          <h3>Dueño de la Empresa:</h3>
+          <p>{{ empresa.dueno_empresa }}</p>
+
+          <h3>Teléfono:</h3>
+          <p>{{ empresa.telefono }}</p>
+
+          <h3>Ciudad/Municipio:</h3>
+          <p>{{ empresa.ciudad }}</p>
+        </div>
+        <div class="column image-container">
+          <img
+            [src]="empresa.imagen_empresa || 'https://via.placeholder.com/150'"
+            alt="Imagen de la Empresa"
+            class="preview-image"
+          />
+        </div>
+      </div>
+      <div class="button-group">
+        <button class="button-groupx" (click)="rejectAccess()">Negar acceso</button>
+        <button class="button-groupv" (click)="authorizeAccess()">Autorizar acceso</button>
+      </div>
     </div>
+  </div>
 </div>
+<ng-template #loading>
+  <div *ngIf="errorMessage; else spinner">
+    <p>{{ errorMessage }}</p>
+  </div>
+  <ng-template #spinner>
+    <p>Cargando detalles de la empresa...</p>
+  </ng-template>
+</ng-template>

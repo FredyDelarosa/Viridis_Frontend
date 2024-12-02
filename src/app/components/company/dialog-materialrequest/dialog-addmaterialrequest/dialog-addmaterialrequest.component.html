@@ -1,6 +1,7 @@
 <div class="dialog-container">
   <h2 class="solicitud-titulo">Agregar Solicitud de Material</h2>
   <div class="input-container">
+    <p>Tipo de Material</p>
     <select id="name" class="input-field" [(ngModel)]="selectedMaterial" required>
       <option value="" disabled selected>Selecciona un material</option>
       <option *ngFor="let material of materials" [value]="material.id_material">
@@ -9,6 +10,7 @@
     </select>
   </div>
   <div class="input-container">
+    <p>Precio por Kg</p>
     <input
       type="number"
       id="quantity"
@@ -19,6 +21,7 @@
     />
   </div>
   <div class="input-container">
+    <p>Cantidad (Kg)</p>
     <input
       type="number"
       id="price"

@@ -69,25 +69,23 @@ export class ImaterialsRequestComponent {
   
 
   deleteMaterialRequest(id_solicitud: string): void {
-    const dialogRef = this.dialog.open(DialogDeletematerialrequestComponent);
+    const dialogRef = this.dialog.open(DialogDeletematerialrequestComponent, {
+      data: { id_solicitud }, // Pasar el ID de la solicitud al diálogo
+    });
   
     dialogRef.afterClosed().subscribe((confirmed) => {
       if (confirmed) {
-        this.apiservice.deleteMaterialRequest(id_solicitud).subscribe({
-          next: () => {
-            console.log('Solicitud eliminada correctamente');
-            // Actualiza la lista local eliminando el elemento eliminado
-            this.materialRequest = this.materialRequest.filter(
-              (request) => request.id_solicitud !== id_solicitud
-            );
-          },
-          error: (err) => {
-            console.error('Error al eliminar la solicitud:', err);
-          },
-        });
+        // Actualiza la lista local eliminando el elemento eliminado
+        this.materialRequest = this.materialRequest.filter(
+          (request) => request.id_solicitud !== id_solicitud
+        );
+        console.log('Lista actualizada localmente');
+      } else {
+        console.log('Eliminación cancelada o fallida');
       }
     });
   }
+  
 
 }
 

@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   providedIn: 'root',
 })
 export class ApiserviceService {
-  public url = 'https://bb4dg0mj-8000.usw3.devtunnels.ms/'; // Cambia el puerto si es necesario
+  public url = 'https://viridisback.integrador.xyz/'; // Cambia el puerto si es necesario
   private readonly TOKEN_KEY = 'token';
   private readonly TOKEN_TIMESTAMP_KEY = 'tokenTimestamp';
   private readonly TOKEN_LIFETIME = 90 * 60 * 1000; // 2 minutos
@@ -39,8 +39,39 @@ export class ApiserviceService {
   registerRecycler(data: any): Observable<any> {
     return this.http.post(`${this.url}usuarios/reciclador`, data);
   }
+
+  registerCompany(formData: FormData): Observable<any> {
+    return this.http.post(`${this.url}usuarios/empresa`, formData, {
+      headers: { 'Accept': 'application/json' }, // Opcional: para aceptar JSON como respuesta
+    });
+  }
+
+  getPendingCompanies(skip: number = 0, limit: number = 10): Observable<any[]> {
+    return this.http.get<any[]>(`${this.url}usuarios/empresas/pendientes`, {
+      params: { skip, limit },
+    });
+  }
+  
+  getCompanyDetails(empresa_id: string): Observable<any> {
+    // Construir la URL utilizando el UUID de la empresa
+    return this.http.get<any>(`${this.url}usuarios/empresa/${empresa_id}`);
+  }
+  
   
 
+  authorizeCompany(id_empresa: string): Observable<any> {
+    return this.http.post<any>(`${this.url}usuarios/empresas/${id_empresa}/aprobar`, null, {
+      headers: { 'Content-Type': 'application/json' },
+    });
+  }
+  
+  rejectCompany(id_empresa: string): Observable<any> {
+    return this.http.post<any>(`${this.url}usuarios/empresas/${id_empresa}/rechazar`, null, {
+      headers: { 'Content-Type': 'application/json' },
+    });
+  }
+  
+    
   addMaterialRequest(data: { nombre_material: string; cantidad: number; id_empresa: string }): Observable<any> {
     const id_empresa = data.id_empresa; // Extraemos el ID de la empresa
     const payload = { nombre_material: data.nombre_material, cantidad: data.cantidad }; // Cuerpo del request
@@ -98,11 +129,11 @@ export class ApiserviceService {
     
   // Obtener publicaciones de un usuario específico
   getPublicationsByUser(userId: string): Observable<any> {
-    console.log(`Solicitando publicaciones para el usuario: ${userId}`); // Agrega este log
     return this.http.get(`${this.url}publicaciones/user`, {
       params: { id_usuario: userId },
     });
   }
+  
 
   getAllPublications(): Observable<any> {
     return this.http.get(`${this.url}publicaciones/`);
@@ -122,8 +153,15 @@ export class ApiserviceService {
   }
 
   deleteMaterialRequest(id_solicitud: string): Observable<any> {
-    return this.http.delete(`${this.url}materiales/materiales/solicitudes/${id_solicitud}`);
+    console.log(`Eliminando solicitud con ID: ${id_solicitud}`);
+    return this.http.delete(`${this.url}materiales/materiales/solicitudes/${id_solicitud}`).pipe(
+      catchError((error: HttpErrorResponse) => {
+        console.error('Error al eliminar la solicitud:', error);
+        return throwError(() => error);
+      })
+    );
   }
+  
 
   getMaterialRequests(skip: number = 0, limit: number = 10): Observable<any> {
     return this.http.get(`${this.url}materiales/solicitudes_materiales`, {
@@ -150,10 +188,10 @@ export class ApiserviceService {
   }
 
   getUserTransactions(idReciclador: string): Observable<any[]> {
-    return this.http.get<any[]>(`${this.url}transacciones/reciclador/${idReciclador}`, {
-      headers: { 'Content-Type': 'application/json' },
-    });
-  }
+  return this.http.get<any[]>(`${this.url}transacciones/reciclador/${idReciclador}`, {
+    headers: { 'Content-Type': 'application/json' },
+  });
+}
 
   createAdministrator(data: { usuario: string; email: string; contraseña: string }): Observable<any> {
     return this.http.post(`${this.url}usuarios/administrador`, data, {
@@ -183,8 +221,16 @@ export class ApiserviceService {
     return this.http.delete(`${this.url}usuarios/administrador/${administradorId}`, {
       headers: { 'Content-Type': 'application/json' },
     });
-  }  
-  
+  }
+
+  createAd(formData: FormData): Observable<any> {
+    return this.http.post(`${this.url}anuncios/`, formData);
+  }
+
+  getAnnouncements(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.url}anuncios/`);
+  }
+    
   // Método para iniciar la verificación periódica del token
   startTokenCheck(): void {
     this.stopTokenCheck(); // Asegúrate de no tener múltiples intervalos activos
