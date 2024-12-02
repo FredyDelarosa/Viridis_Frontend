@@ -25,6 +25,7 @@ export class IcommunityComponent implements OnInit {
 
     // Cargar publicaciones y anuncios
     this.loadContent();
+
   }
 
   loadContent(): void {
